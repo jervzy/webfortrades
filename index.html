@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebForTrades — Professional Websites for UK Tradespeople</title>
+  <meta name="description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. No risk, no contracts.">
+  <!-- PLACEHOLDER: Replace with actual favicon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:        #07274c;
+      --navy-dark:   #051e3a;
+      --navy-light:  #0d3a6e;
+      --orange:      #f16517;
+      --orange-hover:#d4560f;
+      --white:       #ffffff;
+      --light:       #f9f9f9;
+      --text-dark:   #0f1a28;
+      --text-muted:  #4a5568;
+      --border:      #e2e8f0;
+      --radius:      12px;
+      --shadow:      0 4px 24px rgba(7,39,76,.10);
+      --shadow-lg:   0 8px 40px rgba(7,39,76,.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.15; }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ── Utilities ─────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: all .2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(241,101,23,.40);
+    }
+    .btn-primary:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    .btn-ghost-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.55);
+    }
+    .btn-ghost-white:hover {
+      background: rgba(255,255,255,.12);
+      border-color: var(--white);
+    }
+    .btn-ghost-white:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 3px;
+    }
+
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+    .btn-outline-navy:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-outline-navy:focus-visible {
+      outline: 3px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* ── Logo variants ─────────────────────────── */
+    .nav-logo { gap: 0; }
+    .logo-svg { height: 34px; width: auto; display: block; }
+
+    /* Dark background (hero) → white "WebFor", orange "Trades" */
+    .logo-light { display: block; }
+    /* Light background (scrolled) → navy "WebFor", orange "Trades" */
+    .logo-dark  { display: none; }
+
+    #navbar.scrolled .logo-light { display: none; }
+    #navbar.scrolled .logo-dark  { display: block; }
+
+    /* Footer always uses the light (white) variant */
+    .footer-logo-svg { height: 32px; width: auto; display: block; }
+
+    /* ── Focus management ──────────────────────── */
+    :focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================
+       NAVIGATION  (adapted from components/1.txt)
+    ============================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      transition: padding .3s ease;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      border-radius: 16px;
+      transition: all .3s ease;
+    }
+
+    #navbar.scrolled .nav-inner {
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 10px 24px;
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--white);
+      transition: color .3s ease;
+      flex-shrink: 0;
+    }
+    #navbar.scrolled .nav-logo { color: var(--navy); }
+
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--orange);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    /* PLACEHOLDER: Replace SVG with actual WebForTrades logo */
+    .logo-mark svg { width: 20px; height: 20px; fill: white; }
+
+    /* Desktop links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      color: rgba(255,255,255,.88);
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    #navbar.scrolled .nav-links a { color: var(--text-muted); }
+    #navbar.scrolled .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta { padding: 10px 22px; font-size: 15px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      border-radius: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+    #navbar.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 16px; right: 16px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 20px;
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; margin-bottom: 16px; }
+    .nav-mobile ul li { border-bottom: 1px solid var(--border); }
+    .nav-mobile ul li:last-child { border-bottom: none; }
+    .nav-mobile ul li a {
+      display: block;
+      padding: 14px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .nav-mobile ul li a:hover { color: var(--orange); }
+    .nav-mobile .btn { width: 100%; margin-top: 4px; }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0a2f5a 0%, #051e3a 100%);
+    }
+
+    /* ── Canvas particle background (Hero Minimalism by 21st.dev) ── */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .55;
+      mix-blend-mode: screen;
+    }
+
+    /* ── Subtle grid overlay ── */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-grid-h, .hero-grid-v {
+      position: absolute;
+      background: rgba(255,255,255,.045);
+    }
+    .hero-grid-h { height: 1px; left: 0; right: 0; }
+    .hero-grid-h:nth-child(1) { top: 25%; }
+    .hero-grid-h:nth-child(2) { top: 50%; }
+    .hero-grid-h:nth-child(3) { top: 75%; }
+    .hero-grid-v { width: 1px; top: 0; bottom: 0; }
+    .hero-grid-v:nth-child(4) { left: 25%; }
+    .hero-grid-v:nth-child(5) { left: 50%; }
+    .hero-grid-v:nth-child(6) { left: 75%; }
+
+    /* ── Two-column layout ── */
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 54% 46%;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    /* ── Notification cards visual ── */
+    .hero-visual {
+      position: relative;
+    }
+
+    .phone-frame {
+      background: rgba(255,255,255,.05);
+      border: 1.5px solid rgba(255,255,255,.10);
+      border-radius: 28px;
+      padding: 32px 22px 28px;
+      position: relative;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 14px; left: 50%; transform: translateX(-50%);
+      width: 36px; height: 4px;
+      background: rgba(255,255,255,.15);
+      border-radius: 2px;
+    }
+    .phone-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      text-align: center;
+      margin-bottom: 18px;
+      margin-top: 6px;
+    }
+
+    .notif-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateX(36px);
+      transition: box-shadow .25s ease, border-color .25s ease;
+      cursor: default;
+    }
+    .notif-card:last-child { margin-bottom: 0; }
+    .notif-card:hover {
+      box-shadow: 0 6px 28px rgba(241,101,23,.18);
+      border-color: rgba(241,101,23,.30);
+    }
+
+    .notif-card.visible {
+      animation: slideInCard .55s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .notif-card.visible.float {
+      animation: slideInCard .55s cubic-bezier(.22,.61,.36,1) forwards,
+                 floatCard 5s ease-in-out 1s infinite;
+    }
+    @keyframes slideInCard {
+      from { opacity: 0; transform: translateX(36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-5px); }
+    }
+
+    .notif-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .notif-icon.orange { background: rgba(241,101,23,.20); }
+    .notif-icon.green  { background: rgba(74,222,128,.15); }
+    .notif-icon.blue   { background: rgba(96,165,250,.15); }
+    .notif-icon svg    { width: 20px; height: 20px; }
+
+    .notif-body { flex: 1; min-width: 0; }
+    .notif-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .notif-meta { font-size: 12px; color: rgba(255,255,255,.50); }
+
+    .notif-time {
+      font-size: 11px;
+      color: rgba(255,255,255,.35);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .notif-pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      color: rgba(255,255,255,.92);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+    .badge-dot {
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .35; }
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 6.5vw, 72px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 28px;
+    }
+    .hero-title .accent { color: var(--orange); }
+
+    /* Sketchy hand-drawn underline */
+    .sketchy-word {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .sketchy-svg {
+      position: absolute;
+      left: -2px;
+      bottom: -6px;
+      width: calc(100% + 4px);
+      height: 14px;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .sketchy-path {
+      fill: none;
+      stroke: #f16517;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+    .sketchy-path.animate {
+      animation: drawUnderline 0.7s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .sketchy-path.delay {
+      animation-delay: 0.35s;
+    }
+    @keyframes drawUnderline {
+      to { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sketchy-path { stroke-dashoffset: 0; animation: none; }
+    }
+
+    .hero-sub {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: rgba(255,255,255,.82);
+      line-height: 1.65;
+      margin-bottom: 44px;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .hero-ctas .btn { padding: 16px 32px; font-size: 17px; }
+
+    .hero-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+    }
+    .hero-avatars {
+      display: flex;
+    }
+    .hero-avatars span {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 2.5px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      margin-left: -10px;
+    }
+    .hero-avatars span:first-child { margin-left: 0; }
+
+    .hero-social-text { font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.45; }
+    .hero-social-text strong { color: var(--white); display: block; font-family: 'Outfit', sans-serif; }
+
+    .stars-row {
+      display: flex; gap: 2px;
+    }
+    .stars-row svg { width: 14px; height: 14px; fill: #fbbf24; }
+
+    /* ============================================
+       TRUSTED BY BAR
+    ============================================ */
+    #trusted {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+    }
+    .trusted-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .trusted-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+      mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+    }
+    .trusted-track {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: max-content;
+      animation: marquee 50s linear infinite;
+    }
+    .trusted-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .trusted-track {
+        animation: none;
+        flex-wrap: wrap;
+        width: auto;
+        justify-content: center;
+      }
+      .trusted-marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    }
+    .trusted-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+      border-radius: 100px;
+      padding: 9px 20px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 14px;
+      color: var(--navy);
+      transition: all .2s ease;
+    }
+    .trusted-chip:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      box-shadow: 0 2px 10px rgba(241,101,23,.15);
+    }
+    .trusted-chip svg {
+      width: 18px; height: 18px;
+      fill: var(--orange); flex-shrink: 0;
+    }
+
+    /* ============================================
+       HOW IT WORKS
+    ============================================ */
+    #how-it-works {
+      padding: 96px 0;
+      background: var(--white);
+    }
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-header-center .section-sub {
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .steps-connector {
+      position: absolute;
+      top: 44px;
+      left: calc(16.67% + 20px);
+      right: calc(16.67% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--navy));
+      opacity: .22;
+      pointer-events: none;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 44px 28px 36px;
+      border-radius: var(--radius);
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      transition: all .25s ease;
+      position: relative;
+    }
+    .step-card:hover {
+      border-color: var(--orange);
+      box-shadow: var(--shadow);
+      transform: translateY(-5px);
+    }
+    .step-number {
+      width: 68px; height: 68px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px; font-weight: 800;
+      margin: 0 auto 24px;
+      transition: background .25s ease;
+    }
+    .step-card:hover .step-number { background: var(--orange); }
+
+    .step-title {
+      font-size: 20px; font-weight: 700;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .step-desc { font-size: 16px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ============================================
+       PORTFOLIO SHOWCASE
+    ============================================ */
+    #portfolio {
+      padding: 96px 0;
+      background: var(--light);
+      overflow: hidden;
+    }
+    .portfolio-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-height: 680px;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
+    }
+    .portfolio-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .portfolio-track {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .portfolio-track.scroll-col-1 { animation: scrollUp 30s linear infinite; }
+    .portfolio-track.scroll-col-2 { animation: scrollUp 22s linear infinite; }
+    .portfolio-track.scroll-col-3 { animation: scrollUp 16s linear infinite; }
+    @keyframes scrollUp {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+    .portfolio-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--white);
+      flex-shrink: 0;
+    }
+    .portfolio-card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .portfolio-card-info {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .portfolio-card-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin: 0 0 2px;
+    }
+    .portfolio-card-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .portfolio-track { animation: none !important; }
+      .portfolio-cols {
+        max-height: none;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    }
+    @media (max-width: 1024px) {
+      .portfolio-cols { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-col:nth-child(3) { display: none; }
+    }
+    @media (max-width: 640px) {
+      .portfolio-cols { grid-template-columns: 1fr; }
+      .portfolio-col:nth-child(2) { display: none; }
+    }
+
+    /* ============================================
+       FEATURES / BENEFITS
+    ============================================ */
+    #features {
+      padding: 96px 0;
+      background: var(--light);
+    }
+
+    /* Bordered table grid — inspired by Features 4 (21st.dev) */
+    .features-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .feature-cell {
+      padding: 32px 26px;
+      border-right: 1.5px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      background: var(--white);
+      transition: background .2s ease;
+    }
+    .feature-cell:hover { background: rgba(7,39,76,.03); }
+    /* 4-col: remove right border on col 4, remove bottom on row 2 */
+    .feature-cell:nth-child(4n)  { border-right: none; }
+    .feature-cell:nth-child(n+5) { border-bottom: none; }
+
+    .feature-cell-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .feature-cell-head svg {
+      width: 20px; height: 20px;
+      stroke: var(--orange); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+    .feature-cell:hover .feature-cell-head svg { transform: scale(1.15); }
+
+    .feature-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+    }
+    .feature-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 1024px) {
+      .features-table { grid-template-columns: repeat(2, 1fr); }
+      /* Reset 4-col border overrides */
+      .feature-cell:nth-child(4n)        { border-right: 1.5px solid var(--border); }
+      .feature-cell:nth-child(n+5)       { border-bottom: 1.5px solid var(--border); }
+      /* 2-col: remove right on col 2, remove bottom on last row */
+      .feature-cell:nth-child(2n)        { border-right: none; }
+      .feature-cell:nth-last-child(-n+2) { border-bottom: none; }
+    }
+
+    @media (max-width: 640px) {
+      .features-table { grid-template-columns: 1fr; }
+      /* Reset 2-col overrides */
+      .feature-cell:nth-child(2n)        { border-right: 1.5px solid var(--border); }
+      .feature-cell:nth-last-child(-n+2) { border-bottom: 1.5px solid var(--border); }
+      /* 1-col: no right borders anywhere, last item no bottom */
+      .feature-cell                      { border-right: none; }
+      .feature-cell:last-child           { border-bottom: none; }
+    }
+
+    /* ============================================
+       TESTIMONIALS CAROUSEL
+    ============================================ */
+    #testimonials {
+      padding: 96px 0;
+      background: var(--white);
+    }
+
+    .tcarousel-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .tcarousel-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .tcarousel-inner {
+      position: relative;
+      min-height: 268px;
+    }
+
+    .tcarousel-quote {
+      position: absolute;
+      top: -18px; left: -18px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .tcarousel-quote svg {
+      width: 52px; height: 52px;
+      fill: var(--navy);
+      opacity: .08;
+    }
+
+    .tcarousel-card {
+      position: absolute;
+      inset: 0;
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transition: opacity .5s ease;
+      pointer-events: none;
+    }
+    .tcarousel-card.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    .tcarousel-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .tcarousel-author-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .tcarousel-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 17px;
+      color: var(--white);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .tcarousel-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .tcarousel-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+    }
+    .tcarousel-role { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+
+    .tcarousel-stars { display: flex; gap: 3px; flex-shrink: 0; }
+    .tcarousel-stars svg { width: 16px; height: 16px; fill: #fbbf24; }
+
+    .tcarousel-sep {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+    .tcarousel-text {
+      flex: 1;
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.72;
+      font-style: italic;
+    }
+    .tcarousel-verified {
+      margin-top: 20px;
+      text-align: right;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .tcarousel-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .tcarousel-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      flex-shrink: 0;
+    }
+    .tcarousel-btn:hover {
+      border-color: var(--orange);
+      background: var(--orange);
+    }
+    .tcarousel-btn svg {
+      width: 16px; height: 16px;
+      stroke: var(--navy); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+      transition: stroke .2s ease;
+    }
+    .tcarousel-btn:hover svg { stroke: var(--white); }
+    .tcarousel-btn:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+    .tcarousel-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tcarousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(7,39,76,.20);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .tcarousel-dot.active {
+      background: var(--orange);
+      transform: scale(1.4);
+    }
+    .tcarousel-dot:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+    @media (max-width: 640px) {
+      .tcarousel-layout { grid-template-columns: 1fr; }
+      .tcarousel-inner  { min-height: 310px; }
+      .tcarousel-nav    { flex-direction: row; justify-content: center; margin-top: 24px; }
+      .tcarousel-dots   { flex-direction: row; }
+    }
+
+    /* ============================================
+       GUARANTEE BANNER
+    ============================================ */
+    #guarantee {
+      background: #fff7f2;
+      border-top: 1px solid rgba(241,101,23,.15);
+      border-bottom: 1px solid rgba(241,101,23,.15);
+      padding: 72px 0;
+      text-align: center;
+    }
+    .guarantee-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 24px;
+      color: var(--orange);
+    }
+    .guarantee-icon svg {
+      width: 100%; height: 100%;
+      stroke: var(--orange); fill: none;
+      stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .guarantee-headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .guarantee-sub {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .guarantee-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .guarantee-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white);
+      border: 1.5px solid rgba(241,101,23,.3);
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--navy);
+    }
+    .guarantee-pill svg {
+      width: 16px; height: 16px;
+      stroke: var(--orange); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       PRICING
+    ============================================ */
+    #pricing {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .pcard {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      position: relative;
+      transition: all .25s ease;
+    }
+    .pcard:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    .pcard.popular {
+      border: 2.5px solid var(--navy);
+      padding-top: 56px;
+    }
+    .popular-badge {
+      position: absolute;
+      top: -15px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px; font-weight: 700;
+      padding: 5px 22px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pcard-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px; font-weight: 600;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .pcard-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 54px; font-weight: 900;
+      color: var(--navy); line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pcard-price sup { font-size: 26px; vertical-align: top; margin-top: 10px; }
+
+    .pcard-price-note {
+      font-size: 13px; color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .pcard-addon {
+      font-size: 13px; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px; margin-top: 20px;
+      line-height: 1.55;
+    }
+    .pcard-desc {
+      font-size: 15px; color: var(--text-muted);
+      margin-bottom: 28px; padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .pcard-features {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 32px;
+    }
+    .pcard-features li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--text-dark); line-height: 1.5;
+    }
+    .pcheck {
+      width: 20px; height: 20px;
+      background: rgba(7,39,76,.08);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .pcheck svg {
+      width: 11px; height: 11px;
+      stroke: var(--navy); stroke-width: 2.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .pcard .btn { width: 100%; }
+
+    /* ============================================
+       FAQ — CHAT BUBBLE STYLE
+    ============================================ */
+    #faq { padding: 96px 0; background: var(--white); }
+
+    .faq-chat {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .faq-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    /* Question pill group */
+    .faq-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+    .faq-pill {
+      max-width: 340px;
+      padding: 10px 18px;
+      background: #f3f4f6;
+      color: var(--navy);
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px; font-weight: 600;
+      border-radius: 999px;
+      border: none; cursor: pointer;
+      text-align: left;
+      line-height: 1.4;
+      transition: background .2s ease;
+    }
+    .faq-pill:hover { background: #e5e7eb; }
+    .faq-pill.active { background: #e5e7eb; }
+    .faq-pill-icons {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .faq-pill-icon {
+      width: 18px; height: 18px;
+      stroke: var(--orange); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .faq-pill-icons .icon-plus  { display: block; }
+    .faq-pill-icons .icon-minus { display: none; }
+    .faq-pill.active ~ .faq-pill-icons .icon-plus  { display: none; }
+    .faq-pill.active ~ .faq-pill-icons .icon-minus { display: block; }
+
+    /* Answer bubble */
+    .faq-bubble-wrap {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding-top: 20px;
+    }
+    .faq-bubble {
+      background: var(--orange);
+      color: var(--white);
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 14px 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(241,101,23,.25);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .4s ease, opacity .35s ease, padding .35s ease;
+      padding-top: 0; padding-bottom: 0;
+    }
+    .faq-bubble.visible {
+      max-height: 200px;
+      opacity: 1;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .faq-row { flex-direction: column; gap: 6px; }
+      .faq-chat { gap: 6px; }
+      .faq-pill-group { max-width: 100%; }
+      .faq-pill { max-width: 100%; flex: 1 1 auto; border-radius: 14px; }
+      .faq-bubble { border-radius: 14px; }
+      .faq-bubble-wrap { padding-left: 8px; padding-top: 0; }
+    }
+
+    /* ============================================
+       CTA BANNER
+    ============================================ */
+    #cta-banner {
+      background: var(--navy);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .cta-banner-title {
+      font-size: clamp(28px, 4.5vw, 54px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .cta-banner-title .accent { color: var(--orange); }
+    .cta-banner-sub {
+      font-size: 19px;
+      color: rgba(255,255,255,.72);
+      margin-bottom: 44px;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    #cta-banner .btn { padding: 18px 44px; font-size: 18px; }
+
+    /* ============================================
+       LEAD CAPTURE FORM
+    ============================================ */
+    #contact {
+      padding: 96px 0;
+      background: var(--light);
+      scroll-margin-top: 80px;
+    }
+    .form-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .form-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 44px;
+      box-shadow: var(--shadow-lg);
+      margin-top: 48px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px; font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color .2s ease, box-shadow .2s ease;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(7,39,76,.10);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-submit { width: 100%; margin-top: 8px; padding: 16px; font-size: 17px; }
+    .form-note { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+    .form-note a { color: var(--navy); text-decoration: underline; }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.65);
+      padding: 60px 0 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 20px;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .footer-brand-logo .logo-mark { width: 32px; height: 32px; }
+    .footer-tagline { font-size: 15px; line-height: 1.6; max-width: 280px; }
+
+    .footer-links {
+      display: flex; gap: 28px; flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .footer-links a {
+      font-size: 15px; color: rgba(255,255,255,.65);
+      transition: color .2s ease;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 14px; color: rgba(255,255,255,.45); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 14px; color: rgba(255,255,255,.45); transition: color .2s ease; }
+    .footer-legal a:hover { color: rgba(255,255,255,.80); }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity .6s ease, transform .6s ease;
+      }
+      .fade-up.visible { opacity: 1; transform: translateY(0); }
+      .fade-up:nth-child(2) { transition-delay: .10s; }
+      .fade-up:nth-child(3) { transition-delay: .20s; }
+      .fade-up:nth-child(4) { transition-delay: .08s; }
+      .fade-up:nth-child(5) { transition-delay: .16s; }
+      .fade-up:nth-child(6) { transition-delay: .24s; }
+      .fade-up:nth-child(7) { transition-delay: .12s; }
+      .fade-up:nth-child(8) { transition-delay: .20s; }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      /* features-table responsive rules are inline in the features block above */
+    }
+
+    @media (max-width: 968px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta-desktop { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { padding: 12px 20px; }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .steps-connector { display: none; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 32px 24px; }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .hero-ctas .btn { padding: 14px 24px; font-size: 16px; }
+    }
+
+    @media (max-width: 640px) {
+      .trusted-track { gap: 10px; }
+
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+
+      .pcard { padding: 32px 24px; }
+      .pcard.popular { padding-top: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION (adapted from components/1.txt)
+  ============================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="#" class="nav-logo" aria-label="WebForTrades — home">
+        <!-- Light variant: white "WebFor" + orange "Trades" — shown on dark hero -->
+        <svg class="logo-svg logo-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
+        <!-- Dark variant: navy "WebFor" + orange "Trades" — shown when scrolled -->
+        <svg class="logo-svg logo-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#07274c">Web</tspan><tspan font-weight="400" font-style="italic" fill="#07274c">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta-desktop">
+        <a href="#contact" class="btn btn-primary nav-cta">Get Your Free Demo</a>
+      </div>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+      <ul>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get Your Free Demo</a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+  ============================================ -->
+  <section id="hero" aria-labelledby="hero-heading">
+
+    <!-- Particle canvas — adapted from Hero Minimalism (21st.dev) -->
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Subtle grid lines -->
+    <div class="hero-grid" aria-hidden="true">
+      <div class="hero-grid-h"></div>
+      <div class="hero-grid-h"></div>
+      <div class="hero-grid-h"></div>
+      <div class="hero-grid-v"></div>
+      <div class="hero-grid-v"></div>
+      <div class="hero-grid-v"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- ── Left: hero copy (unchanged) ── -->
+        <div class="hero-content">
+
+          <div class="hero-badge" aria-label="Risk-free offer">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Free demo in 48 hours. No payment upfront.
+          </div>
+
+          <h1 class="hero-title" id="hero-heading">
+            Get more jobs. We build your website <span class="sketchy-word">free<svg class="sketchy-svg" viewBox="0 0 80 14" preserveAspectRatio="none" aria-hidden="true"><path class="sketchy-path" d="M 1,9 C 10,4 20,13 30,8 C 40,3 50,12 60,7 C 70,2 78,10 79,8"/></svg></span> and you only pay if you <span class="sketchy-word">love it<svg class="sketchy-svg" viewBox="0 0 110 14" preserveAspectRatio="none" aria-hidden="true"><path class="sketchy-path delay" d="M 1,9 C 15,4 28,13 42,7 C 56,2 70,12 84,7 C 96,3 107,10 109,8"/></svg></span>.
+          </h1>
+
+          <p class="hero-sub">
+            We build it. You approve it. Then decide. No risk. No contracts. Just more work coming in.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              Get Your Free Demo
+            </a>
+            <a href="#how-it-works" class="btn btn-ghost-white">
+              See How It Works
+            </a>
+          </div>
+
+          <div class="hero-social" aria-label="Customer social proof">
+            <div class="hero-avatars" aria-hidden="true">
+              <span title="John B.">JB</span>
+              <span title="Mike W.">MW</span>
+              <span title="Andy R.">AR</span>
+              <span title="More customers">+</span>
+            </div>
+            <div class="hero-social-text">
+              <div class="stars-row" aria-label="5 star rating" role="img">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <strong>Trusted by tradespeople across the UK</strong>
+            </div>
+          </div>
+
+        </div><!-- /hero-content -->
+
+        <!-- ── Right: floating notification cards visual ── -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone-frame">
+            <p class="phone-label">Your new website — live</p>
+
+            <!-- Card 1: new quote request -->
+            <div class="notif-card" id="nc1">
+              <div class="notif-icon orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#f16517" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">New quote request</p>
+                <p class="notif-meta">Dave M. &mdash; Plumber, Leeds</p>
+              </div>
+              <span class="notif-pulse"></span>
+            </div>
+
+            <!-- Card 2: lead converted -->
+            <div class="notif-card" id="nc2">
+              <div class="notif-icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Lead converted</p>
+                <p class="notif-meta">Mike T. &mdash; Electrician, Birmingham</p>
+              </div>
+              <span class="notif-time">Just now</span>
+            </div>
+
+            <!-- Card 3: website visitor -->
+            <div class="notif-card" id="nc3">
+              <div class="notif-icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">New website visitor</p>
+                <p class="notif-meta">Services page &mdash; Manchester</p>
+              </div>
+              <span class="notif-time">2m ago</span>
+            </div>
+
+            <!-- Card 4: phone enquiry -->
+            <div class="notif-card" id="nc4">
+              <div class="notif-icon orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#f16517" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Phone enquiry</p>
+                <p class="notif-meta">Found via Google &mdash; Bristol</p>
+              </div>
+              <span class="notif-time">5m ago</span>
+            </div>
+
+          </div><!-- /phone-frame -->
+        </div><!-- /hero-visual -->
+
+      </div><!-- /hero-inner -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ============================================
+       TRUSTED BY BAR
+  ============================================ -->
+  <section id="trusted" aria-label="Trades we work with">
+    <div class="container">
+      <p class="trusted-label">We build websites for</p>
+      <div class="trusted-marquee" aria-hidden="true">
+        <div class="trusted-track">
+          <!-- set 1 -->
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4.97 0-9-4.03-9-9 0-3.87 2.44-7.17 5.91-8.45L12 2l3.09 2.55C18.56 5.83 21 9.13 21 13c0 4.97-4.03 9-9 9z"/></svg>Plumber</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Electrician</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Landscaper</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20M5 20V10l7-6 7 6v10"/></svg>Builder</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v8M8 12h8"/></svg>Decorator</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>Bricklayer</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20M4 12V8l8-5 8 5v4"/></svg>Roofer</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Plasterer</div>
+          <!-- set 2 (duplicate for seamless loop) -->
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4.97 0-9-4.03-9-9 0-3.87 2.44-7.17 5.91-8.45L12 2l3.09 2.55C18.56 5.83 21 9.13 21 13c0 4.97-4.03 9-9 9z"/></svg>Plumber</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Electrician</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Landscaper</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20M5 20V10l7-6 7 6v10"/></svg>Builder</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v8M8 12h8"/></svg>Decorator</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>Bricklayer</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20M4 12V8l8-5 8 5v4"/></svg>Roofer</div>
+          <div class="trusted-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Plasterer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HOW IT WORKS
+  ============================================ -->
+  <section id="how-it-works" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Simple process</span>
+        <h2 class="section-title" id="how-heading">Up and running in 48 hours</h2>
+        <p class="section-sub">No jargon. No fuss. Three steps and you've got a website that works hard for your business.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="steps-connector" aria-hidden="true"></div>
+
+        <div class="step-card fade-up">
+          <div class="step-number" aria-hidden="true">1</div>
+          <h3 class="step-title">Fill in the form</h3>
+          <p class="step-desc">Takes about 2 minutes. Tell us your trade, your area, and what you want your site to do. That's it from you.</p>
+        </div>
+
+        <div class="step-card fade-up">
+          <div class="step-number" aria-hidden="true">2</div>
+          <h3 class="step-title">We build your free demo</h3>
+          <p class="step-desc">Within 48 hours we'll have a professional demo site ready for you to view and click through — on your phone or laptop.</p>
+        </div>
+
+        <div class="step-card fade-up">
+          <div class="step-number" aria-hidden="true">3</div>
+          <h3 class="step-title">Love it? Pay to go live.</h3>
+          <p class="step-desc">Request any changes for free first. Only pay when you're 100% happy. Simple. No hidden costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PORTFOLIO SHOWCASE
+  ============================================ -->
+  <section id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <div class="section-header-center fade-up">
+        <span class="section-label">Our work</span>
+        <h2 class="section-title" id="portfolio-heading">Websites we have built</h2>
+        <p class="section-sub">Real sites built for real tradespeople across the UK</p>
+      </div>
+
+      <div class="portfolio-cols">
+
+        <!-- Column 1 — slowest -->
+        <div class="portfolio-col">
+          <div class="portfolio-track scroll-col-1">
+            <!-- set 1 -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Prestige Pointing</p>
+                <p class="portfolio-card-meta">Property Restoration &middot; Manchester</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">ASG Electrical Solutions</p>
+                <p class="portfolio-card-meta">Electrician and Kitchen Specialist &middot; Tamworth</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/3_lyjusv.webp" alt="B SON Plumbing and Heating website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">B SON Plumbing and Heating</p>
+                <p class="portfolio-card-meta">Plumber &middot; London</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">C.W Shewell-Cooper Landscapes</p>
+                <p class="portfolio-card-meta">Landscaper &middot; Hertfordshire</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">leadBOSS Roofing and Leadwork</p>
+                <p class="portfolio-card-meta">Roofer &middot; Cheltenham</p>
+              </div>
+            </div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Prestige Pointing</p>
+                <p class="portfolio-card-meta">Property Restoration &middot; Manchester</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">ASG Electrical Solutions</p>
+                <p class="portfolio-card-meta">Electrician and Kitchen Specialist &middot; Tamworth</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/3_lyjusv.webp" alt="B SON Plumbing and Heating website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">B SON Plumbing and Heating</p>
+                <p class="portfolio-card-meta">Plumber &middot; London</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">C.W Shewell-Cooper Landscapes</p>
+                <p class="portfolio-card-meta">Landscaper &middot; Hertfordshire</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">leadBOSS Roofing and Leadwork</p>
+                <p class="portfolio-card-meta">Roofer &middot; Cheltenham</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 — medium -->
+        <div class="portfolio-col">
+          <div class="portfolio-track scroll-col-2">
+            <!-- set 1 -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">BDS Brown Decorating Services</p>
+                <p class="portfolio-card-meta">Decorator &middot; Swansea</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/7_itreds.webp" alt="DA Electricals website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">DA Electricals</p>
+                <p class="portfolio-card-meta">Electrician &middot; Bolton</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">RPH York</p>
+                <p class="portfolio-card-meta">Plumber &middot; York</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/9_ti4e8b.webp" alt="Loyalty Heating website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Loyalty Heating</p>
+                <p class="portfolio-card-meta">Plumber &middot; Peterborough</p>
+              </div>
+            </div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">BDS Brown Decorating Services</p>
+                <p class="portfolio-card-meta">Decorator &middot; Swansea</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/7_itreds.webp" alt="DA Electricals website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">DA Electricals</p>
+                <p class="portfolio-card-meta">Electrician &middot; Bolton</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">RPH York</p>
+                <p class="portfolio-card-meta">Plumber &middot; York</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/9_ti4e8b.webp" alt="Loyalty Heating website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Loyalty Heating</p>
+                <p class="portfolio-card-meta">Plumber &middot; Peterborough</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3 — fastest -->
+        <div class="portfolio-col">
+          <div class="portfolio-track scroll-col-3">
+            <!-- set 1 -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/10_lq16fn.webp" alt="JMF Brickwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">JMF Brickwork</p>
+                <p class="portfolio-card-meta">Bricklayer &middot; North West</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/11_rf3ymx.webp" alt="Home Electrical Engineer website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Home Electrical Engineer</p>
+                <p class="portfolio-card-meta">Electrician &middot; London</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/12_njftfc.webp" alt="Williams Landscaping Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Williams Landscaping Services</p>
+                <p class="portfolio-card-meta">Landscaper &middot; South Wales</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/13_u7mivn.webp" alt="AV Brickwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">AV Brickwork</p>
+                <p class="portfolio-card-meta">Bricklayer &middot; South Coast</p>
+              </div>
+            </div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/10_lq16fn.webp" alt="JMF Brickwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">JMF Brickwork</p>
+                <p class="portfolio-card-meta">Bricklayer &middot; North West</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/11_rf3ymx.webp" alt="Home Electrical Engineer website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Home Electrical Engineer</p>
+                <p class="portfolio-card-meta">Electrician &middot; London</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/12_njftfc.webp" alt="Williams Landscaping Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Williams Landscaping Services</p>
+                <p class="portfolio-card-meta">Landscaper &middot; South Wales</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/13_u7mivn.webp" alt="AV Brickwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">AV Brickwork</p>
+                <p class="portfolio-card-meta">Bricklayer &middot; South Coast</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURES / BENEFITS
+  ============================================ -->
+  <section id="features" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Everything included</span>
+        <h2 class="section-title" id="features-heading">Built for tradespeople, not tech people</h2>
+        <p class="section-sub">Every site we build comes packed with things that actually help you win more work.</p>
+      </div>
+
+      <div class="features-table fade-up">
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <h3 class="feature-title">Quote forms built in</h3>
+          </div>
+          <p class="feature-desc">Customers request estimates straight to your phone. No chasing, no missed jobs.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <h3 class="feature-title">Shows up on Google</h3>
+          </div>
+          <p class="feature-desc">Shows up when someone searches plumber near me or electrician in your town. Right where your next customer is looking.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            <h3 class="feature-title">Professional domain</h3>
+          </div>
+          <p class="feature-desc">Your own .co.uk address. Looks the part and builds trust the moment someone lands on it.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            <h3 class="feature-title">Mobile optimised</h3>
+          </div>
+          <p class="feature-desc">Over 80% of people search on their phones. Your site looks perfect on every screen every time.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="feature-title">48hr turnaround</h3>
+          </div>
+          <p class="feature-desc">Your demo is ready within 48 hours of filling in the form. Not weeks.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <h3 class="feature-title">Free hosting</h3>
+          </div>
+          <p class="feature-desc">We host and manage your site. No server bills, no technical headaches.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <h3 class="feature-title">No monthly fees</h3>
+          </div>
+          <p class="feature-desc">One fixed price. Yours forever. No subscriptions, no surprises.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <h3 class="feature-title">Ongoing support</h3>
+          </div>
+          <p class="feature-desc">Need to update your services or swap a photo? Just message us. We're here whenever you need us.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS CAROUSEL
+  ============================================ -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Real results</span>
+        <h2 class="section-title" id="testimonials-heading">What tradespeople say</h2>
+        <p class="section-sub">Real customers. Real jobs. Real results.</p>
+      </div>
+
+      <div class="tcarousel-wrap fade-up">
+        <div class="tcarousel-layout">
+
+          <!-- Card stack -->
+          <div class="tcarousel-inner" aria-live="polite" aria-atomic="true">
+
+            <!-- Quote decoration -->
+            <div class="tcarousel-quote" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+            </div>
+
+            <!-- Card 1: Lee -->
+            <div class="tcarousel-card active" id="tc-0" role="group" aria-label="Testimonial 1 of 3">
+              <div class="tcarousel-author">
+                <div class="tcarousel-author-left">
+                  <div class="tcarousel-avatar"><img src="https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Lee_ohgnel.webp" alt="Lee" loading="lazy"></div>
+                  <div>
+                    <p class="tcarousel-name">Lee</p>
+                    <p class="tcarousel-role">Electrician &middot; London</p>
+                  </div>
+                </div>
+                <div class="tcarousel-stars" aria-label="5 out of 5 stars" role="img">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <div class="tcarousel-sep"></div>
+              <p class="tcarousel-text">"Got my first quote request 3 days after the site went live. The job was worth over £800. The website paid for itself before the end of the week."</p>
+              <p class="tcarousel-verified">Verified Customer</p>
+            </div>
+
+            <!-- Card 2: Jake -->
+            <div class="tcarousel-card" id="tc-1" role="group" aria-label="Testimonial 2 of 3">
+              <div class="tcarousel-author">
+                <div class="tcarousel-author-left">
+                  <div class="tcarousel-avatar"><img src="https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Jake_hetzvk.webp" alt="Jake" loading="lazy"></div>
+                  <div>
+                    <p class="tcarousel-name">Jake</p>
+                    <p class="tcarousel-role">Bathroom Installer &middot; Kent</p>
+                  </div>
+                </div>
+                <div class="tcarousel-stars" aria-label="5 out of 5 stars" role="img">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <div class="tcarousel-sep"></div>
+              <p class="tcarousel-text">"Julius built the site before I paid a penny. Looked exactly how I wanted it. Would recommend to any tradesperson who wants more work coming in."</p>
+              <p class="tcarousel-verified">Verified Customer</p>
+            </div>
+
+            <!-- Card 3: Colin -->
+            <div class="tcarousel-card" id="tc-2" role="group" aria-label="Testimonial 3 of 3">
+              <div class="tcarousel-author">
+                <div class="tcarousel-author-left">
+                  <div class="tcarousel-avatar"><img src="https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Collin_hrbowa.webp" alt="Colin" loading="lazy"></div>
+                  <div>
+                    <p class="tcarousel-name">Colin</p>
+                    <p class="tcarousel-role">Property Services &middot; York</p>
+                  </div>
+                </div>
+                <div class="tcarousel-stars" aria-label="5 out of 5 stars" role="img">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <div class="tcarousel-sep"></div>
+              <p class="tcarousel-text">"Had a full quote and booking system set up within days. Completely professional, really knows what he is doing."</p>
+              <p class="tcarousel-verified">Verified Customer</p>
+            </div>
+
+          </div><!-- /tcarousel-inner -->
+
+          <!-- Navigation: prev, dots, next -->
+          <div class="tcarousel-nav" role="group" aria-label="Testimonial navigation">
+            <button class="tcarousel-btn" id="tc-prev" aria-label="Previous testimonial">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="tcarousel-dots">
+              <button class="tcarousel-dot active" aria-label="Testimonial 1" aria-current="true"></button>
+              <button class="tcarousel-dot" aria-label="Testimonial 2"></button>
+              <button class="tcarousel-dot" aria-label="Testimonial 3"></button>
+            </div>
+            <button class="tcarousel-btn" id="tc-next" aria-label="Next testimonial">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /tcarousel-layout -->
+      </div><!-- /tcarousel-wrap -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       GUARANTEE BANNER
+  ============================================ -->
+  <section id="guarantee" aria-labelledby="guarantee-heading">
+    <div class="container">
+      <div class="guarantee-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h2 class="guarantee-headline" id="guarantee-heading">Not happy with the demo? Walk away.</h2>
+      <p class="guarantee-sub">You never owe us a penny until you see your website live and love it. No deposits. No contracts. No risk.</p>
+      <div class="guarantee-pills">
+        <div class="guarantee-pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Free demo in 48 hours
+        </div>
+        <div class="guarantee-pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          No payment upfront
+        </div>
+        <div class="guarantee-pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Cancel anytime
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRICING
+  ============================================ -->
+  <section id="pricing" aria-labelledby="pricing-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Clear pricing</span>
+        <h2 class="section-title" id="pricing-heading">No hidden costs. Ever.</h2>
+        <p class="section-sub">One fixed price, everything included. And remember — you only pay if you love the demo.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pcard fade-up">
+          <p class="pcard-name">Starter</p>
+          <p class="pcard-price"><sup>£</sup>300</p>
+          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
+          <p class="pcard-desc">Perfect if you just need a single, strong online presence to get found locally and win more calls.</p>
+          <ul class="pcard-features" aria-label="Starter plan features">
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>1 professionally designed page</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Quote &amp; contact form built in</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Professional .co.uk domain</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Free hosting included</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Mobile optimised</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Basic local SEO</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-outline-navy">Get Your Free Demo</a>
+        </div>
+
+        <!-- Professional — Most Popular -->
+        <div class="pcard popular fade-up" aria-label="Most popular plan">
+          <div class="popular-badge">Most Popular</div>
+          <p class="pcard-name">Professional</p>
+          <p class="pcard-price"><sup>£</sup>500</p>
+          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
+          <p class="pcard-desc">Everything you need to look the part, build trust, and win more business across 5 full pages.</p>
+          <ul class="pcard-features" aria-label="Professional plan features">
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5 pages: Home, About, Services, Portfolio, Quote</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full quote &amp; contact form</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Professional .co.uk domain</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Free hosting included</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Mobile optimised</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full on-page SEO</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Google Maps &amp; reviews integration</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Ongoing support included</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary">Get Your Free Demo</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pcard fade-up">
+          <p class="pcard-name">Premium</p>
+          <p class="pcard-price"><sup>£</sup>800</p>
+          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
+          <p class="pcard-desc">Dominate local search with dedicated service and location pages purpose-built for SEO.</p>
+          <ul class="pcard-features" aria-label="Premium plan features">
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Professional</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Individual service pages (e.g. "Boiler Repair")</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Local area pages (e.g. "Plumber in Leeds")</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Advanced on-page SEO</li>
+            <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Priority ongoing support</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-outline-navy">Get Your Free Demo</a>
+        </div>
+
+      </div>
+      <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-top:28px;">Already on a plan and need more pages? No problem, we can add them on without building a new site.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ — CHAT BUBBLE STYLE
+  ============================================ -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header-center fade-up">
+        <span class="section-label">Got questions?</span>
+        <h2 class="section-title" id="faq-heading">We've got answers</h2>
+        <p class="section-sub">Straight answers to the most common questions.</p>
+      </div>
+
+      <div class="faq-chat" role="list">
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-1" data-faq="1">Do you pay anything upfront?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-1" role="region" aria-live="polite">Nothing. We build your demo first, you see it live on your phone, and only pay if you want to keep it. No deposits, no risk.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-2" data-faq="2">How long does it take?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-2" role="region" aria-live="polite">Your demo is ready within 48 hours of filling in the form. Not weeks.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-3" data-faq="3">What if I don't like the design?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-3" role="region" aria-live="polite">Just tell us what you want changed and we will sort it. You don't pay until you are happy with it.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-4" data-faq="4">Will my site show up on Google?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-4" role="region" aria-live="polite">Yes. Every site we build is SEO optimised from day one and submitted to Google Search Console so it starts getting indexed straight away.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-5" data-faq="5">Can I make changes after it's live?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-5" role="region" aria-live="polite">Yes. Just message us and we will update it the same day. No extra charge for small changes.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-6" data-faq="6">What trades do you work with?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-6" role="region" aria-live="polite">Plumbers, electricians, landscapers, builders, decorators, bricklayers, roofers, plasterers and more. If you are a tradesperson, we can build it.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-7" data-faq="7">What happens after I fill in the form?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-7" role="region" aria-live="polite">We will reach out via WhatsApp within 48 hours with a link to your demo site. You can click through it on your phone just like your customers would. If you want anything changed just let us know.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-8" data-faq="8">Am I tied to a contract?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-8" role="region" aria-live="polite">No. No contracts, no retainers, no lock in. You pay once for the site and that is it. Nothing to cancel.</div>
+          </div>
+        </div>
+
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-9" data-faq="9">Do I have to write anything myself?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-9" role="region" aria-live="polite">No. We write all the copy for you. Just tell us your trade, your area and what you want customers to know. We handle the rest.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA BANNER
+  ============================================ -->
+  <section id="cta-banner" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 class="cta-banner-title" id="cta-heading">
+        Ready to get more jobs<br>
+        from <span class="accent">your own website?</span>
+      </h2>
+      <p class="cta-banner-sub">See your site before you pay a penny. No risk. No pressure. No obligation.</p>
+      <a href="#contact" class="btn btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Get Your Free Demo Today
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LEAD CAPTURE FORM
+  ============================================ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="section-header-center">
+          <span class="section-label">Get started</span>
+          <h2 class="section-title" id="contact-heading">Claim your free demo</h2>
+          <p class="section-sub">Fill this in and we'll have your demo site ready within 48 hours. No payment. No commitment.</p>
+        </div>
+
+        <div class="form-card">
+          <!-- PLACEHOLDER: Connect this form to your backend / email handler -->
+          <form id="demo-form" novalidate aria-label="Free demo request form">
+
+            <div class="form-group">
+              <label for="fullname">Your name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="John Smith" required autocomplete="name" aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="business">Business name <span aria-hidden="true">*</span></label>
+              <input type="text" id="business" name="business" placeholder="e.g. Smith Plumbing Ltd" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">WhatsApp number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="07700 900 000" required autocomplete="tel" aria-required="true">
+              <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">We'll reach out via WhatsApp to share your demo and answer any questions.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="trade">Your trade <span aria-hidden="true">*</span></label>
+              <select id="trade" name="trade" required aria-required="true">
+                <option value="">Select your trade…</option>
+                <option value="plumber">Plumber</option>
+                <option value="electrician">Electrician</option>
+                <option value="builder">Builder</option>
+                <option value="landscaper">Landscaper</option>
+                <option value="decorator">Decorator</option>
+                <option value="bricklayer">Bricklayer</option>
+                <option value="roofer">Roofer</option>
+                <option value="plasterer">Plasterer</option>
+                <option value="joiner">Joiner / Carpenter</option>
+                <option value="gas">Gas Engineer</option>
+                <option value="other">Other trade</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="area">Your town / area <span aria-hidden="true">*</span></label>
+              <input type="text" id="area" name="area" placeholder="e.g. Leeds, Manchester, Bristol" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="plan">Which plan are you interested in?</label>
+              <select id="plan" name="plan">
+                <option value="">Select a plan…</option>
+                <option value="starter">Starter</option>
+                <option value="professional">Professional</option>
+                <option value="premium">Premium</option>
+                <option value="notsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Anything else we should know? <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="Tell us a bit about your business, what services you offer, any sites you've seen and liked…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              Send My Free Demo Request
+            </button>
+
+            <!-- PLACEHOLDER: Link to actual privacy policy page -->
+            <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#">privacy policy</a>.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+
+        <div>
+          <div aria-label="WebForTrades">
+            <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+              <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+                <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+              </text>
+            </svg>
+          </div>
+          <p class="footer-tagline">Professional websites for UK tradespeople.<br>See your site before you pay a penny.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Get Your Free Demo</a>
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved.</p>
+        <div class="footer-legal">
+          <!-- PLACEHOLDER: Add actual policy pages -->
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+  ============================================ -->
+  <script>
+    /* ── Hero: canvas particle animation ─────────────────────
+       Adapted from Hero Minimalism (21st.dev / NOVA)
+       Pure canvas — zero dependencies, respects prefers-reduced-motion
+    ──────────────────────────────────────────────────────── */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let raf = 0;
+      let particles = [];
+
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        initParticles();
+      }
+
+      function makeParticle() {
+        const fd = Math.random() * 700 + 120;
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          speed:   Math.random() * 0.20 + 0.07,
+          opacity: 0.65,
+          fd, fs: Date.now() + fd, fading: false
+        };
+      }
+
+      function resetParticle(p) {
+        p.x = Math.random() * canvas.width;
+        p.y = canvas.height + 2;
+        p.speed   = Math.random() * 0.20 + 0.07;
+        p.opacity = 0.65;
+        p.fd      = Math.random() * 700 + 120;
+        p.fs      = Date.now() + p.fd;
+        p.fading  = false;
+      }
+
+      function initParticles() {
+        const n = Math.floor((canvas.width * canvas.height) / 6500);
+        particles = [];
+        for (let i = 0; i < n; i++) {
+          const p = makeParticle();
+          p.y = Math.random() * canvas.height; // scatter on init
+          particles.push(p);
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const now = Date.now();
+        for (const p of particles) {
+          p.y -= p.speed;
+          if (p.y < 0) { resetParticle(p); continue; }
+          if (!p.fading && now > p.fs) p.fading = true;
+          if (p.fading) {
+            p.opacity -= 0.008;
+            if (p.opacity <= 0) { resetParticle(p); continue; }
+          }
+          ctx.fillStyle = `rgba(255,255,255,${p.opacity.toFixed(3)})`;
+          ctx.fillRect(p.x, p.y, 0.8, Math.random() * 2.8 + 0.8);
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+      draw();
+    })();
+
+    /* ── Hero: notification cards slide-in + float ─────────── */
+    (function () {
+      const cards = [
+        { id: 'nc1', delay: 350,  floatDelay: '0s'   },
+        { id: 'nc2', delay: 700,  floatDelay: '1.3s' },
+        { id: 'nc3', delay: 1050, floatDelay: '2.6s' },
+        { id: 'nc4', delay: 1400, floatDelay: '0.7s' },
+      ];
+
+      cards.forEach(({ id, delay, floatDelay }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        setTimeout(() => {
+          // slide in
+          el.style.animation = 'slideInCard .55s cubic-bezier(.22,.61,.36,1) forwards';
+
+          // after slide-in completes, switch to continuous float
+          el.addEventListener('animationend', function handler() {
+            el.removeEventListener('animationend', handler);
+            el.style.opacity   = '1';
+            el.style.transform = 'translateX(0)';
+            el.style.animation = `floatCard 5s ease-in-out ${floatDelay} infinite`;
+          });
+        }, delay);
+      });
+    })();
+
+    /* ── Scroll: nav state ───────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    /* ── Mobile hamburger ────────────────────────── */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobile-menu');
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', e => { if (!navbar.contains(e.target)) closeMenu(); });
+
+    /* ── FAQ chat bubbles ────────────────────────── */
+    (function () {
+      const pills   = document.querySelectorAll('.faq-pill');
+      const bubbles = document.querySelectorAll('.faq-bubble');
+      let current   = null;
+
+      function open(index) {
+        // close all
+        pills.forEach(function (p) {
+          p.classList.remove('active');
+          p.setAttribute('aria-expanded', 'false');
+        });
+        bubbles.forEach(function (b) { b.classList.remove('visible'); });
+
+        if (current === index) { current = null; return; } // toggle off
+
+        pills[index].classList.add('active');
+        pills[index].setAttribute('aria-expanded', 'true');
+        bubbles[index].classList.add('visible');
+        current = index;
+      }
+
+      pills.forEach(function (pill, i) {
+        pill.addEventListener('click', function () { open(i); });
+      });
+
+      // Open first question by default
+      open(0);
+    })();
+
+    /* ── Sketchy underline: trigger after hero fades in ── */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      function triggerUnderlines() {
+        document.querySelectorAll('.sketchy-path').forEach(function (path) {
+          var len = path.getTotalLength ? path.getTotalLength() : 300;
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+          path.classList.add('animate');
+        });
+      }
+      // Fire ~800ms after load so hero content has appeared first
+      if (document.readyState === 'complete') {
+        setTimeout(triggerUnderlines, 800);
+      } else {
+        window.addEventListener('load', function () { setTimeout(triggerUnderlines, 800); });
+      }
+    })();
+
+    /* ── Testimonials carousel ───────────────────── */
+    (function () {
+      const cards  = document.querySelectorAll('.tcarousel-card');
+      const dots   = document.querySelectorAll('.tcarousel-dot');
+      const total  = cards.length;
+      let current  = 0;
+      let timer    = null;
+
+      function goTo(index) {
+        cards[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        dots[current].removeAttribute('aria-current');
+        current = (index + total) % total;
+        cards[current].classList.add('active');
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-current', 'true');
+      }
+
+      function startTimer() { timer = setInterval(function () { goTo(current + 1); }, 6000); }
+      function resetTimer()  { clearInterval(timer); startTimer(); }
+
+      document.getElementById('tc-prev').addEventListener('click', function () { goTo(current - 1); resetTimer(); });
+      document.getElementById('tc-next').addEventListener('click', function () { goTo(current + 1); resetTimer(); });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+        dot.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); resetTimer(); }
+        });
+      });
+
+      startTimer();
+    })();
+
+    /* ── Scroll-triggered fade-up animations ─────── */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    }
+
+    /* ── Form: client-side validation & submit ───── */
+    const form = document.getElementById('demo-form');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+
+      form.querySelectorAll('[required]').forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#c53030';
+          valid = false;
+        }
+      });
+
+      if (!valid) {
+        const first = form.querySelector('[required]');
+        if (first) first.focus();
+        return;
+      }
+
+      const btn = form.querySelector('[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      /* PLACEHOLDER: Replace setTimeout with a real fetch() POST to your backend */
+      setTimeout(() => {
+        form.innerHTML = `
+          <div style="text-align:center;padding:56px 0">
+            <div style="width:68px;height:68px;background:var(--navy);border-radius:50%;
+                        display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2.5" stroke-linecap="round"
+                   stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:800;
+                       color:var(--navy);margin-bottom:14px">Request received!</h3>
+            <p style="color:var(--text-muted);font-size:18px;line-height:1.65;max-width:380px;margin:0 auto">
+              We'll have your free demo ready within 48 hours.
+              Keep an eye on your inbox — and your phone.
+            </p>
+          </div>`;
+      }, 1200);
+    });
+  </script>
+
+</body>
+</html>
