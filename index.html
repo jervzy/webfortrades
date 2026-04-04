@@ -156,6 +156,7 @@
     /* Footer always uses the light (white) variant */
     .footer-logo-svg { height: 32px; width: auto; display: block; }
 
+
     /* ── Focus management ──────────────────────── */
     :focus-visible {
       outline: 3px solid var(--orange);
@@ -781,13 +782,17 @@
         mask-image: none;
       }
     }
+    .portfolio-col-mobile { display: none; }
+
     @media (max-width: 1024px) {
       .portfolio-cols { grid-template-columns: repeat(2, 1fr); }
       .portfolio-col:nth-child(3) { display: none; }
     }
     @media (max-width: 640px) {
       .portfolio-cols { grid-template-columns: 1fr; }
+      .portfolio-col:nth-child(1),
       .portfolio-col:nth-child(2) { display: none; }
+      .portfolio-col-mobile { display: flex; }
     }
 
     /* ============================================
@@ -1367,44 +1372,63 @@
       color: rgba(255,255,255,.65);
       padding: 60px 0 32px;
     }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+    /* ============================================
+       FOOTER — SIMPLE CENTRED
+    ============================================ */
+    footer {
+      background: linear-gradient(to bottom, #0d3563, #071e3d);
+      padding: 56px 0 40px;
+      text-align: center;
+      color: rgba(255,255,255,.65);
     }
-    .footer-brand-logo {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800; font-size: 20px;
-      color: var(--white); margin-bottom: 12px;
+    .footer-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
     }
-    .footer-brand-logo .logo-mark { width: 32px; height: 32px; }
-    .footer-tagline { font-size: 15px; line-height: 1.6; max-width: 280px; }
-
-    .footer-links {
-      display: flex; gap: 28px; flex-wrap: wrap;
-      align-items: flex-start;
+    .footer-divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin: 0;
     }
-    .footer-links a {
-      font-size: 15px; color: rgba(255,255,255,.65);
-      transition: color .2s ease;
+    .footer-copy {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
     }
-    .footer-links a:hover { color: var(--orange); }
-
-    .footer-bottom {
+    .footer-socials {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
+      gap: 20px;
     }
-    .footer-copy { font-size: 14px; color: rgba(255,255,255,.45); }
-    .footer-legal { display: flex; gap: 20px; }
-    .footer-legal a { font-size: 14px; color: rgba(255,255,255,.45); transition: color .2s ease; }
-    .footer-legal a:hover { color: rgba(255,255,255,.80); }
+    .footer-social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.5);
+      transition: color .2s ease;
+      line-height: 1;
+    }
+    .footer-social-link:hover { color: rgba(255,255,255,1); }
+    .footer-social-link svg {
+      width: 24px; height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .footer-social-link img {
+      width: 24px; height: 24px;
+      display: block;
+      transition: filter .2s ease;
+    }
+    .footer-social-link:hover img { filter: brightness(0) invert(1); }
+
 
     /* ============================================
        ANIMATIONS
@@ -1458,12 +1482,6 @@
 
       .form-row { grid-template-columns: 1fr; }
       .form-card { padding: 32px 24px; }
-
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
 
       .hero-ctas .btn { padding: 14px 24px; font-size: 16px; }
     }
@@ -1954,6 +1972,98 @@
               <div class="portfolio-card-info">
                 <p class="portfolio-card-name">AV Brickwork</p>
                 <p class="portfolio-card-meta">Bricklayer &middot; South Coast</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column mobile only -->
+        <div class="portfolio-col portfolio-col-mobile">
+          <div class="portfolio-track scroll-col-2">
+            <!-- set 1 -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Prestige Pointing</p>
+                <p class="portfolio-card-meta">Property Restoration &middot; Manchester</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">C.W Shewell-Cooper Landscapes</p>
+                <p class="portfolio-card-meta">Landscaper &middot; Hertfordshire</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">BDS Brown Decorating Services</p>
+                <p class="portfolio-card-meta">Decorator &middot; Swansea</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">leadBOSS Roofing and Leadwork</p>
+                <p class="portfolio-card-meta">Roofer &middot; Cheltenham</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">RPH York</p>
+                <p class="portfolio-card-meta">Plumber &middot; York</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">ASG Electrical Solutions</p>
+                <p class="portfolio-card-meta">Electrician &middot; Tamworth</p>
+              </div>
+            </div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">Prestige Pointing</p>
+                <p class="portfolio-card-meta">Property Restoration &middot; Manchester</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">C.W Shewell-Cooper Landscapes</p>
+                <p class="portfolio-card-meta">Landscaper &middot; Hertfordshire</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">BDS Brown Decorating Services</p>
+                <p class="portfolio-card-meta">Decorator &middot; Swansea</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">leadBOSS Roofing and Leadwork</p>
+                <p class="portfolio-card-meta">Roofer &middot; Cheltenham</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">RPH York</p>
+                <p class="portfolio-card-meta">Plumber &middot; York</p>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website" loading="lazy">
+              <div class="portfolio-card-info">
+                <p class="portfolio-card-name">ASG Electrical Solutions</p>
+                <p class="portfolio-card-meta">Electrician &middot; Tamworth</p>
               </div>
             </div>
           </div>
@@ -2454,37 +2564,57 @@
        FOOTER
   ============================================ -->
   <footer role="contentinfo">
-    <div class="container">
-      <div class="footer-top">
+    <div class="footer-inner">
 
-        <div>
-          <div aria-label="WebForTrades">
-            <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
-              <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
-                <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
-              </text>
-            </svg>
-          </div>
-          <p class="footer-tagline">Professional websites for UK tradespeople.<br>See your site before you pay a penny.</p>
-        </div>
-
-        <nav class="footer-links" aria-label="Footer navigation">
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Get Your Free Demo</a>
-        </nav>
-
+      <!-- Logo -->
+      <div aria-label="WebForTrades">
+        <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
       </div>
 
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved.</p>
-        <div class="footer-legal">
-          <!-- PLACEHOLDER: Add actual policy pages -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
+      <hr class="footer-divider">
+
+      <!-- Copyright -->
+      <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved.</p>
+
+      <!-- Social icons -->
+      <nav class="footer-socials" aria-label="Social media links">
+
+        <!-- Facebook -->
+        <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61588271471488&locale=en_GB" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 8h-2a2 2 0 00-2 2v2h4l-.5 4H12v6H8v-6H6v-4h2v-2a6 6 0 016-6h2v4z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a class="footer-social-link" href="https://www.instagram.com/webfortrades/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="5" stroke-width="1.75"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+
+        <!-- WhatsApp -->
+        <a class="footer-social-link" href="http://wa.me/447436427087" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775338188/whatsapp_vzqxxm.png" alt="" aria-hidden="true" width="24" height="24" loading="lazy">
+        </a>
+
+        <!-- Email -->
+        <a class="footer-social-link" href="mailto:contact@webfortradesuk.co.uk" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </a>
+
+      </nav>
+
     </div>
   </footer>
 
@@ -2700,6 +2830,30 @@
       });
 
       startTimer();
+
+      // Pause auto-rotate when testimonials section is off-screen
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            if (!timer) startTimer();
+          } else {
+            clearInterval(timer);
+            timer = null;
+          }
+        }, { threshold: 0.1 }).observe(document.getElementById('testimonials'));
+      }
+    })();
+
+    /* ── Portfolio: pause scroll animations when off-screen ── */
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var tracks = document.querySelectorAll('.portfolio-track');
+      tracks.forEach(function (t) { t.style.animationPlayState = 'paused'; });
+      new IntersectionObserver(function (entries) {
+        var state = entries[0].isIntersecting ? 'running' : 'paused';
+        tracks.forEach(function (t) { t.style.animationPlayState = state; });
+      }, { threshold: 0.1 }).observe(document.getElementById('portfolio'));
     })();
 
     /* ── Scroll-triggered fade-up animations ─────── */
