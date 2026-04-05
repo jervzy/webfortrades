@@ -3092,6 +3092,20 @@
           btn.disabled = false;
           btn.innerHTML = origBtnHTML;
           if (res.ok) {
+            /* fire-and-forget email notification */
+            fetch('/api/notify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: form.fullname.value.trim(),
+                business_name: form.business.value.trim(),
+                whatsapp: form.phone.value.trim(),
+                email: form.email.value.trim(),
+                trade: form.trade.value,
+                plan: form.plan.value || null,
+                message: form.notes.value.trim() || null
+              })
+            }).catch(function () {});
             successMsg.style.display = 'block';
             form.reset();
             form.querySelectorAll('[required]').forEach(function (f) { f.style.borderColor = ''; });
