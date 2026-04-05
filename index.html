@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebForTrades — Professional Websites for UK Tradespeople</title>
-  <meta name="description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. No risk, no contracts.">
+  <meta name="description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
+  <link rel="canonical" href="https://www.webfortradesuk.co.uk/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WebForTrades — Professional Websites for UK Tradespeople">
+  <meta property="og:description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
+  <meta property="og:url" content="https://www.webfortradesuk.co.uk/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebForTrades — Professional Websites for UK Tradespeople">
+  <meta name="twitter:description" content="Free demo in 48 hours. Pay only if you love it. From £300, no contracts, no annual fees.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f16517'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Work+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Work+Sans:wght@400;600;700&display=swap"></noscript>
 
   <style>
     /* ============================================
@@ -36,7 +45,9 @@
       --shadow-lg:   0 8px 40px rgba(7,39,76,.15);
     }
 
-    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
 
     body {
       font-family: 'Work Sans', sans-serif;
@@ -1629,6 +1640,165 @@
     }
 
   </style>
+  <!-- Schema: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://www.webfortradesuk.co.uk/#organization",
+        "name": "WebForTrades",
+        "url": "https://www.webfortradesuk.co.uk/",
+        "description": "Professional website design for UK tradespeople. We build a free demo first — you only pay if you love it. One-off pricing, no contracts, no annual fees.",
+        "email": "contact@webfortradesuk.co.uk",
+        "telephone": "+447436427087",
+        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "priceRange": "£300–£800",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61588271471488",
+          "https://www.instagram.com/webfortrades/"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Julius Prodan",
+          "jobTitle": "Web Designer"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.webfortradesuk.co.uk/#website",
+        "url": "https://www.webfortradesuk.co.uk/",
+        "name": "WebForTrades",
+        "description": "Professional websites for UK tradespeople — plumbers, electricians, builders and more.",
+        "publisher": { "@id": "https://www.webfortradesuk.co.uk/#organization" },
+        "inLanguage": "en-GB"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: Service + Pricing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Design for UK Tradespeople",
+    "description": "Professional website design built specifically for UK tradespeople. Free demo first, one-off payment, no contracts and no annual fees.",
+    "provider": { "@id": "https://www.webfortradesuk.co.uk/#organization" },
+    "areaServed": { "@type": "Country", "name": "United Kingdom" },
+    "serviceType": "Web Design",
+    "url": "https://www.webfortradesuk.co.uk/#pricing",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Starter Website Package",
+          "description": "1 professionally designed page with quote and contact form, .co.uk domain, free hosting, mobile optimised, basic local SEO.",
+          "price": "300",
+          "priceCurrency": "GBP",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "300",
+            "priceCurrency": "GBP",
+            "unitText": "one-off payment"
+          },
+          "url": "https://www.webfortradesuk.co.uk/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional Website Package",
+          "description": "5-page website with quote form, .co.uk domain, free hosting, mobile optimised, full on-page SEO, Google Maps and reviews integration, ongoing support.",
+          "price": "500",
+          "priceCurrency": "GBP",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "500",
+            "priceCurrency": "GBP",
+            "unitText": "one-off payment"
+          },
+          "url": "https://www.webfortradesuk.co.uk/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium Website Package",
+          "description": "Everything in Professional plus individual service pages, local area landing pages, advanced on-page SEO, and priority ongoing support.",
+          "price": "800",
+          "priceCurrency": "GBP",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "800",
+            "priceCurrency": "GBP",
+            "unitText": "one-off payment"
+          },
+          "url": "https://www.webfortradesuk.co.uk/#pricing"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Schema: FAQPage (AI/LLM citation benefit; no Google rich result for commercial sites) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you pay anything upfront?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing. We build your demo first, you see it live on your phone, and only pay if you want to keep it. No deposits, no risk." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your demo is ready within 48 hours of filling in the form. Not weeks." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I don't like the design?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Just tell us what you want changed and we will sort it. You don't pay until you are happy with it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my site show up on Google?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every site we build is SEO optimised from day one and submitted to Google Search Console so it starts getting indexed straight away." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make changes after it's live?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Just message us and we will update it the same day. No extra charge for small changes." }
+      },
+      {
+        "@type": "Question",
+        "name": "What trades do you work with?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Plumbers, electricians, landscapers, builders, decorators, bricklayers, roofers, plasterers and more. If you are a tradesperson, we can build it." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after I fill in the form?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We will reach out via WhatsApp within 48 hours with a link to your demo site. You can click through it on your phone just like your customers would. If you want anything changed just let us know." }
+      },
+      {
+        "@type": "Question",
+        "name": "Am I tied to a contract?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. No contracts, no retainers, no lock in. You pay once for the site and that is it. Nothing to cancel." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to write anything myself?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. We write all the copy for you. Just tell us your trade, your area and what you want customers to know. We handle the rest." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to hosting after the first year?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing changes. Hosting is included in your one off payment with no annual renewal fees. Your site stays live as long as you want it." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -3275,7 +3445,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
 
-      <h1 class="privacy-h1" id="privacy-modal-title">Privacy Policy</h1>
+      <h2 class="privacy-h1" id="privacy-modal-title">Privacy Policy</h2>
       <p class="privacy-updated">Last updated: April 2026</p>
 
       <h2 class="privacy-h2">1. Who we are</h2>
