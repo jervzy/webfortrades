@@ -1,9 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/notify.js": {
-      "runtime": "nodejs24.x"
-    }
+    "api/notify.js": {}
   },
   "redirects": [
     {
