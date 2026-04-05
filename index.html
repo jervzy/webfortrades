@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebForTrades — Professional Websites for UK Tradespeople</title>
   <meta name="description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. No risk, no contracts.">
-  <!-- PLACEHOLDER: Replace with actual favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f16517'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================
@@ -796,11 +796,28 @@
     }
 
     /* ============================================
+       INLINE CTA STRIP
+    ============================================ */
+    .inline-cta {
+      padding: 48px 0;
+      background: var(--white);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .inline-cta-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    /* ============================================
        FEATURES / BENEFITS
     ============================================ */
     #features {
       padding: 96px 0;
-      background: var(--light);
+      background: var(--white);
     }
 
     /* Bordered table grid — inspired by Features 4 (21st.dev) */
@@ -1032,6 +1049,57 @@
       .tcarousel-inner  { min-height: 310px; }
       .tcarousel-nav    { flex-direction: row; justify-content: center; margin-top: 24px; }
       .tcarousel-dots   { flex-direction: row; }
+    }
+
+    /* ============================================
+       ABOUT / FOUNDER SECTION
+    ============================================ */
+    #about {
+      padding: 96px 0;
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-body {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-top: 0;
+      margin-bottom: 48px;
+    }
+    .about-stats {
+      display: flex;
+      gap: 56px;
+      justify-content: center;
+    }
+    .about-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .about-stat-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(40px, 5vw, 54px);
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 640px) {
+      .about-inner { text-align: left; }
+      .about-stats { gap: 36px; justify-content: flex-start; }
     }
 
     /* ============================================
@@ -1495,6 +1563,71 @@
       .pcard { padding: 32px 24px; }
       .pcard.popular { padding-top: 48px; }
     }
+    /* ============================================
+       PRIVACY POLICY MODAL
+    ============================================ */
+    #privacy-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 9999;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+    #privacy-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    #privacy-modal {
+      background: var(--white);
+      border-radius: var(--radius);
+      max-width: 700px;
+      width: 100%;
+      padding: 52px 48px 48px;
+      position: relative;
+      margin: auto;
+    }
+    #privacy-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 36px; height: 36px;
+      border: none; background: none;
+      cursor: pointer;
+      color: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background .2s ease;
+      padding: 0;
+    }
+    #privacy-close:hover { background: rgba(241,101,23,.1); }
+    #privacy-close svg {
+      width: 22px; height: 22px;
+      stroke: var(--orange); fill: none;
+      stroke-width: 2.5; stroke-linecap: round;
+    }
+    .privacy-h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px; font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 4px;
+    }
+    .privacy-updated {
+      font-size: 13px; color: var(--text-muted);
+      margin: 0 0 32px;
+    }
+    .privacy-h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+      margin: 28px 0 8px;
+    }
+    .privacy-p {
+      font-size: 15px; color: #374151;
+      line-height: 1.7; margin: 0 0 8px;
+    }
+    .privacy-p a { color: var(--orange); }
+    @media (max-width: 640px) {
+      #privacy-modal { padding: 44px 24px 32px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1603,24 +1736,7 @@
             </a>
           </div>
 
-          <div class="hero-social" aria-label="Customer social proof">
-            <div class="hero-avatars" aria-hidden="true">
-              <span title="John B.">JB</span>
-              <span title="Mike W.">MW</span>
-              <span title="Andy R.">AR</span>
-              <span title="More customers">+</span>
-            </div>
-            <div class="hero-social-text">
-              <div class="stars-row" aria-label="5 star rating" role="img">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-              <strong>Trusted by tradespeople across the UK</strong>
-            </div>
-          </div>
+          <p style="font-size:14px;color:rgba(255,255,255,.65);margin-top:52px;">Over 100 sites built for UK tradespeople</p>
 
         </div><!-- /hero-content -->
 
@@ -1638,7 +1754,7 @@
               </div>
               <div class="notif-body">
                 <p class="notif-title">New quote request</p>
-                <p class="notif-meta">Dave M. &mdash; Plumber, Leeds</p>
+                <p class="notif-meta">Dave M., Plumber, Leeds</p>
               </div>
               <span class="notif-pulse"></span>
             </div>
@@ -1652,7 +1768,7 @@
               </div>
               <div class="notif-body">
                 <p class="notif-title">Lead converted</p>
-                <p class="notif-meta">Mike T. &mdash; Electrician, Birmingham</p>
+                <p class="notif-meta">Mike T., Electrician, Birmingham</p>
               </div>
               <span class="notif-time">Just now</span>
             </div>
@@ -1666,7 +1782,7 @@
               </div>
               <div class="notif-body">
                 <p class="notif-title">New website visitor</p>
-                <p class="notif-meta">Services page &mdash; Manchester</p>
+                <p class="notif-meta">Services page, Manchester</p>
               </div>
               <span class="notif-time">2m ago</span>
             </div>
@@ -1680,7 +1796,7 @@
               </div>
               <div class="notif-body">
                 <p class="notif-title">Phone enquiry</p>
-                <p class="notif-meta">Found via Google &mdash; Bristol</p>
+                <p class="notif-meta">Found via Google, Bristol</p>
               </div>
               <span class="notif-time">5m ago</span>
             </div>
@@ -2073,6 +2189,12 @@
     </div>
   </section>
 
+  <!-- Inline CTA strip -->
+  <div class="inline-cta">
+    <p class="inline-cta-text">Like what you see?</p>
+    <a href="#contact" class="btn btn-primary">Get Your Free Demo</a>
+  </div>
+
   <!-- ============================================
        FEATURES / BENEFITS
   ============================================ -->
@@ -2196,7 +2318,6 @@
               </div>
               <div class="tcarousel-sep"></div>
               <p class="tcarousel-text">"Got my first quote request 3 days after the site went live. The job was worth over £800. The website paid for itself before the end of the week."</p>
-              <p class="tcarousel-verified">Verified Customer</p>
             </div>
 
             <!-- Card 2: Jake -->
@@ -2219,7 +2340,6 @@
               </div>
               <div class="tcarousel-sep"></div>
               <p class="tcarousel-text">"Julius built the site before I paid a penny. Looked exactly how I wanted it. Would recommend to any tradesperson who wants more work coming in."</p>
-              <p class="tcarousel-verified">Verified Customer</p>
             </div>
 
             <!-- Card 3: Colin -->
@@ -2242,7 +2362,6 @@
               </div>
               <div class="tcarousel-sep"></div>
               <p class="tcarousel-text">"Had a full quote and booking system set up within days. Completely professional, really knows what he is doing."</p>
-              <p class="tcarousel-verified">Verified Customer</p>
             </div>
 
           </div><!-- /tcarousel-inner -->
@@ -2264,6 +2383,29 @@
 
         </div><!-- /tcarousel-layout -->
       </div><!-- /tcarousel-wrap -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT / FOUNDER SECTION
+  ============================================ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-inner fade-up">
+        <span class="section-label">Who we are</span>
+        <h2 class="section-title" id="about-heading">Built by someone who gets it</h2>
+        <p class="about-body">WebForTrades was started by Julius, a web designer based in the UK who got tired of watching great tradespeople lose work because their online presence let them down. No big agency, no account managers, no jargon. Just someone who builds fast, professional websites and actually cares whether they get you more work. Every site is built personally. Every client gets a real response. That is the whole thing.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-number">100+</span>
+            <span class="about-stat-label">Sites built</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-number">48hrs</span>
+            <span class="about-stat-label">Average turnaround</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2290,7 +2432,7 @@
         </div>
         <div class="guarantee-pill">
           <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Cancel anytime
+          No commitment needed
         </div>
       </div>
     </div>
@@ -2446,6 +2588,13 @@
           </div>
         </div>
 
+        <div class="faq-row" role="listitem">
+          <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-10" data-faq="10">What happens to hosting after the first year?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+          <div class="faq-bubble-wrap">
+            <div class="faq-bubble" id="faq-b-10" role="region" aria-live="polite">Nothing changes. Hosting is included in your one off payment with no annual renewal fees. Your site stays live as long as you want it.</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2552,8 +2701,14 @@
               Send My Free Demo Request
             </button>
 
-            <!-- PLACEHOLDER: Link to actual privacy policy page -->
-            <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#">privacy policy</a>.</p>
+            <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#" class="privacy-trigger">privacy policy</a>.</p>
+
+            <div id="form-success" style="display:none;margin-top:16px;padding:14px 18px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;color:#166534;font-size:15px;font-weight:600;text-align:center;">
+              We will be in touch via WhatsApp within 48 hours.
+            </div>
+            <div id="form-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:8px;color:#dc2626;font-size:15px;text-align:center;">
+              Something went wrong. Please try again or message us on WhatsApp.
+            </div>
           </form>
         </div>
       </div>
@@ -2578,7 +2733,7 @@
       <hr class="footer-divider">
 
       <!-- Copyright -->
-      <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved. &nbsp;<a href="#" id="privacy-trigger" style="color:rgba(255,255,255,.5);text-decoration:underline;transition:color .2s ease;" onmouseover="this.style.color='rgba(255,255,255,1)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Privacy Policy</a></p>
 
       <!-- Social icons -->
       <nav class="footer-socials" aria-label="Social media links">
@@ -2601,7 +2756,7 @@
         </a>
 
         <!-- WhatsApp -->
-        <a class="footer-social-link" href="http://wa.me/447436427087" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a class="footer-social-link" href="https://wa.me/447436427087" target="_blank" rel="noopener" aria-label="WhatsApp">
           <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775338188/whatsapp_vzqxxm.png" alt="" aria-hidden="true" width="24" height="24" loading="lazy">
         </a>
 
@@ -2692,6 +2847,18 @@
       window.addEventListener('resize', resize, { passive: true });
       resize();
       draw();
+
+      // Pause when hero scrolls out of view, resume when it returns
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            if (!raf) draw();
+          } else {
+            cancelAnimationFrame(raf);
+            raf = 0;
+          }
+        }, { threshold: 0 }).observe(document.getElementById('hero'));
+      }
     })();
 
     /* ── Hero: notification cards slide-in + float ─────────── */
@@ -2870,53 +3037,177 @@
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     }
 
-    /* ── Form: client-side validation & submit ───── */
-    const form = document.getElementById('demo-form');
+    /* ── Form: client-side validation & Supabase submit ───── */
+    (function () {
+      var SB_URL = 'https://tnYke70wm15jtNY7zwV-rA.supabase.co/rest/v1/leads';
+      var SB_KEY = 'sb_publishable_tnYke70wm15jtNY7zwV-rA_9YIZDh8o';
+      var form = document.getElementById('demo-form');
+      if (!form) return;
+      var origBtnHTML = form.querySelector('.form-submit').innerHTML;
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let valid = true;
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      form.querySelectorAll('[required]').forEach(field => {
-        field.style.borderColor = '';
-        if (!field.value.trim()) {
-          field.style.borderColor = '#c53030';
-          valid = false;
+        /* client-side validation */
+        var valid = true;
+        form.querySelectorAll('[required]').forEach(function (field) {
+          field.style.borderColor = '';
+          if (!field.value.trim()) {
+            field.style.borderColor = '#c53030';
+            valid = false;
+          }
+        });
+        if (!valid) {
+          var first = form.querySelector('[required]');
+          if (first) first.focus();
+          return;
+        }
+
+        var btn = form.querySelector('.form-submit');
+        var successMsg = document.getElementById('form-success');
+        var errorMsg = document.getElementById('form-error');
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+
+        try {
+          var res = await fetch(SB_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SB_KEY,
+              'Authorization': 'Bearer ' + SB_KEY
+            },
+            body: JSON.stringify({
+              name: form.fullname.value.trim(),
+              business_name: form.business.value.trim(),
+              whatsapp: form.phone.value.trim(),
+              email: form.email.value.trim(),
+              trade: form.trade.value,
+              plan: form.plan.value || null,
+              message: form.notes.value.trim() || null
+            })
+          });
+          btn.disabled = false;
+          btn.innerHTML = origBtnHTML;
+          if (res.ok) {
+            successMsg.style.display = 'block';
+            form.reset();
+            form.querySelectorAll('[required]').forEach(function (f) { f.style.borderColor = ''; });
+          } else {
+            errorMsg.style.display = 'block';
+          }
+        } catch (err) {
+          btn.disabled = false;
+          btn.innerHTML = origBtnHTML;
+          errorMsg.style.display = 'block';
         }
       });
+    })();
+    /* ── About section stat count-up ────────────── */
+    (function () {
+      var section = document.getElementById('about');
+      if (!section) return;
 
-      if (!valid) {
-        const first = form.querySelector('[required]');
-        if (first) first.focus();
-        return;
+      var stats = [
+        { el: document.querySelectorAll('.about-stat-number')[0], end: 100, suffix: '+' },
+        { el: document.querySelectorAll('.about-stat-number')[1], end: 48,  suffix: 'hrs' }
+      ];
+
+      if (!stats[0].el || !stats[1].el) return;
+
+      var duration = 2000; // ms — both numbers finish at this exact moment
+      var triggered = false;
+
+      function runCountUp() {
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var elapsed = timestamp - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          // easeOutQuad: decelerates toward the end for a natural feel
+          var eased = 1 - (1 - progress) * (1 - progress);
+
+          stats.forEach(function (s) {
+            s.el.textContent = Math.floor(eased * s.end) + s.suffix;
+          });
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            // lock in exact final values
+            stats.forEach(function (s) { s.el.textContent = s.end + s.suffix; });
+          }
+        }
+
+        requestAnimationFrame(step);
       }
 
-      const btn = form.querySelector('[type="submit"]');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting && !triggered) {
+            triggered = true;
+            runCountUp();
+          }
+        }, { threshold: 0.4 }).observe(section);
+      } else {
+        // no observer support — show final values immediately
+        stats.forEach(function (s) { s.el.textContent = s.end + s.suffix; });
+      }
+    })();
 
-      /* PLACEHOLDER: Replace setTimeout with a real fetch() POST to your backend */
-      setTimeout(() => {
-        form.innerHTML = `
-          <div style="text-align:center;padding:56px 0">
-            <div style="width:68px;height:68px;background:var(--navy);border-radius:50%;
-                        display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                   stroke="white" stroke-width="2.5" stroke-linecap="round"
-                   stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <h3 style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:800;
-                       color:var(--navy);margin-bottom:14px">Request received!</h3>
-            <p style="color:var(--text-muted);font-size:18px;line-height:1.65;max-width:380px;margin:0 auto">
-              We'll have your free demo ready within 48 hours.
-              Keep an eye on your inbox — and your phone.
-            </p>
-          </div>`;
-      }, 1200);
+    /* ── Privacy Policy modal ─────────────────── */
+    document.addEventListener('DOMContentLoaded', function () {
+      var overlay = document.getElementById('privacy-overlay');
+
+      function openModal(e) { e.preventDefault(); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+      document.getElementById('privacy-trigger').addEventListener('click', openModal);
+      document.querySelectorAll('.privacy-trigger').forEach(function (el) { el.addEventListener('click', openModal); });
+      document.getElementById('privacy-close').addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
     });
+
   </script>
+
+  <!-- ============================================
+       PRIVACY POLICY MODAL
+  ============================================ -->
+  <div id="privacy-overlay" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div id="privacy-modal">
+      <button id="privacy-close" aria-label="Close privacy policy">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h1 class="privacy-h1" id="privacy-modal-title">Privacy Policy</h1>
+      <p class="privacy-updated">Last updated: April 2026</p>
+
+      <h2 class="privacy-h2">1. Who we are</h2>
+      <p class="privacy-p">WebForTrades builds websites for UK tradespeople. You can contact us at <a href="mailto:contact@webfortradesuk.co.uk">contact@webfortradesuk.co.uk</a></p>
+
+      <h2 class="privacy-h2">2. What information we collect</h2>
+      <p class="privacy-p">When you fill in the form on this page, we collect your name, business name, WhatsApp number, email address, trade and which plan you are interested in.</p>
+
+      <h2 class="privacy-h2">3. How we use your information</h2>
+      <p class="privacy-p">We use your details to build your free demo website and to contact you via WhatsApp to share it with you. We do not sell your data to anyone, ever.</p>
+
+      <h2 class="privacy-h2">4. How we store your data</h2>
+      <p class="privacy-p">Your data is stored securely. We only keep your information for as long as is needed to provide the service to you.</p>
+
+      <h2 class="privacy-h2">5. Your rights</h2>
+      <p class="privacy-p">You can ask us to delete your data at any time by emailing <a href="mailto:contact@webfortradesuk.co.uk">contact@webfortradesuk.co.uk</a> and we will remove it promptly.</p>
+
+      <h2 class="privacy-h2">6. Cookies</h2>
+      <p class="privacy-p">This site may use basic cookies to help it function correctly. We do not use advertising or tracking cookies.</p>
+
+      <h2 class="privacy-h2">7. Changes to this policy</h2>
+      <p class="privacy-p">We may update this policy occasionally. The latest version will always be available on this page.</p>
+    </div>
+  </div>
 
 </body>
 </html>

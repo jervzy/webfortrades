@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebForTrades — Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f16517'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #07274c;
+      --orange: #f16517;
+      --white: #ffffff;
+      --light: #f9f9f9;
+      --border: #e2e8f0;
+      --text-muted: #4a5568;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background: var(--light);
+      color: #1a202c;
+      min-height: 100vh;
+    }
+
+    /* ── Login screen ──────────────────────────── */
+    #login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #07274c 0%, #0d3b6e 100%);
+      padding: 24px;
+    }
+
+    .login-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+
+    .login-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .login-logo span { color: var(--orange); }
+
+    .login-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .login-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 15px;
+      color: #1a202c;
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 20px;
+    }
+
+    .login-input:focus { border-color: var(--navy); }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .login-btn:hover { background: #d95810; }
+
+    .login-error {
+      display: none;
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-radius: 8px;
+      color: #dc2626;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* ── Dashboard screen ──────────────────────── */
+    #dashboard-screen { display: none; }
+
+    .dash-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,.2);
+    }
+
+    .dash-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .dash-logo span { color: var(--orange); }
+
+    .dash-header-actions { display: flex; gap: 10px; align-items: center; }
+
+    .dash-btn {
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background .15s, opacity .15s;
+    }
+
+    .dash-btn:active { opacity: .8; }
+
+    .dash-btn-refresh {
+      background: rgba(255,255,255,.12);
+      color: var(--white);
+    }
+
+    .dash-btn-refresh:hover { background: rgba(255,255,255,.2); }
+
+    .dash-btn-logout {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .dash-btn-logout:hover { background: #d95810; }
+
+    .dash-body { padding: 32px 24px; max-width: 1200px; margin: 0 auto; }
+
+    .dash-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .dash-count {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .dash-count span {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 13px;
+      margin-left: 6px;
+    }
+
+    .dash-search {
+      flex: 1;
+      min-width: 200px;
+      max-width: 360px;
+      padding: 9px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 14px;
+      color: #1a202c;
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .dash-search:focus { border-color: var(--navy); }
+
+    .table-wrapper {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      overflow-x: auto;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead tr {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(odd)  { background: var(--white); }
+    tbody tr:nth-child(even) { background: var(--light); }
+    tbody tr:hover { background: #eef3fb; }
+
+    tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    .td-date { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
+
+    .td-wa a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .td-wa a:hover { color: var(--orange); text-decoration: underline; }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-transform: capitalize;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    /* Trade pills */
+    .pill-trade { background: #e8f0fb; color: #1a4a8a; }
+
+    /* Plan pills */
+    .pill-starter     { background: #f0fdf4; color: #166534; }
+    .pill-professional { background: #fefce8; color: #854d0e; }
+    .pill-premium     { background: #fdf4ff; color: #6b21a8; }
+    .pill-notsure     { background: #f1f5f9; color: #475569; }
+
+    .no-results {
+      text-align: center;
+      padding: 56px 24px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .dash-status {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .dash-body { padding: 20px 12px; }
+      .dash-toolbar { gap: 10px; }
+      .dash-search { max-width: 100%; }
+      .login-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login screen -->
+  <div id="login-screen">
+    <div class="login-card">
+      <div class="login-logo">Web<span>For</span>Trades</div>
+      <p class="login-subtitle">Lead dashboard — sign in to continue</p>
+      <form id="login-form" autocomplete="off">
+        <label class="login-label" for="l-user">Username</label>
+        <input class="login-input" type="text" id="l-user" autocomplete="username" required>
+        <label class="login-label" for="l-pass">Password</label>
+        <input class="login-input" type="password" id="l-pass" autocomplete="current-password" required>
+        <button type="submit" class="login-btn">Sign in</button>
+        <div class="login-error" id="login-error">Incorrect username or password.</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard screen -->
+  <div id="dashboard-screen">
+    <header class="dash-header">
+      <div class="dash-logo">Web<span>For</span>Trades</div>
+      <div class="dash-header-actions">
+        <button class="dash-btn dash-btn-refresh" id="btn-refresh">&#8635; Refresh</button>
+        <button class="dash-btn dash-btn-logout" id="btn-logout">Sign out</button>
+      </div>
+    </header>
+
+    <div class="dash-body">
+      <div class="dash-toolbar">
+        <div class="dash-count">Leads <span id="lead-count">0</span></div>
+        <input class="dash-search" type="search" id="search-input" placeholder="Search by name or business…">
+      </div>
+
+      <div class="table-wrapper">
+        <div class="dash-status" id="dash-status">Loading leads…</div>
+        <table id="leads-table" style="display:none;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Business</th>
+              <th>WhatsApp</th>
+              <th>Email</th>
+              <th>Trade</th>
+              <th>Plan</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody"></tbody>
+        </table>
+        <div class="no-results" id="no-results" style="display:none;">No leads match your search.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var SB_URL = 'https://tnYke70wm15jtNY7zwV-rA.supabase.co/rest/v1/leads';
+      var SB_KEY = 'sb_publishable_tnYke70wm15jtNY7zwV-rA_9YIZDh8o';
+
+      var AUTH_KEY = 'wft_auth';
+      var VALID_USER = 'julius';
+      var VALID_PASS = 'prodan';
+
+      var allLeads = [];
+
+      /* ── Helpers ─────────────────────────────── */
+      function esc(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function formatDate(iso) {
+        if (!iso) return '—';
+        var d = new Date(iso);
+        return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+
+      function formatWA(raw) {
+        if (!raw) return null;
+        var digits = raw.replace(/\D/g, '');
+        if (digits.startsWith('0')) digits = '44' + digits.slice(1);
+        return digits;
+      }
+
+      function planClass(plan) {
+        var map = { starter: 'pill-starter', professional: 'pill-professional', premium: 'pill-premium', notsure: 'pill-notsure' };
+        return map[plan] || 'pill-notsure';
+      }
+
+      /* ── Auth ────────────────────────────────── */
+      function isAuthed() { return sessionStorage.getItem(AUTH_KEY) === 'true'; }
+      function setAuthed()  { sessionStorage.setItem(AUTH_KEY, 'true'); }
+      function clearAuth()  { sessionStorage.removeItem(AUTH_KEY); }
+
+      function showLogin()     { document.getElementById('login-screen').style.display = 'flex'; document.getElementById('dashboard-screen').style.display = 'none'; }
+      function showDashboard() { document.getElementById('login-screen').style.display = 'none'; document.getElementById('dashboard-screen').style.display = 'block'; }
+
+      /* ── Render ──────────────────────────────── */
+      function renderRows(leads) {
+        var tbody = document.getElementById('leads-tbody');
+        var table = document.getElementById('leads-table');
+        var noResults = document.getElementById('no-results');
+
+        if (leads.length === 0) {
+          table.style.display = 'none';
+          noResults.style.display = 'block';
+          return;
+        }
+
+        table.style.display = 'table';
+        noResults.style.display = 'none';
+
+        tbody.innerHTML = leads.map(function (l) {
+          var waDigits = formatWA(l.whatsapp);
+          var waLink = waDigits ? '<a href="https://wa.me/' + esc(waDigits) + '" target="_blank" rel="noopener">' + esc(l.whatsapp) + '</a>' : '—';
+          var planLabel = l.plan === 'notsure' ? 'Not sure' : (l.plan || '');
+          return '<tr>' +
+            '<td class="td-date">' + formatDate(l.created_at) + '</td>' +
+            '<td>' + esc(l.name) + '</td>' +
+            '<td>' + esc(l.business_name) + '</td>' +
+            '<td class="td-wa">' + waLink + '</td>' +
+            '<td>' + esc(l.email) + '</td>' +
+            '<td>' + (l.trade ? '<span class="pill pill-trade">' + esc(l.trade) + '</span>' : '—') + '</td>' +
+            '<td>' + (l.plan ? '<span class="pill ' + planClass(l.plan) + '">' + esc(planLabel) + '</span>' : '—') + '</td>' +
+            '</tr>';
+        }).join('');
+      }
+
+      function applySearch(query) {
+        var q = query.toLowerCase().trim();
+        var filtered = q ? allLeads.filter(function (l) {
+          return (l.name || '').toLowerCase().includes(q) || (l.business_name || '').toLowerCase().includes(q);
+        }) : allLeads;
+        renderRows(filtered);
+      }
+
+      /* ── Fetch leads ─────────────────────────── */
+      async function loadLeads() {
+        document.getElementById('dash-status').style.display = 'block';
+        document.getElementById('dash-status').textContent = 'Loading leads…';
+        document.getElementById('leads-table').style.display = 'none';
+        document.getElementById('no-results').style.display = 'none';
+
+        try {
+          var res = await fetch(SB_URL + '?order=created_at.desc', {
+            headers: {
+              'apikey': SB_KEY,
+              'Authorization': 'Bearer ' + SB_KEY
+            }
+          });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          var data = await res.json();
+          document.getElementById('dash-status').style.display = 'none';
+          allLeads = data || [];
+          document.getElementById('lead-count').textContent = allLeads.length;
+          var q = document.getElementById('search-input').value;
+          applySearch(q);
+        } catch (err) {
+          document.getElementById('dash-status').textContent = 'Error loading leads: ' + err.message;
+        }
+      }
+
+      /* ── Init ────────────────────────────────── */
+      if (isAuthed()) {
+        showDashboard();
+        loadLeads();
+      } else {
+        showLogin();
+      }
+
+      /* ── Login form ──────────────────────────── */
+      document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var user = document.getElementById('l-user').value.trim();
+        var pass = document.getElementById('l-pass').value;
+        var errEl = document.getElementById('login-error');
+        if (user === VALID_USER && pass === VALID_PASS) {
+          errEl.style.display = 'none';
+          setAuthed();
+          showDashboard();
+          loadLeads();
+        } else {
+          errEl.style.display = 'block';
+        }
+      });
+
+      /* ── Logout ──────────────────────────────── */
+      document.getElementById('btn-logout').addEventListener('click', function () {
+        clearAuth();
+        allLeads = [];
+        document.getElementById('leads-tbody').innerHTML = '';
+        document.getElementById('lead-count').textContent = '0';
+        document.getElementById('search-input').value = '';
+        showLogin();
+      });
+
+      /* ── Refresh ─────────────────────────────── */
+      document.getElementById('btn-refresh').addEventListener('click', loadLeads);
+
+      /* ── Search ──────────────────────────────── */
+      document.getElementById('search-input').addEventListener('input', function () {
+        applySearch(this.value);
+      });
+    })();
+  </script>
+</body>
+</html>
