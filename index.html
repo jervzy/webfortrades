@@ -3045,21 +3045,100 @@
       if (!form) return;
       var origBtnHTML = form.querySelector('.form-submit').innerHTML;
 
+      /* ── Validation helpers ───────────────────── */
+      function showError(field, msg) {
+        field.style.border = '2px solid #e53e3e';
+        var err = field.parentNode.querySelector('.field-error');
+        if (!err) {
+          err = document.createElement('span');
+          err.className = 'field-error';
+          err.style.cssText = 'display:block;color:#e53e3e;font-size:13px;margin-top:4px;';
+          field.insertAdjacentElement('afterend', err);
+        }
+        err.textContent = msg;
+      }
+
+      function clearError(field) {
+        field.style.border = '';
+        var err = field.parentNode.querySelector('.field-error');
+        if (err) err.remove();
+      }
+
+      /* clear error as soon as user corrects a field */
+      ['fullname', 'business', 'phone', 'email', 'area'].forEach(function (name) {
+        var f = form.elements[name];
+        if (f) f.addEventListener('input', function () { clearError(f); });
+      });
+      ['trade', 'plan'].forEach(function (name) {
+        var f = form.elements[name];
+        if (f) f.addEventListener('change', function () { clearError(f); });
+      });
+
+      function validate() {
+        var invalid = [];
+        var el = form.elements;
+
+        /* clear all first */
+        ['fullname', 'business', 'phone', 'email', 'area', 'trade', 'plan'].forEach(function (n) {
+          if (el[n]) clearError(el[n]);
+        });
+
+        if (!el.fullname.value.trim()) {
+          showError(el.fullname, 'Please enter your name');
+          invalid.push(el.fullname);
+        }
+
+        if (!el.business.value.trim()) {
+          showError(el.business, 'Please enter your business name');
+          invalid.push(el.business);
+        }
+
+        var phone = el.phone.value.trim();
+        if (!phone) {
+          showError(el.phone, 'Please enter your WhatsApp number');
+          invalid.push(el.phone);
+        } else {
+          var stripped = phone.replace(/[\s\-\(\)\.]/g, '');
+          if (!/^(07\d{9}|\+44\d{9,}|\+[1-9]\d{8,})$/.test(stripped)) {
+            showError(el.phone, 'Please enter a valid WhatsApp number');
+            invalid.push(el.phone);
+          }
+        }
+
+        var email = el.email.value.trim();
+        if (!email) {
+          showError(el.email, 'Please enter your email address');
+          invalid.push(el.email);
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError(el.email, 'Please enter a valid email address');
+          invalid.push(el.email);
+        }
+
+        if (!el.area.value.trim()) {
+          showError(el.area, 'Please enter your town or area');
+          invalid.push(el.area);
+        }
+
+        if (!el.trade.value) {
+          showError(el.trade, 'Please select your trade');
+          invalid.push(el.trade);
+        }
+
+        if (!el.plan.value) {
+          showError(el.plan, 'Please select a plan');
+          invalid.push(el.plan);
+        }
+
+        return invalid;
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        /* client-side validation */
-        var valid = true;
-        form.querySelectorAll('[required]').forEach(function (field) {
-          field.style.borderColor = '';
-          if (!field.value.trim()) {
-            field.style.borderColor = '#c53030';
-            valid = false;
-          }
-        });
-        if (!valid) {
-          var first = form.querySelector('[required]');
-          if (first) first.focus();
+        var invalid = validate();
+        if (invalid.length > 0) {
+          invalid[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          invalid[0].focus();
           return;
         }
 
@@ -3108,7 +3187,6 @@
             }).catch(function (err) { console.warn('notify failed:', err); });
             successMsg.style.display = 'block';
             form.reset();
-            form.querySelectorAll('[required]').forEach(function (f) { f.style.borderColor = ''; });
           } else {
             errorMsg.style.display = 'block';
           }
