@@ -3105,7 +3105,7 @@
                 plan: form.plan.value || null,
                 message: form.notes.value.trim() || null
               })
-            }).catch(function () {});
+            }).catch(function (err) { console.warn('notify failed:', err); });
             successMsg.style.display = 'block';
             form.reset();
             form.querySelectorAll('[required]').forEach(function (f) { f.style.borderColor = ''; });
