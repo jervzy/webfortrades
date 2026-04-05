@@ -289,6 +289,92 @@
     .pill-premium     { background: #fdf4ff; color: #6b21a8; }
     .pill-notsure     { background: #f1f5f9; color: #475569; }
 
+    .btn-note {
+      padding: 4px 10px;
+      background: #e8f0fb;
+      color: #1a4a8a;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+
+    .btn-note:hover { background: #c7d9f5; }
+
+    .btn-delete {
+      padding: 4px 8px;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .btn-delete:hover { background: #fee2e2; }
+
+    /* ── Message modal ─── */
+    #msg-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(0,0,0,.45);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #msg-modal.open { display: flex; }
+
+    .msg-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      position: relative;
+    }
+
+    .msg-card-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .msg-card-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1a202c;
+      white-space: pre-wrap;
+    }
+
+    .msg-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .msg-close:hover { color: #1a202c; }
+
     .no-results {
       text-align: center;
       padding: 56px 24px;
@@ -357,12 +443,23 @@
               <th>Email</th>
               <th>Trade</th>
               <th>Plan</th>
+              <th>Note</th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="leads-tbody"></tbody>
         </table>
         <div class="no-results" id="no-results" style="display:none;">No leads match your search.</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Message modal -->
+  <div id="msg-modal" role="dialog" aria-modal="true" aria-labelledby="msg-modal-name">
+    <div class="msg-card">
+      <button class="msg-close" id="msg-close" aria-label="Close">&times;</button>
+      <div class="msg-card-name" id="msg-modal-name"></div>
+      <div class="msg-card-body" id="msg-modal-body"></div>
     </div>
   </div>
 
@@ -432,7 +529,10 @@
           var waDigits = formatWA(l.whatsapp);
           var waLink = waDigits ? '<a href="https://wa.me/' + esc(waDigits) + '" target="_blank" rel="noopener">' + esc(l.whatsapp) + '</a>' : '—';
           var planLabel = l.plan === 'notsure' ? 'Not sure' : (l.plan || '');
-          return '<tr>' +
+          var noteBtn = l.message
+            ? '<button class="btn-note" data-id="' + l.id + '" data-name="' + esc(l.name) + '" data-msg="' + esc(l.message) + '">View note</button>'
+            : '—';
+          return '<tr data-id="' + l.id + '">' +
             '<td class="td-date">' + formatDate(l.created_at) + '</td>' +
             '<td>' + esc(l.name) + '</td>' +
             '<td>' + esc(l.business_name) + '</td>' +
@@ -440,8 +540,50 @@
             '<td>' + esc(l.email) + '</td>' +
             '<td>' + (l.trade ? '<span class="pill pill-trade">' + esc(l.trade) + '</span>' : '—') + '</td>' +
             '<td>' + (l.plan ? '<span class="pill ' + planClass(l.plan) + '">' + esc(planLabel) + '</span>' : '—') + '</td>' +
+            '<td>' + noteBtn + '</td>' +
+            '<td><button class="btn-delete" data-id="' + l.id + '" title="Delete lead">&times;</button></td>' +
             '</tr>';
         }).join('');
+
+        /* Note buttons */
+        tbody.querySelectorAll('.btn-note').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            document.getElementById('msg-modal-name').textContent = btn.dataset.name;
+            document.getElementById('msg-modal-body').textContent = btn.dataset.msg;
+            document.getElementById('msg-modal').classList.add('open');
+          });
+        });
+
+        /* Delete buttons */
+        tbody.querySelectorAll('.btn-delete').forEach(function (btn) {
+          btn.addEventListener('click', async function () {
+            var id = btn.dataset.id;
+            btn.disabled = true;
+            btn.textContent = '…';
+            try {
+              var res = await fetch(SB_URL + '?id=eq.' + id, {
+                method: 'DELETE',
+                headers: {
+                  'apikey': SB_KEY,
+                  'Authorization': 'Bearer ' + SB_KEY
+                }
+              });
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              allLeads = allLeads.filter(function (l) { return String(l.id) !== String(id); });
+              document.getElementById('lead-count').textContent = allLeads.length;
+              var row = tbody.querySelector('tr[data-id="' + id + '"]');
+              if (row) row.remove();
+              if (tbody.querySelectorAll('tr').length === 0) {
+                document.getElementById('leads-table').style.display = 'none';
+                document.getElementById('no-results').style.display = 'block';
+              }
+            } catch (err) {
+              btn.disabled = false;
+              btn.textContent = '\u00d7';
+              alert('Could not delete lead: ' + err.message);
+            }
+          });
+        });
       }
 
       function applySearch(query) {
@@ -518,6 +660,16 @@
       /* ── Search ──────────────────────────────── */
       document.getElementById('search-input').addEventListener('input', function () {
         applySearch(this.value);
+      });
+
+      /* ── Message modal ───────────────────────── */
+      function closeModal() { document.getElementById('msg-modal').classList.remove('open'); }
+      document.getElementById('msg-close').addEventListener('click', closeModal);
+      document.getElementById('msg-modal').addEventListener('click', function (e) {
+        if (e.target === this) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
       });
     })();
   </script>
