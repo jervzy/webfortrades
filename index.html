@@ -1447,6 +1447,59 @@
     .form-note { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 16px; }
     .form-note a { color: var(--navy); text-decoration: underline; }
 
+    /* ── Contact two-column layout ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-form-col .form-card { margin-top: 24px; }
+
+    /* ── What happens next ── */
+    .whn-steps { margin-top: 32px; }
+    .whn-step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+    .whn-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .whn-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .whn-body { padding-bottom: 28px; padding-top: 8px; }
+    .whn-step:last-child .whn-body { padding-bottom: 0; }
+    .whn-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .whn-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-steps-col { order: -1; }
+    }
+
     /* ============================================
        FOOTER
     ============================================ */
@@ -2814,12 +2867,13 @@
   ============================================ -->
   <section id="contact" aria-labelledby="contact-heading">
     <div class="container">
-      <div class="form-wrap">
-        <div class="section-header-center">
+      <div class="contact-grid">
+
+        <!-- Left: form -->
+        <div class="contact-form-col">
           <span class="section-label">Get started</span>
           <h2 class="section-title" id="contact-heading">Claim your free demo</h2>
           <p class="section-sub">Fill this in and we'll have your demo site ready within 48 hours. No payment. No commitment.</p>
-        </div>
 
         <div class="form-card">
           <!-- PLACEHOLDER: Connect this form to your backend / email handler -->
@@ -2902,7 +2956,59 @@
             </div>
           </form>
         </div>
-      </div>
+        </div><!-- /contact-form-col -->
+
+        <!-- Right: what happens next -->
+        <div class="contact-steps-col">
+          <span class="section-label">What happens next</span>
+          <h3 class="section-title">Here is exactly what to expect</h3>
+
+          <div class="whn-steps">
+
+            <div class="whn-step">
+              <div class="whn-num">1</div>
+              <div class="whn-body">
+                <p class="whn-title">You fill in the form</p>
+                <p class="whn-desc">Takes two minutes. Tell us your trade and where you work.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">2</div>
+              <div class="whn-body">
+                <p class="whn-title">We reach out on WhatsApp</p>
+                <p class="whn-desc">We will message you within 24 hours to confirm your details and get started.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">3</div>
+              <div class="whn-body">
+                <p class="whn-title">We build your demo</p>
+                <p class="whn-desc">Your full website is built within 48 hours and sent to you as a link.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">4</div>
+              <div class="whn-body">
+                <p class="whn-title">You review and request changes</p>
+                <p class="whn-desc">Check it out on your phone. Want anything tweaked? Just let us know and we will sort it.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">5</div>
+              <div class="whn-body">
+                <p class="whn-title">You decide</p>
+                <p class="whn-desc">Happy with it? Pay once and we get it live on Google. Not happy? Walk away. Nothing owed.</p>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /contact-steps-col -->
+
+      </div><!-- /contact-grid -->
     </div>
   </section>
 
