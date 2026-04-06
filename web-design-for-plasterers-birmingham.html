@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design for Plasterers in Birmingham | WebForTrades</title>
+  <meta name="description" content="Professional websites for Birmingham plasterers. Free demo in 48 hours. See your site before you pay a penny. Quote forms, Google ranking and free hosting included.">
+  <link rel="canonical" href="https://www.webfortradesuk.co.uk/web-design-for-plasterers-birmingham">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web Design for Plasterers in Birmingham | WebForTrades">
+  <meta property="og:description" content="Professional websites for Birmingham plasterers. Free demo in 48 hours. See your site before you pay a penny.">
+  <meta property="og:url" content="https://www.webfortradesuk.co.uk/web-design-for-plasterers-birmingham">
+  <meta property="og:image" content="https://www.webfortradesuk.co.uk/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design for Plasterers in Birmingham | WebForTrades">
+  <meta name="twitter:description" content="Professional websites for Birmingham plasterers. Free demo in 48 hours.">
+  <meta name="twitter:image" content="https://www.webfortradesuk.co.uk/og-image.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307274c'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='13' fill='white'>WF<tspan fill='%23f16517'>T</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Work+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Work+Sans:wght@400;600;700&display=swap"></noscript>
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #07274c;
+      --navy-dark:   #051e3a;
+      --navy-light:  #0d3a6e;
+      --orange:      #f16517;
+      --orange-hover:#d4560f;
+      --white:       #ffffff;
+      --light:       #f9f9f9;
+      --text-dark:   #0f1a28;
+      --text-muted:  #4a5568;
+      --border:      #e2e8f0;
+      --radius:      12px;
+      --shadow:      0 4px 24px rgba(7,39,76,.10);
+      --shadow-lg:   0 8px 40px rgba(7,39,76,.15);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.15; }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: all .2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(241,101,23,.40); }
+    .btn-primary:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .btn-ghost-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.55); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+    .btn-outline-navy { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+    .section-header-center { text-align: center; margin-bottom: 56px; }
+    .section-header-center .section-sub { margin: 0 auto; }
+
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+
+    /* ── Logo variants ── */
+    .logo-svg { height: 34px; width: auto; display: block; }
+    .logo-light { display: block; }
+    .logo-dark  { display: none; }
+    #navbar.scrolled .logo-light { display: none; }
+    #navbar.scrolled .logo-dark  { display: block; }
+    .footer-logo-svg { height: 32px; width: auto; display: block; }
+
+    /* ── Nav ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      transition: padding .3s ease;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      border-radius: 16px;
+      transition: all .3s ease;
+    }
+    #navbar.scrolled .nav-inner {
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 10px 24px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      color: rgba(255,255,255,.88);
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    #navbar.scrolled .nav-links a { color: var(--text-muted); }
+    #navbar.scrolled .nav-links a:hover { color: var(--navy); }
+    .nav-cta { padding: 10px 22px; font-size: 15px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      border-radius: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+    #navbar.scrolled .hamburger span { background: var(--navy); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 16px; right: 16px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 20px;
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; margin-bottom: 16px; }
+    .nav-mobile ul li { border-bottom: 1px solid var(--border); }
+    .nav-mobile ul li:last-child { border-bottom: none; }
+    .nav-mobile ul li a {
+      display: block;
+      padding: 14px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .nav-mobile ul li a:hover { color: var(--orange); }
+    .nav-mobile .btn { width: 100%; margin-top: 4px; }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(160deg, #0a2f5a 0%, #051e3a 100%);
+      padding: 80px 0 72px;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 54% 46%;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      color: rgba(255,255,255,.92);
+      margin-bottom: 28px;
+    }
+    .badge-dot {
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+    .hero-title {
+      font-size: clamp(34px, 5.5vw, 60px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--orange); }
+    .hero-sub {
+      font-size: clamp(17px, 2vw, 20px);
+      color: rgba(255,255,255,.82);
+      line-height: 1.65;
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .hero-ctas .btn { padding: 16px 32px; font-size: 17px; }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 40px;
+    }
+    .hero-avatars { display: flex; }
+    .hero-avatars span {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 2.5px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      margin-left: -10px;
+    }
+    .hero-avatars span:first-child { margin-left: 0; }
+    .hero-trust-text { font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.45; }
+    .hero-trust-text strong { color: var(--white); display: block; font-family: 'Outfit', sans-serif; }
+    .stars-row { display: flex; gap: 2px; }
+    .stars-row svg { width: 14px; height: 14px; fill: #fbbf24; }
+
+    /* Hero image */
+    .hero-visual {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      border: 2px solid rgba(255,255,255,.12);
+    }
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7,39,76,.6) 0%, transparent 60%);
+    }
+    .hero-visual-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,.95);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.2);
+    }
+    .hero-visual-badge-icon {
+      width: 36px; height: 36px;
+      background: var(--orange);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-visual-badge-icon svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-visual-badge-text { font-family: 'Outfit', sans-serif; }
+    .hero-visual-badge-text strong { font-size: 15px; font-weight: 800; color: var(--navy); display: block; }
+    .hero-visual-badge-text span { font-size: 12px; color: var(--text-muted); }
+
+    /* ── Why section ── */
+    #why {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .why-card {
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      background: var(--light);
+      transition: all .25s ease;
+    }
+    .why-card:hover { border-color: var(--orange); box-shadow: var(--shadow); transform: translateY(-4px); }
+    .why-icon {
+      width: 52px; height: 52px;
+      background: rgba(241,101,23,.10);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .why-icon svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .why-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .why-desc { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
+
+
+    /* ── Testimonial ── */
+    #testimonials {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .testimonial-card {
+      max-width: 720px;
+      margin: 48px auto 0;
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .testimonial-quote {
+      position: absolute;
+      top: -16px; left: -16px;
+      pointer-events: none;
+    }
+    .testimonial-quote svg { width: 48px; height: 48px; fill: var(--navy); opacity: .08; }
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--white);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .testimonial-name { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); }
+    .testimonial-role { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+    .testimonial-stars { display: flex; gap: 3px; }
+    .testimonial-stars svg { width: 18px; height: 18px; fill: #fbbf24; }
+    .testimonial-sep { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .testimonial-text {
+      font-size: 18px;
+      color: var(--text-dark);
+      line-height: 1.75;
+      font-style: italic;
+    }
+    .testimonial-verified { margin-top: 20px; text-align: right; font-size: 13px; color: var(--text-muted); }
+
+    /* ── Pricing ── */
+    #pricing {
+      padding: 80px 0;
+      background: var(--light);
+      border-top: 1px solid var(--border);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .pcard {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      position: relative;
+      transition: all .25s ease;
+    }
+    .pcard:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .pcard.popular { border: 2.5px solid var(--navy); padding-top: 56px; }
+    .popular-badge {
+      position: absolute;
+      top: -15px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px; font-weight: 700;
+      padding: 5px 22px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pcard-name { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .pcard-price { font-family: 'Outfit', sans-serif; font-size: 54px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .pcard-price sup { font-size: 26px; vertical-align: top; margin-top: 10px; }
+    .pcard-price-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .pcard-desc { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); line-height: 1.6; }
+    .pcard-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .pcard-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text-dark); line-height: 1.5; }
+    .pcheck { width: 20px; height: 20px; background: rgba(7,39,76,.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .pcheck svg { width: 11px; height: 11px; stroke: var(--navy); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .pcard .btn { width: 100%; }
+
+    /* ── CTA Banner ── */
+    #cta-banner {
+      background: var(--navy);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-banner-title { font-size: clamp(26px, 4vw, 48px); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+    .cta-banner-title .accent { color: var(--orange); }
+    .cta-banner-sub { font-size: 18px; color: rgba(255,255,255,.72); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    #cta-banner .btn { padding: 18px 44px; font-size: 18px; }
+
+    /* ── Features table (card grid) ── */
+    #features {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .features-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .feature-cell {
+      padding: 32px 26px;
+      border-right: 1.5px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      background: var(--white);
+      transition: background .2s ease;
+    }
+    .feature-cell:hover { background: rgba(7,39,76,.03); }
+    .feature-cell:nth-child(4n)  { border-right: none; }
+    .feature-cell:nth-child(n+5) { border-bottom: none; }
+    .feature-cell-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .feature-cell-head svg {
+      width: 20px; height: 20px;
+      stroke: var(--orange); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+    .feature-cell:hover .feature-cell-head svg { transform: scale(1.15); }
+    .feature-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+    }
+    .feature-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 1024px) {
+      .features-table { grid-template-columns: repeat(2, 1fr); }
+      .feature-cell:nth-child(4n)        { border-right: 1.5px solid var(--border); }
+      .feature-cell:nth-child(n+5)       { border-bottom: 1.5px solid var(--border); }
+      .feature-cell:nth-child(2n)        { border-right: none; }
+      .feature-cell:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 640px) {
+      .features-table { grid-template-columns: 1fr; }
+      .feature-cell:nth-child(2n)        { border-right: 1.5px solid var(--border); }
+      .feature-cell:nth-last-child(-n+2) { border-bottom: 1.5px solid var(--border); }
+      .feature-cell                      { border-right: none; }
+      .feature-cell:last-child           { border-bottom: none; }
+    }
+
+    /* ── Form ── */
+    #contact {
+      padding: 80px 0;
+      background: var(--light);
+      scroll-margin-top: 80px;
+    }
+    .form-wrap { max-width: 620px; margin: 0 auto; }
+    .form-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 44px;
+      box-shadow: var(--shadow-lg);
+      margin-top: 48px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color .2s ease, box-shadow .2s ease;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(7,39,76,.10);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit { width: 100%; margin-top: 8px; padding: 16px; font-size: 17px; }
+    .form-note { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+    .form-note a { color: var(--navy); text-decoration: underline; }
+
+    /* ── Contact two-column layout ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-form-col { order: 1; }
+    .contact-steps-col { order: 2; }
+    .contact-form-col .form-card { margin-top: 24px; }
+    .contact-form-col .section-sub { font-size: 15px; color: var(--text-muted); font-weight: 400; }
+
+    /* ── What happens next heading ── */
+    .contact-steps-col .section-label { margin-bottom: 8px; }
+    .whn-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0;
+      line-height: 1.25;
+    }
+
+    /* ── What happens next steps ── */
+    .whn-steps { margin-top: 28px; }
+    .whn-step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+    .whn-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .whn-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .whn-body { padding-bottom: 28px; padding-top: 8px; }
+    .whn-step:last-child .whn-body { padding-bottom: 0; }
+    .whn-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .whn-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form-col { order: 1; }
+      .contact-steps-col { order: 2; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: linear-gradient(to bottom, #0d3563, #071e3d);
+      padding: 56px 0 40px;
+      text-align: center;
+      color: rgba(255,255,255,.65);
+    }
+    .footer-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    .footer-divider { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 0; }
+    .footer-copy { font-size: 14px; color: rgba(255,255,255,.5); }
+    .footer-socials { display: flex; align-items: center; gap: 20px; }
+    .footer-social-link {
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.5);
+      transition: color .2s ease;
+      line-height: 1;
+    }
+    .footer-social-link:hover { color: rgba(255,255,255,1); }
+    .footer-social-link svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .footer-social-link img { width: 24px; height: 24px; display: block; transition: filter .2s ease; }
+    .footer-social-link:hover img { filter: brightness(0) invert(1); }
+
+    /* ── Animations ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+      .fade-up.visible { opacity: 1; transform: translateY(0); }
+      .fade-up:nth-child(2) { transition-delay: .10s; }
+      .fade-up:nth-child(3) { transition-delay: .20s; }
+    }
+
+    /* ── Privacy Modal ── */
+    #privacy-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.6); z-index: 9999;
+      padding: 24px 16px; overflow-y: auto;
+    }
+    #privacy-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    #privacy-modal {
+      background: var(--white); border-radius: var(--radius);
+      max-width: 700px; width: 100%; padding: 52px 48px 48px;
+      position: relative; margin: auto;
+    }
+    #privacy-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px;
+      border: none; background: none; cursor: pointer;
+      color: var(--orange); display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; transition: background .2s ease; padding: 0;
+    }
+    #privacy-close:hover { background: rgba(241,101,23,.1); }
+    #privacy-close svg { width: 22px; height: 22px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .privacy-h1 { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: var(--navy); margin: 0 0 4px; }
+    .privacy-updated { font-size: 13px; color: var(--text-muted); margin: 0 0 32px; }
+    .privacy-h2 { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin: 28px 0 8px; }
+    .privacy-p { font-size: 15px; color: #374151; line-height: 1.7; margin: 0 0 8px; }
+    .privacy-p a { color: var(--orange); }
+
+    /* ── Responsive ── */
+    @media (max-width: 968px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { max-width: 480px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      #hero { padding-top: 108px; }
+      .nav-links, .nav-cta-desktop { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { padding: 12px 20px; }
+      .why-grid { grid-template-columns: 1fr; gap: 20px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 8px auto 0; }
+      .form-card { padding: 32px 24px; }
+    }
+    @media (max-width: 640px) {
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .pcard { padding: 32px 24px; }
+      .pcard.popular { padding-top: 48px; }
+      #privacy-modal { padding: 44px 24px 32px; }
+    }
+  </style>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.webfortradesuk.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Web Design for Plasterers", "item": "https://www.webfortradesuk.co.uk/web-design-for-plasterers-birmingham" },
+      { "@type": "ListItem", "position": 3, "name": "Birmingham" }
+    ]
+  }
+  </script>
+
+  <!-- Schema: Service for Plumbers in London -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Web Design for Plasterers in Birmingham",
+    "description": "Professional website design built specifically for Birmingham plasterers. Free demo first, one-off payment, no contracts and no annual fees.",
+    "serviceType": "Web Design for Plasterers",
+    "provider": {
+      "@type": "ProfessionalService",
+      "@id": "https://www.webfortradesuk.co.uk/#organization",
+      "name": "WebForTrades",
+      "url": "https://www.webfortradesuk.co.uk/",
+      "email": "contact@webfortradesuk.co.uk",
+      "telephone": "+447436427087"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Birmingham" },
+      { "@type": "Country", "name": "United Kingdom" }
+    ],
+    "url": "https://www.webfortradesuk.co.uk/web-design-for-plasterers-birmingham",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Plasterer Website Packages",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Starter Website for Plasterers", "price": "300", "priceCurrency": "GBP" },
+        { "@type": "Offer", "name": "Professional Website for Plasterers", "price": "500", "priceCurrency": "GBP" },
+        { "@type": "Offer", "name": "Premium Website for Plasterers", "price": "800", "priceCurrency": "GBP" }
+      ]
+    }
+  }
+  </script>
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a=e._i.push([i,[s],a]),u.config=s,u.config.uuid=a,u.identify=function(t,e,o){u.push(["identify",t,e,o])},u.capture=function(t,e,o){u.push(["capture",t,e,o])},u.reset=function(t){u.push(["reset",t])},u.people={set:function(t,e){u.push(["people.set",t,e])},set_once:function(t,e){u.push(["people.set_once",t,e])},unset:function(t){u.push(["people.unset",t])}},u.toString=function(t){var e="posthog";return a&&(e+="/"+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString()+" (stub)"},n="capture identify alias people.set people.set_once set config reset opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing startSessionRecording stopSessionRecording".split(" "),o=0;o<n.length;o++)g(u,n[o]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_p24XYgFuR54EXr6ceTFHEBtGQbTq4AmVjqmk4N4oCMa2', {api_host: 'https://eu.i.posthog.com'})
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+  ============================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="/" class="nav-logo" aria-label="WebForTrades home">
+        <svg class="logo-svg logo-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
+        <svg class="logo-svg logo-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#07274c">Web</tspan><tspan font-weight="400" font-style="italic" fill="#07274c">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="#why">Why It Matters</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta-desktop">
+        <a href="#contact" class="btn btn-primary nav-cta">Get Your Free Demo</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#why">Why It Matters</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get Your Free Demo</a>
+    </div>
+  </nav>
+
+
+
+  <!-- ============================================
+       HERO
+  ============================================ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Free demo in 48 hours. No payment upfront.
+          </div>
+
+          <h1 class="hero-title" id="hero-heading">
+            Professional websites for <span class="accent">Birmingham plasterers</span>
+          </h1>
+
+          <p class="hero-sub">
+            Every day, homeowners in Birmingham search plasterer near me and call the first result they see. If you do not have a website, that call is going to someone else.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Get Your Free Demo
+            </a>
+            <a href="#pricing" class="btn btn-ghost-white">See Pricing</a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="hero-avatars">
+              <span style="background:url('https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Lee_ohgnel.webp') center/cover;border:2.5px solid white;"></span>
+              <span style="background:url('https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Jake_hetzvk.webp') center/cover;border:2.5px solid white;"></span>
+              <span style="background:url('https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Collin_hrbowa.webp') center/cover;border:2.5px solid white;"></span>
+              <span>+</span>
+            </div>
+            <div>
+              <div class="stars-row" aria-label="5 stars">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <div class="hero-trust-text"><strong>Over 100 sites built</strong>for UK tradespeople</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/v1775425312/Plastering_o283kr.webp" alt="Example plasterer website built by WebForTrades" loading="eager" width="600" height="450">
+          <div class="hero-visual-overlay" aria-hidden="true"></div>
+          <div class="hero-visual-badge" aria-hidden="true">
+            <div class="hero-visual-badge-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="hero-visual-badge-text">
+              <strong>Free demo included</strong>
+              <span>See it before you pay</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHY LONDON PLUMBERS NEED A WEBSITE
+  ============================================ -->
+  <section id="why" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Why it matters</span>
+        <h2 class="section-title" id="why-heading">Birmingham homeowners search online first</h2>
+        <p class="section-sub">Homeowners in Solihull and Erdington expect to find tradespeople online before they pick up the phone. Most plasterers in Birmingham do not have a website, which means the ones who do are winning the jobs.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="why-title">Show up on Google</h3>
+          <p class="why-desc">Every site we build is SEO optimised from day one and submitted to Google Search Console so Birmingham customers can find you.</p>
+        </div>
+
+        <div class="why-card fade-up">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.5 3.28 2 2 0 0 1 3.37 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="why-title">Get more calls</h3>
+          <p class="why-desc">A professional site with your phone number, services and area builds trust fast. Customers call you instead of a competitor.</p>
+        </div>
+
+        <div class="why-card fade-up">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="why-title">Book more jobs</h3>
+          <p class="why-desc">A built-in quote request form means enquiries come in while you're on site. No more missed calls, no more lost jobs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURES
+  ============================================ -->
+  <section id="features" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Everything included</span>
+        <h2 class="section-title" id="features-heading">Everything a Birmingham plasterer needs online</h2>
+        <p class="section-sub">Every site we build comes packed with things that actually help you win more work.</p>
+      </div>
+
+      <div class="features-table fade-up">
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <h3 class="feature-title">Quote forms built in</h3>
+          </div>
+          <p class="feature-desc">Customers request estimates straight to your phone. No chasing, no missed jobs.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <h3 class="feature-title">Shows up on Google</h3>
+          </div>
+          <p class="feature-desc">Shows up when someone searches plasterer near me in your town. Right where your next customer is looking.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            <h3 class="feature-title">Professional domain</h3>
+          </div>
+          <p class="feature-desc">Your own .co.uk address. Looks the part and builds trust the moment someone lands on it.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            <h3 class="feature-title">Mobile optimised</h3>
+          </div>
+          <p class="feature-desc">Over 80% of people search on their phones. Your site looks perfect on every screen every time.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="feature-title">48hr turnaround</h3>
+          </div>
+          <p class="feature-desc">Your demo is ready within 48 hours of filling in the form. Not weeks.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <h3 class="feature-title">Free hosting</h3>
+          </div>
+          <p class="feature-desc">We host and manage your site. No server bills, no technical headaches.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <h3 class="feature-title">No monthly fees</h3>
+          </div>
+          <p class="feature-desc">One fixed price. Yours forever. No subscriptions, no surprises.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <h3 class="feature-title">Ongoing support</h3>
+          </div>
+          <p class="feature-desc">Need to update your services or swap a photo? Just message us. We are here whenever you need us.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIAL
+  ============================================ -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">What plasterers say</span>
+        <h2 class="section-title" id="testimonials-heading">Plasterers who made the move online</h2>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-quote" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        </div>
+        <div class="testimonial-header">
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="https://res.cloudinary.com/dk1arcny5/image/upload/v1775314355/Collin_hrbowa.webp" alt="Gary" loading="lazy">
+            </div>
+            <div>
+              <div class="testimonial-name">Gary Webb</div>
+              <div class="testimonial-role">Plasterer · Coventry</div>
+            </div>
+          </div>
+          <div class="testimonial-stars" aria-label="5 stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-sep"></div>
+        <p class="testimonial-text">"Simple, professional, does the job. Already had two customers contact me through the form. Really pleased with it."</p>
+        <p class="testimonial-verified">Verified customer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRICING
+  ============================================ -->
+  <section id="pricing" aria-labelledby="pricing-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title" id="pricing-heading">One-off price. No surprises.</h2>
+        <p class="section-sub">Pay once and your site is yours. No contracts, no monthly fees, no annual renewals. Ever.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pcard fade-up">
+          <p class="pcard-name">Starter</p>
+          <p class="pcard-price"><sup>£</sup>300</p>
+          <p class="pcard-price-note">One-off payment</p>
+          <p class="pcard-desc">Perfect if you just need a professional online presence to send customers to.</p>
+          <ul class="pcard-features">
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Single-page website</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Quote and contact form</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>.co.uk domain included</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Free hosting, no renewals</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mobile optimised</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Basic local SEO</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-navy">Get Free Demo</a>
+        </div>
+
+        <!-- Professional (popular) -->
+        <div class="pcard popular fade-up">
+          <span class="popular-badge">Most Popular</span>
+          <p class="pcard-name">Professional</p>
+          <p class="pcard-price"><sup>£</sup>500</p>
+          <p class="pcard-price-note">One-off payment</p>
+          <p class="pcard-desc">The full package. Everything you need to rank in Birmingham and convert visitors into customers.</p>
+          <ul class="pcard-features">
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>5-page website</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Home, About, Services, Portfolio, Quote</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>.co.uk domain + free hosting</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Full on-page SEO</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Google Maps &amp; reviews integration</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Ongoing support included</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Get Free Demo</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pcard fade-up">
+          <p class="pcard-name">Premium</p>
+          <p class="pcard-price"><sup>£</sup>800</p>
+          <p class="pcard-price-note">One-off payment</p>
+          <p class="pcard-desc">For plasterers serious about dominating Birmingham search results across multiple service areas.</p>
+          <ul class="pcard-features">
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Everything in Professional</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Individual service pages</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Local area landing pages</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Advanced on-page SEO</li>
+            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Priority ongoing support</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-navy">Get Free Demo</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA BANNER
+  ============================================ -->
+  <section id="cta-banner" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 class="cta-banner-title" id="cta-heading">
+        Ready to get more plasterer jobs<br>in <span class="accent">Birmingham?</span>
+      </h2>
+      <p class="cta-banner-sub">We'll have your demo ready within 48 hours. See it on your phone before you spend a penny.</p>
+      <a href="#contact" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Get Your Free Demo
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LEAD CAPTURE FORM
+  ============================================ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: form -->
+        <div class="contact-form-col">
+          <span class="section-label">Free demo</span>
+          <h2 class="section-title" id="contact-heading">Claim your free plasterer website demo</h2>
+          <p class="section-sub">Fill this in and we'll have your demo site ready within 48 hours. No payment. No commitment.</p>
+
+        <div class="form-card">
+          <form id="demo-form" novalidate aria-label="Free demo request form">
+
+            <div class="form-group">
+              <label for="fullname">Your name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="John Smith" required autocomplete="name" aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="business">Business name <span aria-hidden="true">*</span></label>
+              <input type="text" id="business" name="business" placeholder="e.g. Smith Plastering Ltd" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">WhatsApp number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="07700 900 000" required autocomplete="tel" aria-required="true">
+              <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">We'll reach out via WhatsApp to share your demo and answer any questions.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="trade">Your trade <span aria-hidden="true">*</span></label>
+              <select id="trade" name="trade" required aria-required="true">
+                <option value="">Select your trade…</option>
+                <option value="plumber">Plumber</option>
+                <option value="electrician">Electrician</option>
+                <option value="builder">Builder</option>
+                <option value="landscaper">Landscaper</option>
+                <option value="decorator">Decorator</option>
+                <option value="bricklayer">Bricklayer</option>
+                <option value="roofer">Roofer</option>
+                <option value="plasterer" selected>Plasterer</option>
+                <option value="joiner">Joiner / Carpenter</option>
+                <option value="gas">Gas Engineer</option>
+                <option value="other">Other trade</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="area">Your town / area <span aria-hidden="true">*</span></label>
+              <input type="text" id="area" name="area" placeholder="e.g. Birmingham, Solihull, Erdington" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="plan">Which plan are you interested in?</label>
+              <select id="plan" name="plan">
+                <option value="">Select a plan…</option>
+                <option value="starter">Starter (£300)</option>
+                <option value="professional">Professional (£500)</option>
+                <option value="premium">Premium (£800)</option>
+                <option value="notsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Anything else we should know? <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="Tell us a bit about your business, what plasterer services you offer, any sites you've seen and liked…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Send My Free Demo Request
+            </button>
+
+            <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#" class="privacy-trigger">privacy policy</a>.</p>
+
+            <div id="form-success" style="display:none;margin-top:16px;padding:14px 18px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;color:#166534;font-size:15px;font-weight:600;text-align:center;">
+              We will be in touch via WhatsApp within 48 hours.
+            </div>
+            <div id="form-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:8px;color:#dc2626;font-size:15px;text-align:center;">
+              Something went wrong. Please try again or message us on WhatsApp.
+            </div>
+          </form>
+        </div>
+        </div><!-- /contact-form-col -->
+
+        <!-- Right: what happens next -->
+        <div class="contact-steps-col">
+          <span class="section-label">What happens next</span>
+          <h3 class="whn-heading">Here is exactly what to expect</h3>
+
+          <div class="whn-steps">
+
+            <div class="whn-step">
+              <div class="whn-num">1</div>
+              <div class="whn-body">
+                <p class="whn-title">You fill in the form</p>
+                <p class="whn-desc">Takes two minutes. Tell us your trade and where you work.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">2</div>
+              <div class="whn-body">
+                <p class="whn-title">We reach out on WhatsApp</p>
+                <p class="whn-desc">We will message you within 24 hours to confirm your details and get started.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">3</div>
+              <div class="whn-body">
+                <p class="whn-title">We build your demo</p>
+                <p class="whn-desc">Your full website is built within 48 hours and sent to you as a link.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">4</div>
+              <div class="whn-body">
+                <p class="whn-title">You review and request changes</p>
+                <p class="whn-desc">Check it out on your phone. Want anything tweaked? Just let us know and we will sort it.</p>
+              </div>
+            </div>
+
+            <div class="whn-step">
+              <div class="whn-num">5</div>
+              <div class="whn-body">
+                <p class="whn-title">You decide</p>
+                <p class="whn-desc">Happy with it? Pay once and we get it live on Google. Not happy? Walk away. Nothing owed.</p>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /contact-steps-col -->
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+
+      <div aria-label="WebForTrades">
+        <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
+          <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
+            <tspan font-weight="700" fill="#ffffff">Web</tspan><tspan font-weight="400" font-style="italic" fill="#ffffff">For</tspan><tspan font-weight="700" fill="#f16517">Trades</tspan>
+          </text>
+        </svg>
+      </div>
+
+      <hr class="footer-divider">
+
+      <p class="footer-copy">&copy; 2026 WebForTrades. All rights reserved. &nbsp;<a href="#" id="privacy-trigger" style="color:rgba(255,255,255,.5);text-decoration:underline;transition:color .2s ease;" onmouseover="this.style.color='rgba(255,255,255,1)'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Privacy Policy</a></p>
+
+      <nav class="footer-socials" aria-label="Social media links">
+        <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61588271471488&locale=en_GB" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 8h-2a2 2 0 00-2 2v2h4l-.5 4H12v6H8v-6H6v-4h2v-2a6 6 0 016-6h2v4z"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://www.instagram.com/webfortrades/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5" stroke-width="1.75"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://wa.me/447436427087" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775338188/whatsapp_vzqxxm.png" alt="" aria-hidden="true" width="24" height="24" loading="lazy">
+        </a>
+        <a class="footer-social-link" href="mailto:contact@webfortradesuk.co.uk" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </a>
+      </nav>
+
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+  ============================================ -->
+  <script>
+    /* ── Nav: scroll state ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    /* ── Nav: mobile hamburger ── */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open navigation menu');
+    }
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('click', function (e) { if (!navbar.contains(e.target)) closeMenu(); });
+
+    /* ── Scroll-triggered fade-up ── */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
+    }
+
+    /* ── Form: validation & Supabase submit ── */
+    (function () {
+      var SB_URL = 'https://fzljzrqeedjxwpfwlufy.supabase.co/rest/v1/leads';
+      var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6bGp6cnFlZWRqeHdwZndsdWZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMzg0ODUsImV4cCI6MjA5MDkxNDQ4NX0.cI7zR6UH_fc-GREESADpwV4EbYPCRgstHqW_dSe8Y8Q';
+      var form = document.getElementById('demo-form');
+      if (!form) return;
+      var origBtnHTML = form.querySelector('.form-submit').innerHTML;
+
+      function showError(field, msg) {
+        field.style.border = '2px solid #e53e3e';
+        var err = field.parentNode.querySelector('.field-error');
+        if (!err) {
+          err = document.createElement('span');
+          err.className = 'field-error';
+          err.style.cssText = 'display:block;color:#e53e3e;font-size:13px;margin-top:4px;';
+          field.insertAdjacentElement('afterend', err);
+        }
+        err.textContent = msg;
+      }
+
+      function clearError(field) {
+        field.style.border = '';
+        var err = field.parentNode.querySelector('.field-error');
+        if (err) err.remove();
+      }
+
+      ['fullname', 'business', 'phone', 'email', 'area'].forEach(function (name) {
+        var f = form.elements[name];
+        if (f) f.addEventListener('input', function () { clearError(f); });
+      });
+      ['trade', 'plan'].forEach(function (name) {
+        var f = form.elements[name];
+        if (f) f.addEventListener('change', function () { clearError(f); });
+      });
+
+      function validate() {
+        var invalid = [];
+        var el = form.elements;
+
+        ['fullname', 'business', 'phone', 'email', 'area', 'trade', 'plan'].forEach(function (n) {
+          if (el[n]) clearError(el[n]);
+        });
+
+        if (!el.fullname.value.trim()) { showError(el.fullname, 'Please enter your name'); invalid.push(el.fullname); }
+        if (!el.business.value.trim()) { showError(el.business, 'Please enter your business name'); invalid.push(el.business); }
+
+        var phone = el.phone.value.trim();
+        if (!phone) {
+          showError(el.phone, 'Please enter your WhatsApp number'); invalid.push(el.phone);
+        } else {
+          var stripped = phone.replace(/[\s\-\(\)\.]/g, '');
+          if (!/^(07\d{9}|\+44\d{9,}|\+[1-9]\d{8,})$/.test(stripped)) {
+            showError(el.phone, 'Please enter a valid WhatsApp number'); invalid.push(el.phone);
+          }
+        }
+
+        var email = el.email.value.trim();
+        if (!email) {
+          showError(el.email, 'Please enter your email address'); invalid.push(el.email);
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError(el.email, 'Please enter a valid email address'); invalid.push(el.email);
+        }
+
+        if (!el.area.value.trim()) { showError(el.area, 'Please enter your town or area'); invalid.push(el.area); }
+        if (!el.trade.value) { showError(el.trade, 'Please select your trade'); invalid.push(el.trade); }
+        if (!el.plan.value) { showError(el.plan, 'Please select a plan'); invalid.push(el.plan); }
+
+        return invalid;
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var invalid = validate();
+        if (invalid.length > 0) {
+          invalid[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          invalid[0].focus();
+          return;
+        }
+
+        var btn = form.querySelector('.form-submit');
+        var successMsg = document.getElementById('form-success');
+        var errorMsg   = document.getElementById('form-error');
+        successMsg.style.display = 'none';
+        errorMsg.style.display   = 'none';
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+
+        try {
+          var res = await fetch(SB_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SB_KEY,
+              'Authorization': 'Bearer ' + SB_KEY
+            },
+            body: JSON.stringify({
+              name:          form.fullname.value.trim(),
+              business_name: form.business.value.trim(),
+              whatsapp:      form.phone.value.trim(),
+              email:         form.email.value.trim(),
+              trade:         form.trade.value,
+              plan:          form.plan.value || null,
+              message:       form.notes.value.trim() || null
+            })
+          });
+          btn.disabled = false;
+          btn.innerHTML = origBtnHTML;
+          if (res.ok) {
+            fetch('/api/notify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name:          form.fullname.value.trim(),
+                business_name: form.business.value.trim(),
+                whatsapp:      form.phone.value.trim(),
+                email:         form.email.value.trim(),
+                trade:         form.trade.value,
+                plan:          form.plan.value || null,
+                message:       form.notes.value.trim() || null
+              })
+            }).catch(function (err) { console.warn('notify failed:', err); });
+            successMsg.style.display = 'block';
+            form.reset();
+            /* Re-select plasterer after reset */
+            form.elements.trade.value = 'plasterer';
+          } else {
+            errorMsg.style.display = 'block';
+          }
+        } catch (err) {
+          btn.disabled = false;
+          btn.innerHTML = origBtnHTML;
+          errorMsg.style.display = 'block';
+        }
+      });
+    })();
+
+    /* ── Privacy modal ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      var overlay = document.getElementById('privacy-overlay');
+      function openModal(e) { e.preventDefault(); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+      document.getElementById('privacy-trigger').addEventListener('click', openModal);
+      document.querySelectorAll('.privacy-trigger').forEach(function (el) { el.addEventListener('click', openModal); });
+      document.getElementById('privacy-close').addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    });
+  </script>
+
+  <!-- ============================================
+       PRIVACY POLICY MODAL
+  ============================================ -->
+  <div id="privacy-overlay" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div id="privacy-modal">
+      <button id="privacy-close" aria-label="Close privacy policy">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h2 class="privacy-h1" id="privacy-modal-title">Privacy Policy</h2>
+      <p class="privacy-updated">Last updated: April 2026</p>
+
+      <h2 class="privacy-h2">1. Who we are</h2>
+      <p class="privacy-p">WebForTrades builds websites for UK tradespeople. You can contact us at <a href="mailto:contact@webfortradesuk.co.uk">contact@webfortradesuk.co.uk</a></p>
+
+      <h2 class="privacy-h2">2. What information we collect</h2>
+      <p class="privacy-p">When you fill in the form on this page, we collect your name, business name, WhatsApp number, email address, trade and which plan you are interested in.</p>
+
+      <h2 class="privacy-h2">3. How we use your information</h2>
+      <p class="privacy-p">We use your details to build your free demo website and to contact you via WhatsApp to share it with you. We do not sell your data to anyone, ever.</p>
+
+      <h2 class="privacy-h2">4. How we store your data</h2>
+      <p class="privacy-p">Your data is stored securely. We only keep your information for as long as is needed to provide the service to you.</p>
+
+      <h2 class="privacy-h2">5. Your rights</h2>
+      <p class="privacy-p">You can ask us to delete your data at any time by emailing <a href="mailto:contact@webfortradesuk.co.uk">contact@webfortradesuk.co.uk</a> and we will remove it promptly.</p>
+
+      <h2 class="privacy-h2">6. Cookies</h2>
+      <p class="privacy-p">This site may use basic cookies to help it function correctly. We do not use advertising or tracking cookies.</p>
+
+      <h2 class="privacy-h2">7. Changes to this policy</h2>
+      <p class="privacy-p">We may update this policy occasionally. The latest version will always be available on this page.</p>
+    </div>
+  </div>
+
+</body>
+</html>
