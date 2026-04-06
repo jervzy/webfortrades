@@ -1568,11 +1568,11 @@
     .coverage-item.open .coverage-chevron { transform: rotate(180deg); }
     .coverage-cities {
       display: none;
-      flex-wrap: wrap;
+      grid-template-columns: repeat(5, 1fr);
       gap: 8px;
       padding: 0 24px 20px;
     }
-    .coverage-item.open .coverage-cities { display: flex; }
+    .coverage-item.open .coverage-cities { display: grid; }
     .coverage-cities a {
       font-size: 13px;
       font-weight: 600;
@@ -1582,12 +1582,16 @@
       border: 1px solid var(--border);
       padding: 5px 14px;
       border-radius: 20px;
+      text-align: center;
       transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
     .coverage-cities a:hover {
       background: var(--orange);
       color: var(--white);
       border-color: var(--orange);
+    }
+    @media (max-width: 640px) {
+      .coverage-cities { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ============================================
