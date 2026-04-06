@@ -609,10 +609,24 @@
       gap: 64px;
       align-items: start;
     }
+    .contact-form-col { order: 1; }
+    .contact-steps-col { order: 2; }
     .contact-form-col .form-card { margin-top: 24px; }
+    .contact-form-col .section-sub { font-size: 15px; color: var(--text-muted); font-weight: 400; }
 
-    /* ── What happens next ── */
-    .whn-steps { margin-top: 32px; }
+    /* ── What happens next heading ── */
+    .contact-steps-col .section-label { margin-bottom: 8px; }
+    .whn-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0;
+      line-height: 1.25;
+    }
+
+    /* ── What happens next steps ── */
+    .whn-steps { margin-top: 28px; }
     .whn-step {
       display: flex;
       gap: 16px;
@@ -652,7 +666,8 @@
 
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .contact-steps-col { order: -1; }
+      .contact-form-col { order: 1; }
+      .contact-steps-col { order: 2; }
     }
 
     /* ── Footer ── */
@@ -1257,7 +1272,7 @@
         <!-- Right: what happens next -->
         <div class="contact-steps-col">
           <span class="section-label">What happens next</span>
-          <h3 class="section-title">Here is exactly what to expect</h3>
+          <h3 class="whn-heading">Here is exactly what to expect</h3>
 
           <div class="whn-steps">
 

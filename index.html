@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebForTrades — Professional Websites for UK Tradespeople</title>
-  <meta name="description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
+  <title>WebForTrades | Professional Websites for UK Tradespeople</title>
+  <meta name="description" content="We build free demo websites for UK tradespeople: plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
   <link rel="canonical" href="https://www.webfortradesuk.co.uk/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="WebForTrades — Professional Websites for UK Tradespeople">
-  <meta property="og:description" content="We build free demo websites for UK tradespeople — plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
+  <meta property="og:title" content="WebForTrades | Professional Websites for UK Tradespeople">
+  <meta property="og:description" content="We build free demo websites for UK tradespeople: plumbers, electricians, builders and more. See it before you pay. From £300, no contracts.">
   <meta property="og:url" content="https://www.webfortradesuk.co.uk/">
   <meta property="og:image" content="https://www.webfortradesuk.co.uk/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://www.webfortradesuk.co.uk/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WebForTrades — Professional Websites for UK Tradespeople">
+  <meta name="twitter:title" content="WebForTrades | Professional Websites for UK Tradespeople">
   <meta name="twitter:description" content="Free demo in 48 hours. Pay only if you love it. From £300, no contracts, no annual fees.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307274c'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='13' fill='white'>WF<tspan fill='%23f16517'>T</tspan></text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1454,10 +1454,24 @@
       gap: 64px;
       align-items: start;
     }
+    .contact-form-col { order: 1; }
+    .contact-steps-col { order: 2; }
     .contact-form-col .form-card { margin-top: 24px; }
+    .contact-form-col .section-sub { font-size: 15px; color: var(--text-muted); font-weight: 400; }
 
-    /* ── What happens next ── */
-    .whn-steps { margin-top: 32px; }
+    /* ── What happens next heading ── */
+    .contact-steps-col .section-label { margin-bottom: 8px; }
+    .whn-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0;
+      line-height: 1.25;
+    }
+
+    /* ── What happens next steps ── */
+    .whn-steps { margin-top: 28px; }
     .whn-step {
       display: flex;
       gap: 16px;
@@ -1497,7 +1511,8 @@
 
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .contact-steps-col { order: -1; }
+      .contact-form-col { order: 1; }
+      .contact-steps-col { order: 2; }
     }
 
     /* ============================================
@@ -1707,7 +1722,7 @@
         "@id": "https://www.webfortradesuk.co.uk/#organization",
         "name": "WebForTrades",
         "url": "https://www.webfortradesuk.co.uk/",
-        "description": "Professional website design for UK tradespeople. We build a free demo first — you only pay if you love it. One-off pricing, no contracts, no annual fees.",
+        "description": "Professional website design for UK tradespeople. We build a free demo first. You only pay if you love it. One-off pricing, no contracts, no annual fees.",
         "email": "contact@webfortradesuk.co.uk",
         "telephone": "+447436427087",
         "areaServed": { "@type": "Country", "name": "United Kingdom" },
@@ -1727,7 +1742,7 @@
         "@id": "https://www.webfortradesuk.co.uk/#website",
         "url": "https://www.webfortradesuk.co.uk/",
         "name": "WebForTrades",
-        "description": "Professional websites for UK tradespeople — plumbers, electricians, builders and more.",
+        "description": "Professional websites for UK tradespeople: plumbers, electricians, builders and more.",
         "publisher": { "@id": "https://www.webfortradesuk.co.uk/#organization" },
         "inLanguage": "en-GB"
       }
@@ -1865,7 +1880,7 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
 
-      <a href="#" class="nav-logo" aria-label="WebForTrades — home">
+      <a href="#" class="nav-logo" aria-label="WebForTrades home">
         <!-- Light variant: white "WebFor" + orange "Trades" — shown on dark hero -->
         <svg class="logo-svg logo-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 90" aria-hidden="true">
           <text font-family="Arial, Helvetica, sans-serif" font-size="80" y="72">
@@ -1987,7 +2002,7 @@
         <!-- ── Right: floating notification cards visual ── -->
         <div class="hero-visual" aria-hidden="true">
           <div class="phone-frame">
-            <p class="phone-label">Your new website — live</p>
+            <p class="phone-label">Your new website, live</p>
 
             <!-- Card 1: new quote request -->
             <div class="notif-card" id="nc1">
@@ -2106,7 +2121,7 @@
         <div class="step-card fade-up">
           <div class="step-number" aria-hidden="true">2</div>
           <h3 class="step-title">We build your free demo</h3>
-          <p class="step-desc">Within 48 hours we'll have a professional demo site ready for you to view and click through — on your phone or laptop.</p>
+          <p class="step-desc">Within 48 hours we'll have a professional demo site ready for you to view and click through on your phone or laptop.</p>
         </div>
 
         <div class="step-card fade-up">
@@ -2690,7 +2705,7 @@
       <div class="section-header-center">
         <span class="section-label">Clear pricing</span>
         <h2 class="section-title" id="pricing-heading">No hidden costs. Ever.</h2>
-        <p class="section-sub">One fixed price, everything included. And remember — you only pay if you love the demo.</p>
+        <p class="section-sub">One fixed price, everything included. And remember, you only pay if you love the demo.</p>
       </div>
 
       <div class="pricing-grid">
@@ -2961,7 +2976,7 @@
         <!-- Right: what happens next -->
         <div class="contact-steps-col">
           <span class="section-label">What happens next</span>
-          <h3 class="section-title">Here is exactly what to expect</h3>
+          <h3 class="whn-heading">Here is exactly what to expect</h3>
 
           <div class="whn-steps">
 
