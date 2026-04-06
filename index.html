@@ -1524,6 +1524,55 @@
       padding: 60px 0 32px;
     }
     /* ============================================
+       UK COVERAGE
+    ============================================ */
+    #coverage { background: var(--light); padding: 80px 0; }
+    .coverage-grid {
+      margin-top: 48px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .coverage-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      gap: 24px;
+    }
+    .coverage-row:last-child { border-bottom: none; }
+    .coverage-trade {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .coverage-cities { display: flex; flex-wrap: wrap; gap: 6px; }
+    .coverage-cities a {
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Work Sans', sans-serif;
+      color: var(--navy);
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .coverage-cities a:hover {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+    }
+    @media (max-width: 640px) {
+      .coverage-row { grid-template-columns: 1fr; gap: 10px; }
+      .coverage-trade { font-size: 13px; }
+    }
+
+    /* ============================================
        FOOTER — SIMPLE CENTRED
     ============================================ */
     footer {
@@ -3029,6 +3078,183 @@
         </div><!-- /contact-steps-col -->
 
       </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       UK COVERAGE
+  ============================================ -->
+  <section id="coverage" aria-labelledby="coverage-heading">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Where we work</span>
+        <h2 class="section-title" id="coverage-heading">Web design for tradespeople across the UK</h2>
+        <p class="section-sub">We build websites for tradespeople in every major UK city. Find your trade and city below.</p>
+      </div>
+
+      <div class="coverage-grid">
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Plumbers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-plumbers-london">London</a>
+            <a href="/web-design-for-plumbers-manchester">Manchester</a>
+            <a href="/web-design-for-plumbers-birmingham">Birmingham</a>
+            <a href="/web-design-for-plumbers-leeds">Leeds</a>
+            <a href="/web-design-for-plumbers-glasgow">Glasgow</a>
+            <a href="/web-design-for-plumbers-sheffield">Sheffield</a>
+            <a href="/web-design-for-plumbers-liverpool">Liverpool</a>
+            <a href="/web-design-for-plumbers-bristol">Bristol</a>
+            <a href="/web-design-for-plumbers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-plumbers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Electricians</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-electricians-london">London</a>
+            <a href="/web-design-for-electricians-manchester">Manchester</a>
+            <a href="/web-design-for-electricians-birmingham">Birmingham</a>
+            <a href="/web-design-for-electricians-leeds">Leeds</a>
+            <a href="/web-design-for-electricians-glasgow">Glasgow</a>
+            <a href="/web-design-for-electricians-sheffield">Sheffield</a>
+            <a href="/web-design-for-electricians-liverpool">Liverpool</a>
+            <a href="/web-design-for-electricians-bristol">Bristol</a>
+            <a href="/web-design-for-electricians-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-electricians-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Builders</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-builders-london">London</a>
+            <a href="/web-design-for-builders-manchester">Manchester</a>
+            <a href="/web-design-for-builders-birmingham">Birmingham</a>
+            <a href="/web-design-for-builders-leeds">Leeds</a>
+            <a href="/web-design-for-builders-glasgow">Glasgow</a>
+            <a href="/web-design-for-builders-sheffield">Sheffield</a>
+            <a href="/web-design-for-builders-liverpool">Liverpool</a>
+            <a href="/web-design-for-builders-bristol">Bristol</a>
+            <a href="/web-design-for-builders-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-builders-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Bricklayers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-bricklayers-london">London</a>
+            <a href="/web-design-for-bricklayers-manchester">Manchester</a>
+            <a href="/web-design-for-bricklayers-birmingham">Birmingham</a>
+            <a href="/web-design-for-bricklayers-leeds">Leeds</a>
+            <a href="/web-design-for-bricklayers-glasgow">Glasgow</a>
+            <a href="/web-design-for-bricklayers-sheffield">Sheffield</a>
+            <a href="/web-design-for-bricklayers-liverpool">Liverpool</a>
+            <a href="/web-design-for-bricklayers-bristol">Bristol</a>
+            <a href="/web-design-for-bricklayers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-bricklayers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Landscapers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-landscapers-london">London</a>
+            <a href="/web-design-for-landscapers-manchester">Manchester</a>
+            <a href="/web-design-for-landscapers-birmingham">Birmingham</a>
+            <a href="/web-design-for-landscapers-leeds">Leeds</a>
+            <a href="/web-design-for-landscapers-glasgow">Glasgow</a>
+            <a href="/web-design-for-landscapers-sheffield">Sheffield</a>
+            <a href="/web-design-for-landscapers-liverpool">Liverpool</a>
+            <a href="/web-design-for-landscapers-bristol">Bristol</a>
+            <a href="/web-design-for-landscapers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-landscapers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Decorators</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-decorators-london">London</a>
+            <a href="/web-design-for-decorators-manchester">Manchester</a>
+            <a href="/web-design-for-decorators-birmingham">Birmingham</a>
+            <a href="/web-design-for-decorators-leeds">Leeds</a>
+            <a href="/web-design-for-decorators-glasgow">Glasgow</a>
+            <a href="/web-design-for-decorators-sheffield">Sheffield</a>
+            <a href="/web-design-for-decorators-liverpool">Liverpool</a>
+            <a href="/web-design-for-decorators-bristol">Bristol</a>
+            <a href="/web-design-for-decorators-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-decorators-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Roofers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-roofers-london">London</a>
+            <a href="/web-design-for-roofers-manchester">Manchester</a>
+            <a href="/web-design-for-roofers-birmingham">Birmingham</a>
+            <a href="/web-design-for-roofers-leeds">Leeds</a>
+            <a href="/web-design-for-roofers-glasgow">Glasgow</a>
+            <a href="/web-design-for-roofers-sheffield">Sheffield</a>
+            <a href="/web-design-for-roofers-liverpool">Liverpool</a>
+            <a href="/web-design-for-roofers-bristol">Bristol</a>
+            <a href="/web-design-for-roofers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-roofers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Plasterers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-plasterers-london">London</a>
+            <a href="/web-design-for-plasterers-manchester">Manchester</a>
+            <a href="/web-design-for-plasterers-birmingham">Birmingham</a>
+            <a href="/web-design-for-plasterers-leeds">Leeds</a>
+            <a href="/web-design-for-plasterers-glasgow">Glasgow</a>
+            <a href="/web-design-for-plasterers-sheffield">Sheffield</a>
+            <a href="/web-design-for-plasterers-liverpool">Liverpool</a>
+            <a href="/web-design-for-plasterers-bristol">Bristol</a>
+            <a href="/web-design-for-plasterers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-plasterers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Joiners</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-joiners-london">London</a>
+            <a href="/web-design-for-joiners-manchester">Manchester</a>
+            <a href="/web-design-for-joiners-birmingham">Birmingham</a>
+            <a href="/web-design-for-joiners-leeds">Leeds</a>
+            <a href="/web-design-for-joiners-glasgow">Glasgow</a>
+            <a href="/web-design-for-joiners-sheffield">Sheffield</a>
+            <a href="/web-design-for-joiners-liverpool">Liverpool</a>
+            <a href="/web-design-for-joiners-bristol">Bristol</a>
+            <a href="/web-design-for-joiners-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-joiners-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+        <div class="coverage-row">
+          <span class="coverage-trade">Gas Engineers</span>
+          <div class="coverage-cities">
+            <a href="/web-design-for-gas-engineers-london">London</a>
+            <a href="/web-design-for-gas-engineers-manchester">Manchester</a>
+            <a href="/web-design-for-gas-engineers-birmingham">Birmingham</a>
+            <a href="/web-design-for-gas-engineers-leeds">Leeds</a>
+            <a href="/web-design-for-gas-engineers-glasgow">Glasgow</a>
+            <a href="/web-design-for-gas-engineers-sheffield">Sheffield</a>
+            <a href="/web-design-for-gas-engineers-liverpool">Liverpool</a>
+            <a href="/web-design-for-gas-engineers-bristol">Bristol</a>
+            <a href="/web-design-for-gas-engineers-edinburgh">Edinburgh</a>
+            <a href="/web-design-for-gas-engineers-cardiff">Cardiff</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
