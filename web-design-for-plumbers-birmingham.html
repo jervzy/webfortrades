@@ -780,6 +780,11 @@
     }
   }
   </script>
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a=e._i.push([i,[s],a]),u.config=s,u.config.uuid=a,u.identify=function(t,e,o){u.push(["identify",t,e,o])},u.capture=function(t,e,o){u.push(["capture",t,e,o])},u.reset=function(t){u.push(["reset",t])},u.people={set:function(t,e){u.push(["people.set",t,e])},set_once:function(t,e){u.push(["people.set_once",t,e])},unset:function(t){u.push(["people.unset",t])}},u.toString=function(t){var e="posthog";return a&&(e+="/"+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString()+" (stub)"},n="capture identify alias people.set people.set_once set config reset opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing startSessionRecording stopSessionRecording".split(" "),o=0;o<n.length;o++)g(u,n[o]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_p24XYgFuR54EXr6ceTFHEBtGQbTq4AmVjqmk4N4oCMa2', {api_host: 'https://eu.i.posthog.com'})
+  </script>
 </head>
 <body>
 
