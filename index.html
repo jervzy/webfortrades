@@ -2989,6 +2989,33 @@
   <!-- ============================================
        LEAD CAPTURE FORM
   ============================================ -->
+  <style>
+    /* Multi-step demo form (scoped additions; reuses existing .form-group/.btn styles) */
+    .form-step { display: none; }
+    .form-step.is-active { display: block; animation: msf-fade .25s ease; }
+    @keyframes msf-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .msf-progress { margin-bottom: 22px; }
+    .msf-progress-label { font-size: 13px; font-weight: 700; color: var(--text-muted); letter-spacing: .03em; margin: 0 0 8px; }
+    .msf-progress-track { height: 6px; background: #e7ecf3; border-radius: 999px; overflow: hidden; }
+    .msf-progress-bar { height: 100%; width: 20%; background: #f16517; border-radius: 999px; transition: width .3s ease; }
+    .msf-step-title { font-size: 21px; font-weight: 800; color: #07274c; margin: 0 0 6px; letter-spacing: -.2px; }
+    .msf-step-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin: 0 0 20px; }
+    .msf-nav { display: flex; gap: 12px; margin-top: 8px; }
+    .msf-nav .btn { flex: 1; justify-content: center; }
+    .msf-back { background: transparent; border: 1.5px solid #d3dbe6; color: #07274c; }
+    .msf-back:hover { background: #f1f4f9; }
+    .msf-summary { list-style: none; padding: 0; margin: 0 0 20px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .msf-summary li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 16px; font-size: 15px; border-bottom: 1px solid #eef2f7; }
+    .msf-summary li:last-child { border-bottom: none; }
+    .msf-summary .msf-k { color: var(--text-muted); font-weight: 600; }
+    .msf-summary .msf-v { color: #07274c; font-weight: 600; text-align: right; word-break: break-word; }
+    @media (max-width: 640px) {
+      .msf-nav { flex-direction: column-reverse; }
+      .msf-summary li { flex-direction: column; gap: 2px; }
+      .msf-summary .msf-v { text-align: left; }
+    }
+  </style>
+
   <section id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="contact-grid">
@@ -3003,74 +3030,117 @@
           <!-- PLACEHOLDER: Connect this form to your backend / email handler -->
           <form id="demo-form" novalidate aria-label="Free demo request form">
 
-            <div class="form-group">
-              <label for="fullname">Your name <span aria-hidden="true">*</span></label>
-              <input type="text" id="fullname" name="fullname" placeholder="John Smith" required autocomplete="name" aria-required="true">
+            <div class="msf-progress" id="msf-progress" hidden>
+              <p class="msf-progress-label" id="msf-progress-label" aria-live="polite">Step 2 of 5</p>
+              <div class="msf-progress-track"><div class="msf-progress-bar" id="msf-progress-bar"></div></div>
             </div>
 
-            <div class="form-group">
-              <label for="business">Business name <span aria-hidden="true">*</span></label>
-              <input type="text" id="business" name="business" placeholder="e.g. Smith Plumbing Ltd" required aria-required="true">
+            <!-- Step 1: intro -->
+            <div class="form-step is-active" data-step="1">
+              <h3 class="msf-step-title">Let's get your free demo started</h3>
+              <p class="msf-step-sub">It only takes about a minute and there's no payment needed. Answer a few quick questions and I'll build your demo within 48 hours.</p>
+              <div class="msf-nav">
+                <button type="button" class="btn btn-primary msf-next">Start</button>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="phone">WhatsApp number <span aria-hidden="true">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="07700 900 000" required autocomplete="tel" aria-required="true">
-              <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">We'll reach out via WhatsApp to share your demo and answer any questions.</p>
+            <!-- Step 2: basic details -->
+            <div class="form-step" data-step="2">
+              <h3 class="msf-step-title">Your details</h3>
+              <p class="msf-step-sub">Who am I building this for?</p>
+              <div class="form-group">
+                <label for="fullname">Your name <span aria-hidden="true">*</span></label>
+                <input type="text" id="fullname" name="fullname" placeholder="John Smith" autocomplete="name" aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="business">Business name <span aria-hidden="true">*</span></label>
+                <input type="text" id="business" name="business" placeholder="e.g. Smith Plumbing Ltd" aria-required="true">
+              </div>
+              <div class="msf-nav">
+                <button type="button" class="btn msf-back">Back</button>
+                <button type="button" class="btn btn-primary msf-next">Continue</button>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="email">Email address <span aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" aria-required="true">
+            <!-- Step 3: business info -->
+            <div class="form-step" data-step="3">
+              <h3 class="msf-step-title">About your work</h3>
+              <p class="msf-step-sub">So the site speaks to the right customers.</p>
+              <div class="form-group">
+                <label for="trade">Your trade <span aria-hidden="true">*</span></label>
+                <select id="trade" name="trade" aria-required="true">
+                  <option value="">Select your trade…</option>
+                  <option value="plumber">Plumber</option>
+                  <option value="electrician">Electrician</option>
+                  <option value="builder">Builder</option>
+                  <option value="landscaper">Landscaper</option>
+                  <option value="decorator">Decorator</option>
+                  <option value="bricklayer">Bricklayer</option>
+                  <option value="roofer">Roofer</option>
+                  <option value="plasterer">Plasterer</option>
+                  <option value="joiner">Joiner / Carpenter</option>
+                  <option value="gas">Gas Engineer</option>
+                  <option value="other">Other trade</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="area">Your town / area <span aria-hidden="true">*</span></label>
+                <input type="text" id="area" name="area" placeholder="e.g. Leeds, Manchester, Bristol" aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="website">Current website or Google profile link <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+                <input type="text" id="website" name="website" placeholder="e.g. yoursite.co.uk or your Google listing" autocomplete="url" inputmode="url">
+              </div>
+              <div class="msf-nav">
+                <button type="button" class="btn msf-back">Back</button>
+                <button type="button" class="btn btn-primary msf-next">Continue</button>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="trade">Your trade <span aria-hidden="true">*</span></label>
-              <select id="trade" name="trade" required aria-required="true">
-                <option value="">Select your trade…</option>
-                <option value="plumber">Plumber</option>
-                <option value="electrician">Electrician</option>
-                <option value="builder">Builder</option>
-                <option value="landscaper">Landscaper</option>
-                <option value="decorator">Decorator</option>
-                <option value="bricklayer">Bricklayer</option>
-                <option value="roofer">Roofer</option>
-                <option value="plasterer">Plasterer</option>
-                <option value="joiner">Joiner / Carpenter</option>
-                <option value="gas">Gas Engineer</option>
-                <option value="other">Other trade</option>
-              </select>
+            <!-- Step 4: contact details -->
+            <div class="form-step" data-step="4">
+              <h3 class="msf-step-title">How do I reach you?</h3>
+              <p class="msf-step-sub">I'll send your demo link here. No spam, ever.</p>
+              <div class="form-group">
+                <label for="phone">WhatsApp number <span aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="07700 900 000" autocomplete="tel" inputmode="tel" aria-required="true">
+                <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">UK mobile. Spaces, +44 or 07 all work fine.</p>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" inputmode="email" aria-required="true">
+              </div>
+              <div class="msf-nav">
+                <button type="button" class="btn msf-back">Back</button>
+                <button type="button" class="btn btn-primary msf-next">Continue</button>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="area">Your town / area <span aria-hidden="true">*</span></label>
-              <input type="text" id="area" name="area" placeholder="e.g. Leeds, Manchester, Bristol" required aria-required="true">
+            <!-- Step 5: confirm -->
+            <div class="form-step" data-step="5">
+              <h3 class="msf-step-title">Quick check, then you're done</h3>
+              <p class="msf-step-sub">Make sure this looks right. You won't pay anything and there's no commitment.</p>
+              <div class="form-group">
+                <label for="plan">Which works best for you? <span aria-hidden="true">*</span></label>
+                <select id="plan" name="plan" aria-required="true">
+                  <option value="">Select one…</option>
+                  <option value="One-off website">One-off website</option>
+                  <option value="Monthly plan">Monthly plan</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </div>
+              <ul class="msf-summary" id="msf-summary" aria-live="polite"></ul>
+              <button type="submit" class="btn btn-primary form-submit" style="width:100%;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Request my free demo
+              </button>
+              <div class="msf-nav" style="margin-top:12px;">
+                <button type="button" class="btn msf-back">Back</button>
+              </div>
+              <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#" class="privacy-trigger">privacy policy</a>.</p>
             </div>
-
-            <div class="form-group">
-              <label for="plan">Which plan are you interested in?</label>
-              <select id="plan" name="plan">
-                <option value="">Select a plan…</option>
-                <option value="starter">Starter</option>
-                <option value="professional">Professional</option>
-                <option value="premium">Premium</option>
-                <option value="notsure">Not sure yet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="notes">Anything else we should know? <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
-              <textarea id="notes" name="notes" placeholder="Tell us a bit about your business, what services you offer, any sites you've seen and liked…"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary form-submit">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-              Send My Free Demo Request
-            </button>
-
-            <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#" class="privacy-trigger">privacy policy</a>.</p>
 
             <div id="form-success" style="display:none;margin-top:16px;padding:14px 18px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;color:#166534;font-size:15px;font-weight:600;text-align:center;">
               We will be in touch via WhatsApp within 48 hours.
@@ -3684,9 +3754,16 @@
       var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6bGp6cnFlZWRqeHdwZndsdWZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMzg0ODUsImV4cCI6MjA5MDkxNDQ4NX0.cI7zR6UH_fc-GREESADpwV4EbYPCRgstHqW_dSe8Y8Q';
       var form = document.getElementById('demo-form');
       if (!form) return;
-      var origBtnHTML = form.querySelector('.form-submit').innerHTML;
+      var submitBtn = form.querySelector('.form-submit');
+      var origBtnHTML = submitBtn.innerHTML;
 
-      /* ── Validation helpers ───────────────────── */
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
+      var TOTAL = steps.length;
+      var current = 0;
+      var progress = document.getElementById('msf-progress');
+      var progressLabel = document.getElementById('msf-progress-label');
+      var progressBar = document.getElementById('msf-progress-bar');
+
       function showError(field, msg) {
         field.style.border = '2px solid #e53e3e';
         var err = field.parentNode.querySelector('.field-error');
@@ -3698,99 +3775,153 @@
         }
         err.textContent = msg;
       }
-
       function clearError(field) {
         field.style.border = '';
         var err = field.parentNode.querySelector('.field-error');
         if (err) err.remove();
       }
 
-      /* clear error as soon as user corrects a field */
-      ['fullname', 'business', 'phone', 'email', 'area'].forEach(function (name) {
-        var f = form.elements[name];
+      ['fullname', 'business', 'phone', 'email', 'area', 'website'].forEach(function (n) {
+        var f = form.elements[n];
         if (f) f.addEventListener('input', function () { clearError(f); });
       });
-      ['trade', 'plan'].forEach(function (name) {
-        var f = form.elements[name];
+      ['trade', 'plan'].forEach(function (n) {
+        var f = form.elements[n];
         if (f) f.addEventListener('change', function () { clearError(f); });
       });
 
-      function validate() {
+      function phoneOk(v) {
+        var d = String(v).replace(/[^\d+]/g, '').replace(/^\+/, '');
+        return /^07\d{9}$/.test(d) || /^447\d{9}$/.test(d) || /^7\d{9}$/.test(d);
+      }
+      function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+      function validateStep(stepEl) {
         var invalid = [];
-        var el = form.elements;
-
-        /* clear all first */
-        ['fullname', 'business', 'phone', 'email', 'area', 'trade', 'plan'].forEach(function (n) {
-          if (el[n]) clearError(el[n]);
-        });
-
-        if (!el.fullname.value.trim()) {
-          showError(el.fullname, 'Please enter your name');
-          invalid.push(el.fullname);
+        function need(name, msg) {
+          var f = form.elements[name]; if (!f) return;
+          clearError(f);
+          if (!String(f.value).trim()) { showError(f, msg); invalid.push(f); }
         }
-
-        if (!el.business.value.trim()) {
-          showError(el.business, 'Please enter your business name');
-          invalid.push(el.business);
+        var step = stepEl.getAttribute('data-step');
+        if (step === '2') {
+          need('fullname', 'Please enter your name');
+          need('business', 'Please enter your business name');
+        } else if (step === '3') {
+          var t = form.elements['trade']; clearError(t);
+          if (!t.value) { showError(t, 'Please select your trade'); invalid.push(t); }
+          need('area', 'Please enter your town or area');
+        } else if (step === '4') {
+          var p = form.elements['phone']; clearError(p);
+          var pv = p.value.trim();
+          if (!pv) { showError(p, 'Please enter your WhatsApp number'); invalid.push(p); }
+          else if (!phoneOk(pv)) { showError(p, 'That does not look like a UK mobile. Try 07700 900000 or +44 7700 900000'); invalid.push(p); }
+          var em = form.elements['email']; clearError(em);
+          var ev = em.value.trim();
+          if (!ev) { showError(em, 'Please enter your email address'); invalid.push(em); }
+          else if (!emailOk(ev)) { showError(em, 'Please enter a valid email address'); invalid.push(em); }
+        } else if (step === '5') {
+          var pl = form.elements['plan']; clearError(pl);
+          if (!pl.value) { showError(pl, 'Please pick an option'); invalid.push(pl); }
         }
-
-        var phone = el.phone.value.trim();
-        if (!phone) {
-          showError(el.phone, 'Please enter your WhatsApp number');
-          invalid.push(el.phone);
-        } else {
-          var stripped = phone.replace(/[\s\-\(\)\.]/g, '');
-          if (!/^(07\d{9}|\+44\d{9,}|\+[1-9]\d{8,})$/.test(stripped)) {
-            showError(el.phone, 'Please enter a valid WhatsApp number');
-            invalid.push(el.phone);
-          }
-        }
-
-        var email = el.email.value.trim();
-        if (!email) {
-          showError(el.email, 'Please enter your email address');
-          invalid.push(el.email);
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          showError(el.email, 'Please enter a valid email address');
-          invalid.push(el.email);
-        }
-
-        if (!el.area.value.trim()) {
-          showError(el.area, 'Please enter your town or area');
-          invalid.push(el.area);
-        }
-
-        if (!el.trade.value) {
-          showError(el.trade, 'Please select your trade');
-          invalid.push(el.trade);
-        }
-
-        if (!el.plan.value) {
-          showError(el.plan, 'Please select a plan');
-          invalid.push(el.plan);
-        }
-
         return invalid;
+      }
+
+      function tradeLabel() {
+        var t = form.elements['trade'];
+        return (t.options[t.selectedIndex] && t.value) ? t.options[t.selectedIndex].text : '';
+      }
+      function esc(x) { return String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+      function buildSummary() {
+        var ul = document.getElementById('msf-summary');
+        if (!ul) return;
+        var rows = [
+          ['Name', form.fullname.value.trim()],
+          ['Business', form.business.value.trim()],
+          ['Trade', tradeLabel()],
+          ['Area', form.area.value.trim()],
+          ['Current site', form.website.value.trim()],
+          ['WhatsApp', form.phone.value.trim()],
+          ['Email', form.email.value.trim()]
+        ];
+        ul.innerHTML = rows.filter(function (r) { return r[1]; }).map(function (r) {
+          return '<li><span class="msf-k">' + r[0] + '</span><span class="msf-v">' + esc(r[1]) + '</span></li>';
+        }).join('');
+      }
+
+      function showStep(i, doFocus) {
+        current = Math.max(0, Math.min(i, TOTAL - 1));
+        steps.forEach(function (s2, idx) { s2.classList.toggle('is-active', idx === current); });
+        if (current === 0) {
+          if (progress) progress.hidden = true;
+        } else {
+          if (progress) progress.hidden = false;
+          if (progressLabel) progressLabel.textContent = 'Step ' + (current + 1) + ' of ' + TOTAL;
+          if (progressBar) progressBar.style.width = (((current + 1) / TOTAL) * 100) + '%';
+        }
+        if (current === TOTAL - 1) buildSummary();
+        if (doFocus) {
+          var f = steps[current].querySelector('input, select, textarea, button.msf-next, button.form-submit');
+          if (f) { try { f.focus(); } catch (e) {} }
+        }
+      }
+      function goNext() {
+        var invalid = validateStep(steps[current]);
+        if (invalid.length) { invalid[0].focus(); return; }
+        showStep(current + 1, true);
+      }
+      function goBack() { showStep(current - 1, true); }
+
+      form.querySelectorAll('.msf-next').forEach(function (b) { b.addEventListener('click', goNext); });
+      form.querySelectorAll('.msf-back').forEach(function (b) { b.addEventListener('click', goBack); });
+
+      form.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        var tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'button' || tag === 'textarea') return;
+        if (current < TOTAL - 1) { e.preventDefault(); goNext(); }
+      });
+
+      function composeMessage() {
+        var parts = [];
+        var area = form.area.value.trim(); if (area) parts.push('Area: ' + area);
+        var web = form.website.value.trim(); if (web) parts.push('Current site / Google: ' + web);
+        return parts.length ? parts.join('\n') : null;
+      }
+      function payload() {
+        return {
+          name: form.fullname.value.trim(),
+          business_name: form.business.value.trim(),
+          whatsapp: form.phone.value.trim(),
+          email: form.email.value.trim(),
+          trade: form.trade.value,
+          plan: form.plan.value,
+          message: composeMessage()
+        };
       }
 
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
+        if (current < TOTAL - 1) { goNext(); return; }
 
-        var invalid = validate();
-        if (invalid.length > 0) {
-          invalid[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-          invalid[0].focus();
+        var allInvalid = [];
+        steps.forEach(function (s2) { allInvalid = allInvalid.concat(validateStep(s2)); });
+        if (allInvalid.length) {
+          var stepEl = allInvalid[0].closest('.form-step');
+          var idx = steps.indexOf(stepEl);
+          if (idx >= 0) showStep(idx, true);
+          allInvalid[0].focus();
           return;
         }
 
-        var btn = form.querySelector('.form-submit');
         var successMsg = document.getElementById('form-success');
         var errorMsg = document.getElementById('form-error');
         successMsg.style.display = 'none';
         errorMsg.style.display = 'none';
-        btn.disabled = true;
-        btn.textContent = 'Sending\u2026';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
 
+        var body = payload();
         try {
           var res = await fetch(SB_URL, {
             method: 'POST',
@@ -3799,44 +3930,30 @@
               'apikey': SB_KEY,
               'Authorization': 'Bearer ' + SB_KEY
             },
-            body: JSON.stringify({
-              name: form.fullname.value.trim(),
-              business_name: form.business.value.trim(),
-              whatsapp: form.phone.value.trim(),
-              email: form.email.value.trim(),
-              trade: form.trade.value,
-              plan: form.plan.value || null,
-              message: form.notes.value.trim() || null
-            })
+            body: JSON.stringify(body)
           });
-          btn.disabled = false;
-          btn.innerHTML = origBtnHTML;
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = origBtnHTML;
           if (res.ok) {
-            /* fire-and-forget email notification */
             fetch('/api/notify', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                name: form.fullname.value.trim(),
-                business_name: form.business.value.trim(),
-                whatsapp: form.phone.value.trim(),
-                email: form.email.value.trim(),
-                trade: form.trade.value,
-                plan: form.plan.value || null,
-                message: form.notes.value.trim() || null
-              })
+              body: JSON.stringify(body)
             }).catch(function (err) { console.warn('notify failed:', err); });
             successMsg.style.display = 'block';
             form.reset();
+            showStep(0, false);
           } else {
             errorMsg.style.display = 'block';
           }
         } catch (err) {
-          btn.disabled = false;
-          btn.innerHTML = origBtnHTML;
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = origBtnHTML;
           errorMsg.style.display = 'block';
         }
       });
+
+      showStep(0, false);
     })();
     /* ── About section stat count-up ────────────── */
     (function () {
