@@ -835,26 +835,21 @@
       background: var(--white);
     }
 
-    /* Bordered table grid — inspired by Features 4 (21st.dev) */
+    /* Feature card grid */
     .features-table {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
     .feature-cell {
-      padding: 32px 26px;
-      border-right: 1.5px solid var(--border);
-      border-bottom: 1.5px solid var(--border);
+      padding: 28px 24px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
       background: var(--white);
-      transition: background .2s ease;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .feature-cell:hover { background: rgba(7,39,76,.03); }
-    /* 4-col: remove right border on col 4, remove bottom on row 2 */
-    .feature-cell:nth-child(4n)  { border-right: none; }
-    .feature-cell:nth-child(n+5) { border-bottom: none; }
+    .feature-cell:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
     .feature-cell-head {
       display: flex; align-items: center; gap: 10px;
@@ -878,22 +873,10 @@
 
     @media (max-width: 1024px) {
       .features-table { grid-template-columns: repeat(2, 1fr); }
-      /* Reset 4-col border overrides */
-      .feature-cell:nth-child(4n)        { border-right: 1.5px solid var(--border); }
-      .feature-cell:nth-child(n+5)       { border-bottom: 1.5px solid var(--border); }
-      /* 2-col: remove right on col 2, remove bottom on last row */
-      .feature-cell:nth-child(2n)        { border-right: none; }
-      .feature-cell:nth-last-child(-n+2) { border-bottom: none; }
     }
 
     @media (max-width: 640px) {
       .features-table { grid-template-columns: 1fr; }
-      /* Reset 2-col overrides */
-      .feature-cell:nth-child(2n)        { border-right: 1.5px solid var(--border); }
-      .feature-cell:nth-last-child(-n+2) { border-bottom: 1.5px solid var(--border); }
-      /* 1-col: no right borders anywhere, last item no bottom */
-      .feature-cell                      { border-right: none; }
-      .feature-cell:last-child           { border-bottom: none; }
     }
 
     /* ============================================
@@ -1229,6 +1212,11 @@
     }
     .pcard-price sup { font-size: 26px; vertical-align: top; margin-top: 10px; }
 
+    .pcard-monthly {
+      font-size: 15px; font-weight: 600;
+      color: var(--text-muted); margin: -2px 0 14px;
+    }
+    .pcard-monthly strong { color: var(--navy); }
     .pcard-price-note {
       font-size: 13px; color: var(--text-muted);
       margin-bottom: 20px;
@@ -1793,7 +1781,7 @@
         "@id": "https://www.webfortradesuk.co.uk/#organization",
         "name": "WebForTrades",
         "url": "https://www.webfortradesuk.co.uk/",
-        "description": "Professional website design for UK tradespeople. We build a free demo first. You only pay if you love it. One-off pricing, no contracts, no annual fees.",
+        "description": "Professional website design for UK tradespeople. We build a free demo first. You only pay if you love it. One-off or monthly pricing, no contracts.",
         "email": "contact@webfortradesuk.co.uk",
         "telephone": "+447436427087",
         "areaServed": { "@type": "Country", "name": "United Kingdom" },
@@ -1827,7 +1815,7 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Website Design for UK Tradespeople",
-    "description": "Professional website design built specifically for UK tradespeople. Free demo first, one-off payment, no contracts and no annual fees.",
+    "description": "Professional website design built specifically for UK tradespeople. Free demo first, pay one-off or monthly, no contracts.",
     "provider": { "@id": "https://www.webfortradesuk.co.uk/#organization" },
     "areaServed": { "@type": "Country", "name": "United Kingdom" },
     "serviceType": "Web Design",
@@ -1927,7 +1915,7 @@
       {
         "@type": "Question",
         "name": "Am I tied to a contract?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. No contracts, no retainers, no lock in. You pay once for the site and that is it. Nothing to cancel." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. No contracts, no retainers, no lock in. Pay once for the site, or spread it monthly. Either way there is nothing to cancel." }
       },
       {
         "@type": "Question",
@@ -1937,7 +1925,7 @@
       {
         "@type": "Question",
         "name": "What happens to hosting after the first year?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Nothing changes. Hosting is included in your one off payment with no annual renewal fees. Your site stays live as long as you want it." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing changes. Hosting is included whether you pay once or monthly, with no surprise renewal fees. Your site stays live as long as you want it." }
       }
     ]
   }
@@ -2545,82 +2533,74 @@
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            <h3 class="feature-title">Quote forms built in</h3>
-          </div>
-          <p class="feature-desc">Customers request estimates straight to your phone. No chasing, no missed jobs.</p>
-        </div>
-
-        <div class="feature-cell">
-          <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            <h3 class="feature-title">Shows up on Google</h3>
-          </div>
-          <p class="feature-desc">Shows up when someone searches plumber near me or electrician in your town. Right where your next customer is looking.</p>
-        </div>
-
-        <div class="feature-cell">
-          <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-            <h3 class="feature-title">Professional domain</h3>
-          </div>
-          <p class="feature-desc">Your own .co.uk address. Looks the part and builds trust the moment someone lands on it.</p>
-        </div>
-
-        <div class="feature-cell">
-          <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-            <h3 class="feature-title">Mobile optimised</h3>
-          </div>
-          <p class="feature-desc">Over 80% of people search on their phones. Your site looks perfect on every screen every time.</p>
-        </div>
-
-        <div class="feature-cell">
-          <div class="feature-cell-head">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <h3 class="feature-title">48hr turnaround</h3>
+            <h3 class="feature-title">Free demo in 48 hours</h3>
           </div>
-          <p class="feature-desc">Your demo is ready within 48 hours of filling in the form. Not weeks.</p>
+          <p class="feature-desc">Your full demo site is ready within 48 hours of the form, not weeks.</p>
         </div>
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            <h3 class="feature-title">Free hosting</h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            <h3 class="feature-title">Hosting included</h3>
           </div>
-          <p class="feature-desc">We host and manage your site. No server bills, no technical headaches.</p>
+          <p class="feature-desc">I host and manage the site for you. No server bills, no tech headaches.</p>
         </div>
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-            <h3 class="feature-title">No monthly fees</h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z"/></svg>
+            <h3 class="feature-title">Changes included</h3>
           </div>
-          <p class="feature-desc">One fixed price. Yours forever. No subscriptions, no surprises.</p>
+          <p class="feature-desc">Need a photo swapped or a service added? Message me and it's done, usually the same day, no extra charge.</p>
         </div>
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            <h3 class="feature-title">Ongoing support</h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <h3 class="feature-title">Your own editor</h3>
           </div>
-          <p class="feature-desc">Need to update your services or swap a photo? Just message me. I'm here whenever you need me.</p>
+          <p class="feature-desc">A simple dashboard to update your reviews, services, photos, about and cover image yourself, from your phone.</p>
         </div>
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>
-            <h3 class="feature-title">Edit it yourself</h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3 class="feature-title">On your Google profile</h3>
           </div>
-          <p class="feature-desc">A simple editor to update your reviews, services, photos, about text and cover image, straight from your phone. Or message me and I'll do it for you.</p>
+          <p class="feature-desc">I add your new website link to your Google Business Profile, so people on Google and Maps land on your site.</p>
         </div>
 
         <div class="feature-cell">
           <div class="feature-cell-head">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <h3 class="feature-title">Linked to your Google profile</h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
+            <h3 class="feature-title">Your own domain</h3>
           </div>
-          <p class="feature-desc">I connect your domain and add the website link to your Google Business Profile, so customers who find you on Google and Maps land on your new site.</p>
+          <p class="feature-desc">Your own .co.uk address, set up for you. Looks the part and builds trust straight away.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <h3 class="feature-title">WhatsApp support</h3>
+          </div>
+          <p class="feature-desc">Got a question? Message me on WhatsApp. You deal with me directly, not an account manager.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3 class="feature-title">Preview before you pay</h3>
+          </div>
+          <p class="feature-desc">You see the finished demo first and only pay if you're happy. Nothing upfront.</p>
+        </div>
+
+        <div class="feature-cell">
+          <div class="feature-cell-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3 class="feature-title">No contract, no hidden costs</h3>
+          </div>
+          <p class="feature-desc">No lock-in and no surprises. One-off or monthly, the price you see is the price.</p>
         </div>
 
       </div>
@@ -2638,7 +2618,7 @@
         <p class="section-sub">Once your site is live, you're not left on your own.</p>
       </div>
       <div class="about-inner fade-up">
-        <p class="about-body">Hosting is included and changes are included. No monthly fee, no contract. You get a simple editor to update your reviews, services, photos, about text and cover image yourself, straight from your phone. Don't fancy it? Just message me and I'll sort it for you, usually the same day.</p>
+        <p class="about-body">Hosting is included and changes are included, with no contract, whether you choose one-off or monthly. You get a simple editor to update your reviews, services, photos, about text and cover image yourself, straight from your phone. Don't fancy it? Just message me and I'll sort it for you, usually the same day.</p>
         <p class="about-body">I also connect your domain and add the website link to your Google Business Profile, so the customers already finding you on Google and Maps land on your new site. And you only pay once you've seen the demo and you're happy with it.</p>
       </div>
     </div>
@@ -2814,7 +2794,7 @@
       <div class="section-header-center">
         <span class="section-label">Clear pricing</span>
         <h2 class="section-title" id="pricing-heading">No hidden costs. Ever.</h2>
-        <p class="section-sub">One fixed price, everything included. And remember, you only pay if you love the demo.</p>
+        <p class="section-sub">Free demo first. You only pay if you love it, then choose one-off or monthly. Either way, hosting, changes, editor access, domain and Google profile setup are included.</p>
       </div>
 
       <div class="pricing-grid">
@@ -2823,8 +2803,9 @@
         <div class="pcard fade-up">
           <p class="pcard-name">Starter</p>
           <p class="pcard-price"><sup>£</sup>300</p>
-          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
-          <p class="pcard-desc">Perfect if you just need a single, strong online presence to get found locally and win more calls.</p>
+          <p class="pcard-monthly">or <strong>£39</strong>/month</p>
+          <p class="pcard-price-note">Pay once, or spread it monthly. Everything's included either way.</p>
+          <p class="pcard-desc">Good for a simple one-page trade website.</p>
           <ul class="pcard-features" aria-label="Starter plan features">
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>1 professionally designed page</li>
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Quote &amp; contact form built in</li>
@@ -2842,8 +2823,9 @@
           <div class="popular-badge">Most Popular</div>
           <p class="pcard-name">Professional</p>
           <p class="pcard-price"><sup>£</sup>500</p>
-          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
-          <p class="pcard-desc">Everything you need to look the part, build trust, and win more business across 5 full pages.</p>
+          <p class="pcard-monthly">or <strong>£59</strong>/month</p>
+          <p class="pcard-price-note">Pay once, or spread it monthly. Everything's included either way.</p>
+          <p class="pcard-desc">A stronger site with more sections, more proof and better conversion.</p>
           <ul class="pcard-features" aria-label="Professional plan features">
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5 pages: Home, About, Services, Portfolio, Quote</li>
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full quote &amp; contact form</li>
@@ -2862,8 +2844,9 @@
         <div class="pcard fade-up">
           <p class="pcard-name">Premium</p>
           <p class="pcard-price"><sup>£</sup>800</p>
-          <p class="pcard-price-note">One off payment. No annual fee. No hidden costs.</p>
-          <p class="pcard-desc">Dominate local search with dedicated service and location pages purpose-built for SEO.</p>
+          <p class="pcard-monthly">or <strong>£89</strong>/month</p>
+          <p class="pcard-price-note">Pay once, or spread it monthly. Everything's included either way.</p>
+          <p class="pcard-desc">A more complete site with extra content, stronger polish and more support.</p>
           <ul class="pcard-features" aria-label="Premium plan features">
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Professional</li>
             <li><span class="pcheck" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Individual service pages (e.g. "Boiler Repair")</li>
@@ -2876,7 +2859,10 @@
         </div>
 
       </div>
-      <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-top:28px;">Already on a plan and need more pages? No problem, we can add them on without building a new site.</p>
+      <div style="max-width:680px;margin:30px auto 0;text-align:center;">
+        <p style="font-size:15px;color:var(--text-dark);line-height:1.7;margin:0 0 10px;">Pay once, or spread it monthly. Either way, hosting, changes, editor access, domain setup and Google profile setup are included.</p>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.7;margin:0;">Not sure? Request the free demo first and decide after seeing it. There is no contract, and if you choose one-off there is no monthly fee.</p>
+      </div>
     </div>
   </section>
 
@@ -2945,7 +2931,7 @@
         <div class="faq-row" role="listitem">
           <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-8" data-faq="8">Am I tied to a contract?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
           <div class="faq-bubble-wrap">
-            <div class="faq-bubble" id="faq-b-8" role="region" aria-live="polite">No. No contracts, no retainers, no lock in. You pay once for the site and that is it. Nothing to cancel.</div>
+            <div class="faq-bubble" id="faq-b-8" role="region" aria-live="polite">No. No contracts, no retainers, no lock in. Pay once for the site, or spread it monthly. Either way there is nothing to cancel.</div>
           </div>
         </div>
 
@@ -2959,7 +2945,7 @@
         <div class="faq-row" role="listitem">
           <div class="faq-pill-group"><button class="faq-pill" aria-expanded="false" aria-controls="faq-b-10" data-faq="10">What happens to hosting after the first year?</button><span class="faq-pill-icons" aria-hidden="true"><svg class="faq-pill-icon icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="faq-pill-icon icon-minus" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
           <div class="faq-bubble-wrap">
-            <div class="faq-bubble" id="faq-b-10" role="region" aria-live="polite">Nothing changes. Hosting is included in your one off payment with no annual renewal fees. Your site stays live as long as you want it.</div>
+            <div class="faq-bubble" id="faq-b-10" role="region" aria-live="polite">Nothing changes. Hosting is included whether you pay once or monthly, with no surprise renewal fees. Your site stays live as long as you want it.</div>
           </div>
         </div>
 
@@ -3195,7 +3181,7 @@
               <div class="whn-num">5</div>
               <div class="whn-body">
                 <p class="whn-title">You decide</p>
-                <p class="whn-desc">Happy with it? Pay once and we get it live on Google. Not happy? Walk away. Nothing owed.</p>
+                <p class="whn-desc">Happy with it? Pick one-off or monthly and we get it live on Google. Not happy? Walk away. Nothing owed.</p>
               </div>
             </div>
 
