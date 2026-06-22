@@ -171,7 +171,6 @@
     /* Footer always uses the light (white) variant */
     .footer-logo-svg { height: 32px; width: auto; display: block; }
 
-
     /* ── Focus management ──────────────────────── */
     :focus-visible {
       outline: 3px solid var(--orange);
@@ -475,6 +474,8 @@
       overflow: hidden;
       box-shadow: 0 30px 60px rgba(0,0,0,.35);
       border: 1px solid rgba(255,255,255,.12);
+      max-width: 420px;
+      margin-left: auto;
     }
     .demo-bar {
       display: flex; align-items: center; gap: 6px;
@@ -498,27 +499,6 @@
     .demo-foot { display: flex; align-items: center; gap: 9px; font-size: 12.5px; color: #64748b; border-top: 1px solid #eef2f6; padding-top: 14px; line-height: 1.4; }
     .demo-check { width: 18px; height: 18px; border-radius: 50%; background: rgba(22,163,74,.14); color: #16a34a; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 100px;
-      padding: 8px 20px;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: 'Outfit', sans-serif;
-      color: rgba(255,255,255,.92);
-      margin-bottom: 28px;
-      backdrop-filter: blur(8px);
-    }
-    .badge-dot {
-      width: 8px; height: 8px;
-      background: #4ade80;
-      border-radius: 50%;
-      animation: blink 2s ease-in-out infinite;
-    }
     @keyframes blink {
       0%,100% { opacity: 1; }
       50%      { opacity: .35; }
@@ -1664,7 +1644,6 @@
     }
     .footer-social-link:hover img { filter: brightness(0) invert(1); }
 
-
     /* ============================================
        ANIMATIONS
     ============================================ */
@@ -2041,11 +2020,6 @@
 
         <!-- ── Left: hero copy (unchanged) ── -->
         <div class="hero-content">
-
-          <div class="hero-badge" aria-label="Risk-free offer">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Free demo in 48 hours. No payment upfront.
-          </div>
 
           <h1 class="hero-title" id="hero-heading">
             Get more jobs. We build your website <span class="sketchy-word">free<svg class="sketchy-svg" viewBox="0 0 80 14" preserveAspectRatio="none" aria-hidden="true"><path class="sketchy-path" d="M 1,9 C 10,4 20,13 30,8 C 40,3 50,12 60,7 C 70,2 78,10 79,8"/></svg></span> and you only pay if you <span class="sketchy-word">love it<svg class="sketchy-svg" viewBox="0 0 110 14" preserveAspectRatio="none" aria-hidden="true"><path class="sketchy-path delay" d="M 1,9 C 15,4 28,13 42,7 C 56,2 70,12 84,7 C 96,3 107,10 109,8"/></svg></span>.
