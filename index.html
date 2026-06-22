@@ -2942,6 +2942,40 @@
       .msf-summary li { flex-direction: column; gap: 2px; }
       .msf-summary .msf-v { text-align: left; }
     }
+
+    /* ── Form success screen ─────────────────────── */
+    .form-success-card { text-align: center; padding: 8px 2px 4px; }
+    .form-success-card .fs-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 84px; height: 84px; border-radius: 50%;
+      background: #f0fdf4; border: 1px solid #bbf7d0; margin-bottom: 18px;
+    }
+    .form-success-card .fs-headline { font-size: 23px; font-weight: 800; color: var(--navy); margin: 0 0 10px; letter-spacing: -.01em; }
+    .form-success-card .fs-body { font-size: 15.5px; line-height: 1.6; color: var(--text-muted); margin: 0 auto 20px; max-width: 420px; }
+    .form-success-card .fs-summary { text-align: left; margin: 0 0 20px; }
+    .form-success-card .fs-wa { width: 100%; justify-content: center; gap: 9px; font-size: 16px; }
+    .form-success-card .fs-note { font-size: 13.5px; color: var(--text-muted); margin: 14px 0 0; }
+    .form-success-card .fs-again {
+      margin-top: 12px; background: none; border: none; cursor: pointer;
+      color: var(--navy); font-size: 14px; font-weight: 700; text-decoration: underline;
+      font-family: inherit; padding: 6px;
+    }
+    .form-success-card .fs-again:hover { color: var(--orange); }
+    .fs-check-circle, .fs-check-mark { stroke-dasharray: 166; stroke-dashoffset: 166; }
+    @media (prefers-reduced-motion: no-preference) {
+      .form-success-card { animation: fsReveal .5s ease both; }
+      .form-success-card .fs-badge { animation: fsPulse 2.4s ease-in-out 1.2s 2; }
+      .fs-check-circle { animation: fsDraw .55s ease-out forwards; }
+      .fs-check-mark { stroke-dasharray: 40; stroke-dashoffset: 40; animation: fsDraw .4s .5s ease-out forwards; }
+    }
+    @keyframes fsReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes fsDraw { to { stroke-dashoffset: 0; } }
+    @keyframes fsPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @media (prefers-reduced-motion: reduce) {
+      .form-success-card { animation: none; }
+      .form-success-card .fs-badge { animation: none; }
+      .fs-check-circle, .fs-check-mark { stroke-dashoffset: 0; animation: none; }
+    }
   </style>
 
   <section id="contact" aria-labelledby="contact-heading">
@@ -3070,11 +3104,27 @@
               <p class="form-note">We'll never share your details. By submitting you agree to our <a href="#" class="privacy-trigger">privacy policy</a>.</p>
             </div>
 
-            <div id="form-success" style="display:none;margin-top:16px;padding:14px 18px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;color:#166534;font-size:15px;font-weight:600;text-align:center;">
-              We will be in touch via WhatsApp within 48 hours.
+            <div id="form-success" class="form-success-card" style="display:none;" role="status" aria-live="polite">
+              <span class="fs-badge" aria-hidden="true">
+                <svg class="fs-check" viewBox="0 0 52 52" width="56" height="56">
+                  <circle class="fs-check-circle" cx="26" cy="26" r="24" fill="none" stroke="#16a34a" stroke-width="3"/>
+                  <path class="fs-check-mark" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M16 27 l7 7 14-15"/>
+                </svg>
+              </span>
+              <h3 class="fs-headline">Your demo request is in.</h3>
+              <p class="fs-body">We've got your details. We'll prepare your demo website within 48 hours and may message you on WhatsApp if we need anything else.</p>
+              <ul class="msf-summary fs-summary" id="form-success-summary" aria-label="A summary of what you submitted"></ul>
+              <a class="btn btn-primary fs-wa" href="https://wa.me/447436427087" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.83-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+                Message us on WhatsApp
+              </a>
+              <p class="fs-note">Nothing to pay right now. You only decide after seeing the demo.</p>
+              <button type="button" class="fs-again" id="form-again">Submit another request</button>
             </div>
-            <div id="form-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:8px;color:#dc2626;font-size:15px;text-align:center;">
-              Something went wrong. Please try again or message us on WhatsApp.
+            <div id="form-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:8px;color:#991b1b;font-size:15px;text-align:center;line-height:1.5;">
+              <strong style="display:block;margin-bottom:4px;">We could not send your request just now.</strong>
+              Your details were not submitted. Please try again, or message us on WhatsApp and we will get your demo started.
+              <a href="https://wa.me/447436427087" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:#07274c;font-weight:700;text-decoration:underline;">Message us on WhatsApp</a>
             </div>
           </form>
         </div>
@@ -3828,6 +3878,50 @@
         };
       }
 
+      function buildSuccessSummary() {
+        var ul = document.getElementById('form-success-summary');
+        if (!ul) return;
+        var planSel = form.elements['plan'];
+        var rows = [
+          ['Name', form.fullname.value.trim()],
+          ['Business', form.business.value.trim()],
+          ['Trade', tradeLabel()],
+          ['Area', form.area.value.trim()],
+          ['Current site', form.website.value.trim()],
+          ['WhatsApp', form.phone.value.trim()],
+          ['Email', form.email.value.trim()],
+          ['Option', (planSel && planSel.value) ? planSel.value : '']
+        ];
+        ul.innerHTML = rows.filter(function (r) { return r[1]; }).map(function (r) {
+          return '<li><span class="msf-k">' + r[0] + '</span><span class="msf-v">' + esc(r[1]) + '</span></li>';
+        }).join('');
+      }
+
+      function showSuccessScreen() {
+        buildSuccessSummary();
+        if (progress) progress.hidden = true;
+        steps.forEach(function (s2) { s2.classList.remove('is-active'); s2.style.display = 'none'; });
+        var successMsg = document.getElementById('form-success');
+        successMsg.style.display = 'block';
+        try { successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+      }
+
+      function showFormError() {
+        var errorMsg = document.getElementById('form-error');
+        errorMsg.style.display = 'block';
+        try { errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+      }
+
+      var againBtn = document.getElementById('form-again');
+      if (againBtn) {
+        againBtn.addEventListener('click', function () {
+          document.getElementById('form-success').style.display = 'none';
+          steps.forEach(function (s2) { s2.style.display = ''; });
+          form.reset();
+          showStep(0, true);
+        });
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         if (current < TOTAL - 1) { goNext(); return; }
@@ -3842,42 +3936,44 @@
           return;
         }
 
-        var successMsg = document.getElementById('form-success');
-        var errorMsg = document.getElementById('form-error');
-        successMsg.style.display = 'none';
-        errorMsg.style.display = 'none';
+        document.getElementById('form-error').style.display = 'none';
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending…';
 
         var body = payload();
+
+        // Secondary, best-effort lead capture (Supabase). Never blocks success and never surfaces an
+        // error; if the project is restored later it resumes capturing automatically.
         try {
-          var res = await fetch(SB_URL, {
+          fetch(SB_URL, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': SB_KEY,
-              'Authorization': 'Bearer ' + SB_KEY
-            },
+            headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY },
+            body: JSON.stringify(body)
+          }).catch(function () {});
+        } catch (e2) { /* ignore */ }
+
+        // Primary capture + notification: the internal lead email via /api/notify. Success is shown ONLY
+        // when this leg truly succeeds (HTTP 200 + ok:true = the lead reached us), so we never claim
+        // success when nothing was captured.
+        try {
+          var res = await fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
           });
+          var data = {};
+          try { data = await res.json(); } catch (e3) { data = {}; }
           submitBtn.disabled = false;
           submitBtn.innerHTML = origBtnHTML;
-          if (res.ok) {
-            fetch('/api/notify', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(body)
-            }).catch(function (err) { console.warn('notify failed:', err); });
-            successMsg.style.display = 'block';
-            form.reset();
-            showStep(0, false);
+          if (res.ok && data && data.ok) {
+            showSuccessScreen();
           } else {
-            errorMsg.style.display = 'block';
+            showFormError();
           }
         } catch (err) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = origBtnHTML;
-          errorMsg.style.display = 'block';
+          showFormError();
         }
       });
 
