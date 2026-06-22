@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# local env / secrets (never commit real keys)
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel
