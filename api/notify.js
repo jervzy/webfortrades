@@ -41,10 +41,10 @@ module.exports = async function handler(req, res) {
   const validEmail = !!email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email));
 
   const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
-  const LOGO = '<span style="font-size:22px;font-weight:800;letter-spacing:-.3px;">'
-    + '<span style="color:#ffffff;">Web</span>'
-    + '<span style="color:#9fb3c8;font-style:italic;">For</span>'
-    + '<span style="color:#f16517;">Trades</span></span>';
+  const LOGO = '<span style="font-size:22px;letter-spacing:-.3px;">'
+    + '<span style="font-weight:800;color:#ffffff;">Web</span>'
+    + '<span style="font-weight:500;font-style:italic;color:#ffffff;">For</span>'
+    + '<span style="font-weight:800;color:#f16517;">Trades</span></span>';
 
   function shell(preheader, bodyInner) {
     return '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
