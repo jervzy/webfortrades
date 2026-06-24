@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebForTrades vs DIY Website Builders | WebForTrades</title>
-  <meta name="description" content="A fair comparison of WebForTrades and DIY website builders like Wix, Squarespace and GoDaddy for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
+  <meta name="description" content="A fair comparison of WebForTrades, DIY website builders like Wix and Squarespace, and a local agency or freelancer, for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
   <link rel="canonical" href="https://www.webfortradesuk.co.uk/webfortrades-vs-diy-website-builders">
   <meta property="og:type" content="website">
   <meta property="og:title" content="WebForTrades vs DIY Website Builders | WebForTrades">
-  <meta property="og:description" content="A fair comparison of WebForTrades and DIY website builders like Wix, Squarespace and GoDaddy for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
+  <meta property="og:description" content="A fair comparison of WebForTrades, DIY website builders like Wix and Squarespace, and a local agency or freelancer, for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
   <meta property="og:url" content="https://www.webfortradesuk.co.uk/webfortrades-vs-diy-website-builders">
   <meta property="og:image" content="https://www.webfortradesuk.co.uk/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WebForTrades vs DIY Website Builders | WebForTrades">
-  <meta name="twitter:description" content="A fair comparison of WebForTrades and DIY website builders like Wix, Squarespace and GoDaddy for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
+  <meta name="twitter:description" content="A fair comparison of WebForTrades, DIY website builders like Wix and Squarespace, and a local agency or freelancer, for UK tradespeople. DIY builders suit some people. WebForTrades builds the site for you.">
   <meta name="twitter:image" content="https://www.webfortradesuk.co.uk/og-image.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307274c'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='13' fill='white'>WF<tspan fill='%23f16517'>T</tspan></text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -733,12 +733,143 @@
       .pcard.popular { padding-top: 48px; }
       #privacy-modal { padding: 44px 24px 32px; }
     }
-      .compare-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }
-    .compare-table th, .compare-table td { border: 1px solid var(--border); padding: 12px 14px; text-align: left; vertical-align: top; }
-    .compare-table thead th { background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; }
-    .compare-table tbody th { background: #f7f8fa; font-weight: 600; color: var(--navy); }
-    .compare-wrap { overflow-x: auto; }
-</style>
+  
+    /* ===== premium secondary-page layer ===== */
+    .sec { padding: clamp(72px, 11vh, 140px) 0; }
+    .sec.alt { background: var(--light); }
+    .sec-head { max-width: 720px; margin: 0 auto clamp(44px, 6vh, 68px); text-align: center; padding: 0 24px; }
+    .sec-head .eyebrow { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; }
+    .sec-head h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1; color: var(--navy); letter-spacing: -.01em; margin: 14px 0 16px; }
+    .sec-head p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.65; margin: 0; }
+    .fade-up:nth-child(4) { transition-delay: .28s; }
+    .fade-up:nth-child(5) { transition-delay: .36s; }
+    .fade-up:nth-child(6) { transition-delay: .44s; }
+
+    /* full-bleed hero, no image */
+    .phero { position: relative; background: var(--navy); color: #fff; min-height: clamp(560px, 84vh, 860px); display: flex; align-items: center; padding: clamp(128px, 20vh, 220px) 0 clamp(72px, 12vh, 132px); overflow: hidden; }
+    .phero::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 120px; height: 4px; background: var(--orange); transform: translateX(-50%); border-radius: 4px 4px 0 0; }
+    .phero-inner { max-width: 940px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .phero-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 9px 18px; margin-bottom: 30px; }
+    .phero-eyebrow .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); display: inline-block; }
+    .phero h1 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6.2vw, 4.6rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 26px; }
+    .phero h1 .accent { color: var(--orange); }
+    .phero-sub { font-size: clamp(1.05rem, 2.2vw, 1.4rem); line-height: 1.6; color: rgba(255,255,255,.78); max-width: 660px; margin: 0 auto 42px; }
+    .phero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* pricing plans */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; align-items: stretch; }
+    .plan { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 40px 32px; display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
+    .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .plan.featured { background: var(--navy); border-color: var(--navy); position: relative; }
+    .plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
+    .plan-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 18px; letter-spacing: .02em; }
+    .plan-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 3.4rem; line-height: 1; color: var(--navy); }
+    .plan-price sup { font-size: 1.4rem; font-weight: 700; vertical-align: 18px; margin-right: 2px; }
+    .plan-monthly { color: var(--text-muted); font-size: .95rem; margin: 12px 0 0; }
+    .plan-desc { font-size: .98rem; line-height: 1.6; color: var(--text-muted); margin: 22px 0 28px; flex: 1; }
+    .plan .btn { width: 100%; }
+    .plan.featured .plan-name, .plan.featured .plan-price { color: #fff; }
+    .plan.featured .plan-monthly { color: rgba(255,255,255,.72); }
+    .plan.featured .plan-desc { color: rgba(255,255,255,.8); }
+
+    /* comparison table */
+    .cmp-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+    .cmp { width: 100%; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .cmp table { width: 100%; border-collapse: collapse; }
+    .cmp th, .cmp td { padding: 17px 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; vertical-align: top; }
+    .cmp thead th { background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; }
+    .cmp tbody tr:last-child td { border-bottom: none; }
+    .cmp tbody th { font-weight: 600; color: var(--navy); background: #fbfcfd; }
+    .cmp td.tick { color: var(--orange); font-weight: 700; }
+    .cmp .ov { overflow-x: auto; }
+
+    /* included rows */
+    .incl { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .incl-row { display: flex; gap: 24px; align-items: flex-start; padding: 30px 0; border-bottom: 1px solid var(--border); }
+    .incl-row:last-child { border-bottom: none; }
+    .incl-ico { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 14px; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .incl-ico svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .incl-txt h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--navy); margin: 4px 0 6px; }
+    .incl-txt p { color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* timeline */
+    .timeline { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .tl-line { position: absolute; left: 55px; top: 12px; bottom: 12px; width: 2px; background: var(--border); }
+    .tl-row { position: relative; padding: 0 0 52px 108px; }
+    .tl-row:last-child { padding-bottom: 0; }
+    .tl-num { position: absolute; left: 24px; top: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 23px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: background .3s ease, transform .3s ease; z-index: 1; }
+    .tl-row:hover .tl-num { background: var(--orange); transform: scale(1.06); }
+    .tl-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--navy); margin: 8px 0 10px; }
+    .tl-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+
+    /* split */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .split-col { padding: 40px; border-radius: 18px; }
+    .split-col.send { background: #fff; border: 1px solid var(--border); }
+    .split-col.handle { background: var(--navy); color: #fff; }
+    .split-col h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem; margin: 0 0 8px; }
+    .split-col .lead { color: var(--text-muted); margin: 0 0 22px; }
+    .split-col.handle h3, .split-col.handle .lead { color: #fff; }
+    .split-col.handle .lead { color: rgba(255,255,255,.72); }
+    .split-list { list-style: none; padding: 0; margin: 0; }
+    .split-list li { padding: 11px 0 11px 30px; position: relative; line-height: 1.5; }
+    .split-list li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 13px; height: 8px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
+
+    /* featured example + grid */
+    .feat-ex { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+    .feat-ex img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; object-position: top center; display: block; }
+    .feat-ex-body { padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; }
+    .feat-ex-tag { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+    .feat-ex-body h3 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); margin: 12px 0 12px; }
+    .feat-ex-body p { color: var(--text-muted); line-height: 1.7; margin: 0; }
+    .exgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .excard { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; transition: transform .3s ease, box-shadow .3s ease; }
+    .excard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .excard img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top center; display: block; }
+    .excard-body { padding: 18px 20px 22px; }
+    .excard-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); background: rgba(241,101,23,.09); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .excard-body h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 3px; }
+    .excard-body p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+
+    /* option cards (vs-diy) */
+    .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .opt { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 36px 30px; transition: transform .3s ease, box-shadow .3s ease; }
+    .opt:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .opt.us { background: var(--navy); border-color: var(--navy); }
+    .opt-k { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--navy); margin: 0 0 6px; }
+    .opt-for { font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); margin: 0 0 16px; }
+    .opt p { color: var(--text-muted); line-height: 1.6; margin: 0; font-size: .98rem; }
+    .opt.us .opt-k { color: #fff; } .opt.us p { color: rgba(255,255,255,.8); }
+
+    /* accordion FAQ (no JS) */
+    .faqs { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 26px 50px 26px 0; position: relative; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--navy); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; position: absolute; right: 6px; top: 22px; font-size: 1.7rem; line-height: 1; color: var(--orange); transition: transform .3s ease; }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item .faq-a { padding: 0 0 26px; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 1.02rem; max-width: 660px; }
+
+    /* premium CTA */
+    .cta-pro-wrap { padding: 0 24px; }
+    .cta-pro { background: var(--navy); border-radius: 24px; max-width: 1040px; margin: 0 auto; padding: clamp(56px, 8vw, 92px) 32px; text-align: center; color: #fff; }
+    .cta-pro h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.1; margin: 0 0 18px; }
+    .cta-pro h2 .accent { color: var(--orange); }
+    .cta-pro p { color: rgba(255,255,255,.78); font-size: 1.15rem; max-width: 560px; margin: 0 auto 34px; line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .plans, .opts { grid-template-columns: 1fr; max-width: 440px; }
+      .exgrid { grid-template-columns: repeat(2, 1fr); }
+      .feat-ex { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .exgrid { grid-template-columns: 1fr; max-width: 420px; }
+      .tl-row { padding-left: 88px; } .tl-num { width: 56px; height: 56px; font-size: 20px; left: 16px; } .tl-line { left: 43px; }
+      .split-col, .opt, .plan { padding: 30px 24px; }
+    }
+
+  </style>
 
   <!-- Schema: BreadcrumbList -->
   <!-- Schema: Service for Plumbers in London -->
@@ -806,79 +937,68 @@
   
   <main>
 
-  <section id="hero" aria-labelledby="hero-heading">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span> An honest comparison</div>
-          <h1 class="hero-title" id="hero-heading">WebForTrades vs <span class="accent">DIY website builders</span></h1>
-          <p class="hero-sub">DIY builders work for some people. WebForTrades is for tradespeople who would rather someone built the site and set up the basics for them.</p>
-          <div class="hero-ctas">
-            <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
-            <a href="/how-it-works" class="btn btn-ghost-white">How it works</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Comparing a done-for-you website with a DIY website builder" loading="eager" width="600" height="450">
-        </div>
+  <section class="phero">
+    <div class="phero-inner">
+      <span class="phero-eyebrow"><span class="badge-dot"></span> An honest comparison</span>
+      <h1>WebForTrades vs <span class="accent">DIY website builders</span></h1>
+      <p class="phero-sub">DIY builders work for some people. WebForTrades is for tradespeople who would rather someone built the site and set up the basics for them.</p>
+      <div class="phero-ctas">
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+        <a href="/how-it-works" class="btn btn-ghost-white">How it works</a>
       </div>
     </div>
   </section>
-  <section id="options">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Two honest options</span>
-        <h2 class="section-title">Both can be the right choice</h2>
-        <p class="section-sub">It depends on your time, and whether you want to build it yourself.</p>
+  <section class="sec">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Three ways to get a website</span>
+        <h2>Which option fits you?</h2>
+        <p>All three can be the right choice. It depends on your time, your budget, and whether you want to build it yourself.</p>
       </div>
-      <div class="why-grid">
-        <div class="why-card fade-up"><h3 class="why-title">DIY builders (Wix, Squarespace, GoDaddy)</h3><p class="why-desc">You build and manage the site yourself, usually on a monthly subscription. Good if you have the time and enjoy doing it.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">WebForTrades</h3><p class="why-desc">I build the site for you, set up hosting, your domain and the Google Business Profile link, and you see a free demo before paying.</p></div>
-      </div>
+    <div class="opts">
+      <div class="opt fade-up"><p class="opt-k">DIY builders</p><p class="opt-for">If you want to build it</p><p>Tools like Wix, Squarespace and GoDaddy. You build and manage the site yourself, usually on a monthly subscription. Good if you have the time and enjoy it.</p></div>
+      <div class="opt fade-up"><p class="opt-k">Local agency</p><p class="opt-for">If budget is no issue</p><p>An agency or freelancer builds it for you. Often a higher price and a longer wait, and not always built around how trade customers search.</p></div>
+      <div class="opt us fade-up"><p class="opt-k">WebForTrades</p><p class="opt-for">If you want it done for you</p><p>I build a finished demo first, set up hosting, your domain and the Google Business Profile link, and you only pay if you keep it.</p></div>
     </div>
   </section>
-  <section id="compare">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Side by side</span>
-        <h2 class="section-title">A fair comparison</h2>
-        <p class="section-sub">No trash talk. Just the honest differences for a busy tradesperson.</p>
+  <section class="sec alt">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Side by side</span>
+        <h2>A fair comparison</h2>
+        <p>No trash talk. Just the honest differences for a busy tradesperson.</p>
       </div>
-      <div class="compare-wrap">
-      <table class="compare-table">
-        <thead><tr><th scope="col">&nbsp;</th><th scope="col">DIY website builders</th><th scope="col">WebForTrades</th></tr></thead>
+    <div class="cmp-wrap"><div class="cmp"><div class="ov"><table>
+        <thead><tr><th scope="col">&nbsp;</th><th scope="col">DIY builders</th><th scope="col">Local agency</th><th scope="col">WebForTrades</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Who builds it</th><td>You build it yourself</td><td>I build it for you</td></tr>
-          <tr><th scope="row">Time needed from you</th><td>A few hours to a few days</td><td>A few details, then you review</td></tr>
-          <tr><th scope="row">Payment</th><td>Usually an ongoing monthly subscription</td><td>One-off payment, or an optional monthly plan</td></tr>
-          <tr><th scope="row">See it before you pay</th><td>You build first, then subscribe</td><td>Free demo first, pay only if you keep it</td></tr>
-          <tr><th scope="row">Hosting and domain</th><td>You set up and manage</td><td>Set up for you</td></tr>
-          <tr><th scope="row">Changes later</th><td>You make them yourself</td><td>Included, or edit it yourself</td></tr>
-          <tr><th scope="row">Google Business Profile link</th><td>You connect it</td><td>I help connect it</td></tr>
-          <tr><th scope="row">Best for</th><td>People who want to build it themselves</td><td>Tradespeople who want it done for them</td></tr>
+            <tr><th scope="row">Who builds it</th><td>You</td><td>They do</td><td class="tick">I do</td></tr>
+            <tr><th scope="row">See it before you pay</th><td>No</td><td>Rarely</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">Time needed from you</th><td>High</td><td>Medium</td><td class="tick">Low</td></tr>
+            <tr><th scope="row">Typical payment</th><td>Monthly subscription</td><td>Higher one-off</td><td class="tick">One-off or monthly</td></tr>
+            <tr><th scope="row">Hosting and domain</th><td>You set up</td><td>Set up for you</td><td class="tick">Set up for you</td></tr>
+            <tr><th scope="row">Changes later</th><td>You do them</td><td>Often charged</td><td class="tick">Included</td></tr>
+            <tr><th scope="row">Built around trades</th><td>No</td><td>Sometimes</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">Google Business Profile link</th><td>You connect</td><td>Sometimes</td><td class="tick">I help connect</td></tr>
         </tbody>
-      </table>
-      </div>
-    </div>
+      </table></div></div></div>
   </section>
-  <section id="faq">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Common questions</span>
-        <h2 class="section-title">Common questions</h2>
+  <section class="sec">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Common questions</span>
+        <h2>Honest answers</h2>
       </div>
-      <div class="why-grid">
-        <div class="why-card fade-up"><h3 class="why-title">Are DIY website builders any good?</h3><p class="why-desc">Yes, for some people. If you have the time and enjoy building things yourself, tools like Wix, Squarespace and GoDaddy can work well. WebForTrades is for tradespeople who would rather have it built for them.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">What is the difference in cost?</h3><p class="why-desc">DIY builders are usually a monthly subscription you keep paying. WebForTrades offers a one-off payment so you own the site, or a monthly plan if you prefer. Either way the build is done for you.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Do I have to maintain it myself?</h3><p class="why-desc">With DIY builders, yes. With WebForTrades, changes are included and I can update it for you, or you can use the optional editor.</p></div>
+      <div class="faqs">
+        <details class="faq-item fade-up"><summary>Are DIY website builders any good?</summary><p class="faq-a">Yes, for some people. If you have the time and enjoy building things yourself, tools like Wix, Squarespace and GoDaddy can work well. WebForTrades is for tradespeople who would rather have it built for them.</p></details>
+        <details class="faq-item fade-up"><summary>What is the difference in cost?</summary><p class="faq-a">DIY builders are usually a monthly subscription you keep paying. WebForTrades offers a one-off payment so you own the site, or a monthly plan if you prefer. Either way the build is done for you.</p></details>
+        <details class="faq-item fade-up"><summary>Do I have to maintain it myself?</summary><p class="faq-a">With DIY builders, yes. With WebForTrades, changes are included and I can update it for you, or you can use the optional editor.</p></details>
+        <details class="faq-item fade-up"><summary>How is this different from a local agency?</summary><p class="faq-a">A local agency or freelancer also builds it for you, often at a higher price and with a longer wait. WebForTrades is built around trades and you see a finished demo before you pay.</p></details>
       </div>
-    </div>
   </section>
-  <section id="cta-banner" aria-labelledby="cta-heading">
-    <div class="container">
-      <h2 class="cta-banner-title" id="cta-heading">Rather have it <span class="accent">done for you?</span></h2>
-      <p class="cta-banner-sub">I will build a free demo of your website. See it first, pay only if you want to keep it.</p>
-      <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+  <section class="sec">
+    <div class="cta-pro-wrap">
+      <div class="cta-pro fade-up">
+        <h2>Rather have it <span class="accent">done for you?</span></h2>
+        <p>I will build a free demo of your website. See it first, pay only if you want to keep it.</p>
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+      </div>
     </div>
   </section>
   </main>
@@ -1014,14 +1134,9 @@
     "@id": "https://www.webfortradesuk.co.uk/webfortrades-vs-diy-website-builders",
     "url": "https://www.webfortradesuk.co.uk/webfortrades-vs-diy-website-builders",
     "name": "WebForTrades vs DIY website builders",
-    "description": "A fair comparison for tradespeople choosing between building a site themselves and having it built for them.",
+    "description": "A fair comparison for tradespeople choosing how to get a website.",
     "isPartOf": {
       "@type": "WebSite",
-      "name": "WebForTrades",
-      "url": "https://www.webfortradesuk.co.uk/"
-    },
-    "publisher": {
-      "@type": "Organization",
       "name": "WebForTrades",
       "url": "https://www.webfortradesuk.co.uk/"
     }
@@ -1051,6 +1166,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "With DIY builders, yes. With WebForTrades, changes are included and I can update it for you, or you can use the optional editor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from a local agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A local agency or freelancer also builds it for you, often at a higher price and with a longer wait. WebForTrades is built around trades and you see a finished demo before you pay."
         }
       }
     ]

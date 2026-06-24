@@ -733,6 +733,142 @@
       .pcard.popular { padding-top: 48px; }
       #privacy-modal { padding: 44px 24px 32px; }
     }
+  
+    /* ===== premium secondary-page layer ===== */
+    .sec { padding: clamp(72px, 11vh, 140px) 0; }
+    .sec.alt { background: var(--light); }
+    .sec-head { max-width: 720px; margin: 0 auto clamp(44px, 6vh, 68px); text-align: center; padding: 0 24px; }
+    .sec-head .eyebrow { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; }
+    .sec-head h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1; color: var(--navy); letter-spacing: -.01em; margin: 14px 0 16px; }
+    .sec-head p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.65; margin: 0; }
+    .fade-up:nth-child(4) { transition-delay: .28s; }
+    .fade-up:nth-child(5) { transition-delay: .36s; }
+    .fade-up:nth-child(6) { transition-delay: .44s; }
+
+    /* full-bleed hero, no image */
+    .phero { position: relative; background: var(--navy); color: #fff; min-height: clamp(560px, 84vh, 860px); display: flex; align-items: center; padding: clamp(128px, 20vh, 220px) 0 clamp(72px, 12vh, 132px); overflow: hidden; }
+    .phero::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 120px; height: 4px; background: var(--orange); transform: translateX(-50%); border-radius: 4px 4px 0 0; }
+    .phero-inner { max-width: 940px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .phero-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 9px 18px; margin-bottom: 30px; }
+    .phero-eyebrow .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); display: inline-block; }
+    .phero h1 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6.2vw, 4.6rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 26px; }
+    .phero h1 .accent { color: var(--orange); }
+    .phero-sub { font-size: clamp(1.05rem, 2.2vw, 1.4rem); line-height: 1.6; color: rgba(255,255,255,.78); max-width: 660px; margin: 0 auto 42px; }
+    .phero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* pricing plans */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; align-items: stretch; }
+    .plan { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 40px 32px; display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
+    .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .plan.featured { background: var(--navy); border-color: var(--navy); position: relative; }
+    .plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
+    .plan-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 18px; letter-spacing: .02em; }
+    .plan-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 3.4rem; line-height: 1; color: var(--navy); }
+    .plan-price sup { font-size: 1.4rem; font-weight: 700; vertical-align: 18px; margin-right: 2px; }
+    .plan-monthly { color: var(--text-muted); font-size: .95rem; margin: 12px 0 0; }
+    .plan-desc { font-size: .98rem; line-height: 1.6; color: var(--text-muted); margin: 22px 0 28px; flex: 1; }
+    .plan .btn { width: 100%; }
+    .plan.featured .plan-name, .plan.featured .plan-price { color: #fff; }
+    .plan.featured .plan-monthly { color: rgba(255,255,255,.72); }
+    .plan.featured .plan-desc { color: rgba(255,255,255,.8); }
+
+    /* comparison table */
+    .cmp-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+    .cmp { width: 100%; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .cmp table { width: 100%; border-collapse: collapse; }
+    .cmp th, .cmp td { padding: 17px 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; vertical-align: top; }
+    .cmp thead th { background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; }
+    .cmp tbody tr:last-child td { border-bottom: none; }
+    .cmp tbody th { font-weight: 600; color: var(--navy); background: #fbfcfd; }
+    .cmp td.tick { color: var(--orange); font-weight: 700; }
+    .cmp .ov { overflow-x: auto; }
+
+    /* included rows */
+    .incl { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .incl-row { display: flex; gap: 24px; align-items: flex-start; padding: 30px 0; border-bottom: 1px solid var(--border); }
+    .incl-row:last-child { border-bottom: none; }
+    .incl-ico { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 14px; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .incl-ico svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .incl-txt h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--navy); margin: 4px 0 6px; }
+    .incl-txt p { color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* timeline */
+    .timeline { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .tl-line { position: absolute; left: 55px; top: 12px; bottom: 12px; width: 2px; background: var(--border); }
+    .tl-row { position: relative; padding: 0 0 52px 108px; }
+    .tl-row:last-child { padding-bottom: 0; }
+    .tl-num { position: absolute; left: 24px; top: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 23px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: background .3s ease, transform .3s ease; z-index: 1; }
+    .tl-row:hover .tl-num { background: var(--orange); transform: scale(1.06); }
+    .tl-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--navy); margin: 8px 0 10px; }
+    .tl-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+
+    /* split */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .split-col { padding: 40px; border-radius: 18px; }
+    .split-col.send { background: #fff; border: 1px solid var(--border); }
+    .split-col.handle { background: var(--navy); color: #fff; }
+    .split-col h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem; margin: 0 0 8px; }
+    .split-col .lead { color: var(--text-muted); margin: 0 0 22px; }
+    .split-col.handle h3, .split-col.handle .lead { color: #fff; }
+    .split-col.handle .lead { color: rgba(255,255,255,.72); }
+    .split-list { list-style: none; padding: 0; margin: 0; }
+    .split-list li { padding: 11px 0 11px 30px; position: relative; line-height: 1.5; }
+    .split-list li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 13px; height: 8px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
+
+    /* featured example + grid */
+    .feat-ex { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+    .feat-ex img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; object-position: top center; display: block; }
+    .feat-ex-body { padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; }
+    .feat-ex-tag { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+    .feat-ex-body h3 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); margin: 12px 0 12px; }
+    .feat-ex-body p { color: var(--text-muted); line-height: 1.7; margin: 0; }
+    .exgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .excard { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; transition: transform .3s ease, box-shadow .3s ease; }
+    .excard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .excard img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top center; display: block; }
+    .excard-body { padding: 18px 20px 22px; }
+    .excard-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); background: rgba(241,101,23,.09); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .excard-body h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 3px; }
+    .excard-body p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+
+    /* option cards (vs-diy) */
+    .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .opt { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 36px 30px; transition: transform .3s ease, box-shadow .3s ease; }
+    .opt:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .opt.us { background: var(--navy); border-color: var(--navy); }
+    .opt-k { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--navy); margin: 0 0 6px; }
+    .opt-for { font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); margin: 0 0 16px; }
+    .opt p { color: var(--text-muted); line-height: 1.6; margin: 0; font-size: .98rem; }
+    .opt.us .opt-k { color: #fff; } .opt.us p { color: rgba(255,255,255,.8); }
+
+    /* accordion FAQ (no JS) */
+    .faqs { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 26px 50px 26px 0; position: relative; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--navy); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; position: absolute; right: 6px; top: 22px; font-size: 1.7rem; line-height: 1; color: var(--orange); transition: transform .3s ease; }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item .faq-a { padding: 0 0 26px; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 1.02rem; max-width: 660px; }
+
+    /* premium CTA */
+    .cta-pro-wrap { padding: 0 24px; }
+    .cta-pro { background: var(--navy); border-radius: 24px; max-width: 1040px; margin: 0 auto; padding: clamp(56px, 8vw, 92px) 32px; text-align: center; color: #fff; }
+    .cta-pro h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.1; margin: 0 0 18px; }
+    .cta-pro h2 .accent { color: var(--orange); }
+    .cta-pro p { color: rgba(255,255,255,.78); font-size: 1.15rem; max-width: 560px; margin: 0 auto 34px; line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .plans, .opts { grid-template-columns: 1fr; max-width: 440px; }
+      .exgrid { grid-template-columns: repeat(2, 1fr); }
+      .feat-ex { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .exgrid { grid-template-columns: 1fr; max-width: 420px; }
+      .tl-row { padding-left: 88px; } .tl-num { width: 56px; height: 56px; font-size: 20px; left: 16px; } .tl-line { left: 43px; }
+      .split-col, .opt, .plan { padding: 30px 24px; }
+    }
+
   </style>
 
   <!-- Schema: BreadcrumbList -->
@@ -801,139 +937,105 @@
   
   <main>
 
-  <section id="hero" aria-labelledby="hero-heading">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span> Free demo first. Pay only if you keep it.</div>
-          <h1 class="hero-title" id="hero-heading">Tradesman website pricing, <span class="accent">made simple</span></h1>
-          <p class="hero-sub">One-off or monthly, with hosting, changes and your domain setup included. See a finished demo before you pay anything.</p>
-          <div class="hero-ctas">
-            <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
-            <a href="/how-it-works" class="btn btn-ghost-white">How it works</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Example tradesperson website built by WebForTrades" loading="eager" width="600" height="450">
-        </div>
+  <section class="phero">
+    <div class="phero-inner">
+      <span class="phero-eyebrow"><span class="badge-dot"></span> Pricing</span>
+      <h1>Tradesman website pricing, <span class="accent">made simple</span></h1>
+      <p class="phero-sub">One-off or monthly. Hosting, changes and your domain setup are included. See a finished demo before you pay anything.</p>
+      <div class="phero-ctas">
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+        <a href="/how-it-works" class="btn btn-ghost-white">How it works</a>
       </div>
     </div>
   </section>
-  <section id="pricing" aria-labelledby="pricing-heading">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Pricing</span>
-        <h2 class="section-title" id="pricing-heading">One-off or monthly. No surprises.</h2>
-        <p class="section-sub">Pay once and own it, or spread the cost monthly. Every plan includes hosting, changes and your domain setup. No long contracts and no annual renewal fees.</p>
+  <section class="sec">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Choose how you pay</span>
+        <h2>One-off, or spread it monthly</h2>
+        <p>Every plan includes hosting, changes and your domain setup. No long contracts and no annual renewal fees.</p>
       </div>
-      <div class="pricing-grid">
-
-        <div class="pcard fade-up">
+    <div class="plans">
+        <div class="plan fade-up">
           
-          <p class="pcard-name">Starter</p>
-          <p class="pcard-price"><sup>£</sup>300</p>
-          <p class="pcard-price-note">one-off, or £39 a month</p>
-          <p class="pcard-desc">A clean one-page website to send customers to and capture quote requests.</p>
-          <ul class="pcard-features">
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Single-page website</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Quote and contact form</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>.co.uk domain set up</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Free hosting, no renewals</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mobile optimised</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Basic local SEO</li>
-          </ul>
+          <p class="plan-name">Starter</p>
+          <p class="plan-price"><sup>£</sup>300</p>
+          <p class="plan-monthly">or £39 a month</p>
+          <p class="plan-desc">A clean one-page website to send customers to and capture quote requests.</p>
           <a href="/#contact" class="btn btn-outline-navy">Get Free Demo</a>
         </div>
-
-        <div class="pcard popular fade-up">
-          <span class="popular-badge">Most Popular</span>
-          <p class="pcard-name">Professional</p>
-          <p class="pcard-price"><sup>£</sup>500</p>
-          <p class="pcard-price-note">one-off, or £59 a month</p>
-          <p class="pcard-desc">A bigger site with more sections and proof, built to win more enquiries.</p>
-          <ul class="pcard-features">
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>5-page website</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Home, About, Services, Portfolio, Quote</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>.co.uk domain and free hosting</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Full on-page SEO</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Google Maps and reviews integration</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Ongoing support included</li>
-          </ul>
+        <div class="plan featured fade-up">
+          <span class="plan-badge">Most Popular</span>
+          <p class="plan-name">Professional</p>
+          <p class="plan-price"><sup>£</sup>500</p>
+          <p class="plan-monthly">or £59 a month</p>
+          <p class="plan-desc">A bigger site with more sections and proof, built to win more enquiries.</p>
           <a href="/#contact" class="btn btn-primary">Get Free Demo</a>
         </div>
-
-        <div class="pcard fade-up">
+        <div class="plan fade-up">
           
-          <p class="pcard-name">Premium</p>
-          <p class="pcard-price"><sup>£</sup>800</p>
-          <p class="pcard-price-note">one-off, or £89 a month</p>
-          <p class="pcard-desc">A more complete site with extra content and priority support.</p>
-          <ul class="pcard-features">
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Everything in Professional</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Individual service pages</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Local area pages</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Advanced on-page SEO</li>
-            <li><span class="pcheck"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Priority ongoing support</li>
-          </ul>
+          <p class="plan-name">Premium</p>
+          <p class="plan-price"><sup>£</sup>800</p>
+          <p class="plan-monthly">or £89 a month</p>
+          <p class="plan-desc">A more complete site with extra content and priority support.</p>
           <a href="/#contact" class="btn btn-outline-navy">Get Free Demo</a>
         </div>
-      </div>
     </div>
   </section>
-  <section id="included">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Included in every plan</span>
-        <h2 class="section-title">What you get, whichever plan you pick</h2>
-        <p class="section-sub">No surprise add-ons. The essentials a trade website needs are built in.</p>
+  <section class="sec alt">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Compare the plans</span>
+        <h2>What each plan gives you</h2>
       </div>
-      <div class="why-grid">
-        <div class="why-card fade-up"><h3 class="why-title">Your website built for you</h3><p class="why-desc">I design and build the whole site around your trade, so you do not have to touch a website builder.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Free hosting</h3><p class="why-desc">Your site is hosted with no annual renewal fee on the one-off plans, so it stays live.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Changes and support</h3><p class="why-desc">Message me to update services, prices or photos. Changes are included.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Domain setup</h3><p class="why-desc">I set up a .co.uk domain for you, or connect one you already own.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Google Business Profile link</h3><p class="why-desc">I help connect your site to your Google Business Profile so it shows on your listing.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Quote and contact form</h3><p class="why-desc">A built-in form sends enquiries straight to you, so jobs come in while you are working.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Mobile friendly</h3><p class="why-desc">Your site is fast and clear on phones, where most trade customers search.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Edit it yourself, optionally</h3><p class="why-desc">If you want, an optional editor lets you update your own content without calling anyone.</p></div>
+    <div class="cmp-wrap"><div class="cmp"><div class="ov"><table>
+        <thead><tr><th scope="col">&nbsp;</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Premium</th></tr></thead>
+        <tbody>
+            <tr><th scope="row">Pages</th><td class="">1 page</td><td class="">5 pages</td><td class="">5+ pages</td></tr>
+            <tr><th scope="row">Quote and contact form</th><td class="tick">Yes</td><td class="tick">Yes</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">.co.uk domain and hosting</th><td class="tick">Yes</td><td class="tick">Yes</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">On-page SEO</th><td class="">Basic</td><td class="">Full</td><td class="">Advanced</td></tr>
+            <tr><th scope="row">Google Maps and reviews</th><td class="">No</td><td class="tick">Yes</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">Individual service pages</th><td class="">No</td><td class="">No</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">Local area pages</th><td class="">No</td><td class="">No</td><td class="tick">Yes</td></tr>
+            <tr><th scope="row">Ongoing support</th><td class="">Included</td><td class="">Included</td><td class="">Priority</td></tr>
+        </tbody>
+      </table></div></div></div>
+  </section>
+  <section class="sec">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Whatever you pick</span>
+        <h2>What is included in every plan</h2>
+        <p>No surprise add-ons. The essentials a trade website needs are built in.</p>
       </div>
+    <div class="incl">
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><div class="incl-txt"><h3>Your website, built for you</h3><p>I design and build the whole site around your trade, so you never touch a website builder.</p></div></div>
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="6" rx="2"/><path d="M6 8h.01M6 17h.01"/></svg></div><div class="incl-txt"><h3>Free hosting</h3><p>Hosted with no annual renewal fee on the one-off plans, so your site stays live.</p></div></div>
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><div class="incl-txt"><h3>Changes and support</h3><p>Message me to update services, prices or photos. Changes are included, or edit it yourself with the optional editor.</p></div></div>
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div><div class="incl-txt"><h3>Domain setup</h3><p>I set up a .co.uk domain for you, or connect one you already own.</p></div></div>
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="incl-txt"><h3>Google Business Profile link</h3><p>I help connect your site to your Google Business Profile so it shows on your listing.</p></div></div>
+        <div class="incl-row fade-up"><div class="incl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="incl-txt"><h3>Quote form, mobile ready</h3><p>A built-in form sends enquiries straight to you, and the site is fast and clear on phones.</p></div></div>
     </div>
   </section>
-  <section id="free-demo">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">No risk</span>
-        <h2 class="section-title">Free demo first, pay only if you keep it</h2>
-        <p class="section-sub">You never pay before you have seen the finished site.</p>
+  <section class="sec alt">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Pricing questions</span>
+        <h2>Straight answers</h2>
       </div>
-      <div class="why-grid">
-        <div class="why-card fade-up"><h3 class="why-title">1. I build a free demo</h3><p class="why-desc">I put together a finished demo of your website, usually within 48 hours.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">2. You see it live</h3><p class="why-desc">I send a link so you can view it on your phone, just like your customers would.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">3. You decide</h3><p class="why-desc">Keep it and pay once or monthly, or walk away and owe nothing. No pressure.</p></div>
+      <div class="faqs">
+        <details class="faq-item fade-up"><summary>Do I pay before seeing the website?</summary><p class="faq-a">No. I build your demo first and send you a link. You only pay if you want to keep it. No deposit and no risk.</p></details>
+        <details class="faq-item fade-up"><summary>Can I pay monthly?</summary><p class="faq-a">Yes. You can pay once as a one-off, or spread the cost on a monthly plan from £39 a month. There is no long contract.</p></details>
+        <details class="faq-item fade-up"><summary>Is hosting included?</summary><p class="faq-a">Yes. Hosting is included with no annual renewal fee on the one-off plans, so your site stays live.</p></details>
+        <details class="faq-item fade-up"><summary>Are changes included?</summary><p class="faq-a">Yes. Changes and edits are included. Message me and I will update the site, or you can edit content yourself with the optional editor.</p></details>
+        <details class="faq-item fade-up"><summary>Do I need a domain?</summary><p class="faq-a">No. I set up a .co.uk domain for you as part of the build. If you already own one, I can use that instead.</p></details>
+        <details class="faq-item fade-up"><summary>Is there a contract?</summary><p class="faq-a">No long contracts, no retainers and no lock-in. You pay once, or choose a monthly plan you can stop.</p></details>
       </div>
-    </div>
   </section>
-  <section id="faq">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Common questions</span>
-        <h2 class="section-title">Pricing questions</h2>
+  <section class="sec">
+    <div class="cta-pro-wrap">
+      <div class="cta-pro fade-up">
+        <h2>Want to see your site <span class="accent">before you pay?</span></h2>
+        <p>I will have your free demo ready within 48 hours. No payment upfront, no obligation.</p>
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
       </div>
-      <div class="why-grid">
-        <div class="why-card fade-up"><h3 class="why-title">Do I pay before seeing the website?</h3><p class="why-desc">No. I build your demo first and send you a link. You only pay if you want to keep it. No deposit and no risk.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Can I pay monthly?</h3><p class="why-desc">Yes. You can pay once as a one-off, or spread the cost on a monthly plan from £39 a month. There is no long contract.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Is hosting included?</h3><p class="why-desc">Yes. Hosting is included with no annual renewal fee on the one-off plans, so your site stays live.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Are changes included?</h3><p class="why-desc">Yes. Changes and edits are included. Message me and I will update the site, or you can edit content yourself with the optional editor.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Do I need a domain?</h3><p class="why-desc">No. I set up a .co.uk domain for you as part of the build. If you already own one, I can use that instead.</p></div>
-        <div class="why-card fade-up"><h3 class="why-title">Is there a contract?</h3><p class="why-desc">No long contracts, no retainers and no lock-in. You pay once, or choose a monthly plan you can stop.</p></div>
-      </div>
-    </div>
-  </section>
-  <section id="cta-banner" aria-labelledby="cta-heading">
-    <div class="container">
-      <h2 class="cta-banner-title" id="cta-heading">Want to see your site <span class="accent">before you pay?</span></h2>
-      <p class="cta-banner-sub">I will have your free demo ready within 48 hours. No payment upfront.</p>
-      <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
     </div>
   </section>
   </main>
@@ -1072,11 +1174,6 @@
     "description": "WebForTrades pricing for UK tradespeople: one-off or monthly, hosting and changes included.",
     "isPartOf": {
       "@type": "WebSite",
-      "name": "WebForTrades",
-      "url": "https://www.webfortradesuk.co.uk/"
-    },
-    "publisher": {
-      "@type": "Organization",
       "name": "WebForTrades",
       "url": "https://www.webfortradesuk.co.uk/"
     }

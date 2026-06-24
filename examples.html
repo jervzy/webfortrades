@@ -733,12 +733,143 @@
       .pcard.popular { padding-top: 48px; }
       #privacy-modal { padding: 44px 24px 32px; }
     }
-      .portfolio-card { border-radius: var(--radius); overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--shadow); background: var(--white); }
-    .portfolio-card-img { width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; object-position: top center; }
-    .portfolio-card-info { padding: 12px 14px; border-top: 1px solid var(--border); }
-    .portfolio-card-name { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.3; margin: 0 0 2px; }
-    .portfolio-card-meta { font-size: 13px; color: var(--text-muted); margin: 0; }
-</style>
+  
+    /* ===== premium secondary-page layer ===== */
+    .sec { padding: clamp(72px, 11vh, 140px) 0; }
+    .sec.alt { background: var(--light); }
+    .sec-head { max-width: 720px; margin: 0 auto clamp(44px, 6vh, 68px); text-align: center; padding: 0 24px; }
+    .sec-head .eyebrow { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; }
+    .sec-head h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1; color: var(--navy); letter-spacing: -.01em; margin: 14px 0 16px; }
+    .sec-head p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.65; margin: 0; }
+    .fade-up:nth-child(4) { transition-delay: .28s; }
+    .fade-up:nth-child(5) { transition-delay: .36s; }
+    .fade-up:nth-child(6) { transition-delay: .44s; }
+
+    /* full-bleed hero, no image */
+    .phero { position: relative; background: var(--navy); color: #fff; min-height: clamp(560px, 84vh, 860px); display: flex; align-items: center; padding: clamp(128px, 20vh, 220px) 0 clamp(72px, 12vh, 132px); overflow: hidden; }
+    .phero::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 120px; height: 4px; background: var(--orange); transform: translateX(-50%); border-radius: 4px 4px 0 0; }
+    .phero-inner { max-width: 940px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .phero-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 9px 18px; margin-bottom: 30px; }
+    .phero-eyebrow .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); display: inline-block; }
+    .phero h1 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6.2vw, 4.6rem); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 26px; }
+    .phero h1 .accent { color: var(--orange); }
+    .phero-sub { font-size: clamp(1.05rem, 2.2vw, 1.4rem); line-height: 1.6; color: rgba(255,255,255,.78); max-width: 660px; margin: 0 auto 42px; }
+    .phero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* pricing plans */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; align-items: stretch; }
+    .plan { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 40px 32px; display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
+    .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .plan.featured { background: var(--navy); border-color: var(--navy); position: relative; }
+    .plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
+    .plan-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 18px; letter-spacing: .02em; }
+    .plan-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 3.4rem; line-height: 1; color: var(--navy); }
+    .plan-price sup { font-size: 1.4rem; font-weight: 700; vertical-align: 18px; margin-right: 2px; }
+    .plan-monthly { color: var(--text-muted); font-size: .95rem; margin: 12px 0 0; }
+    .plan-desc { font-size: .98rem; line-height: 1.6; color: var(--text-muted); margin: 22px 0 28px; flex: 1; }
+    .plan .btn { width: 100%; }
+    .plan.featured .plan-name, .plan.featured .plan-price { color: #fff; }
+    .plan.featured .plan-monthly { color: rgba(255,255,255,.72); }
+    .plan.featured .plan-desc { color: rgba(255,255,255,.8); }
+
+    /* comparison table */
+    .cmp-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+    .cmp { width: 100%; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .cmp table { width: 100%; border-collapse: collapse; }
+    .cmp th, .cmp td { padding: 17px 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; vertical-align: top; }
+    .cmp thead th { background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; }
+    .cmp tbody tr:last-child td { border-bottom: none; }
+    .cmp tbody th { font-weight: 600; color: var(--navy); background: #fbfcfd; }
+    .cmp td.tick { color: var(--orange); font-weight: 700; }
+    .cmp .ov { overflow-x: auto; }
+
+    /* included rows */
+    .incl { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .incl-row { display: flex; gap: 24px; align-items: flex-start; padding: 30px 0; border-bottom: 1px solid var(--border); }
+    .incl-row:last-child { border-bottom: none; }
+    .incl-ico { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 14px; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .incl-ico svg { width: 26px; height: 26px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .incl-txt h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--navy); margin: 4px 0 6px; }
+    .incl-txt p { color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* timeline */
+    .timeline { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .tl-line { position: absolute; left: 55px; top: 12px; bottom: 12px; width: 2px; background: var(--border); }
+    .tl-row { position: relative; padding: 0 0 52px 108px; }
+    .tl-row:last-child { padding-bottom: 0; }
+    .tl-num { position: absolute; left: 24px; top: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 23px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: background .3s ease, transform .3s ease; z-index: 1; }
+    .tl-row:hover .tl-num { background: var(--orange); transform: scale(1.06); }
+    .tl-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--navy); margin: 8px 0 10px; }
+    .tl-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+
+    /* split */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .split-col { padding: 40px; border-radius: 18px; }
+    .split-col.send { background: #fff; border: 1px solid var(--border); }
+    .split-col.handle { background: var(--navy); color: #fff; }
+    .split-col h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem; margin: 0 0 8px; }
+    .split-col .lead { color: var(--text-muted); margin: 0 0 22px; }
+    .split-col.handle h3, .split-col.handle .lead { color: #fff; }
+    .split-col.handle .lead { color: rgba(255,255,255,.72); }
+    .split-list { list-style: none; padding: 0; margin: 0; }
+    .split-list li { padding: 11px 0 11px 30px; position: relative; line-height: 1.5; }
+    .split-list li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 13px; height: 8px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
+
+    /* featured example + grid */
+    .feat-ex { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+    .feat-ex img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; object-position: top center; display: block; }
+    .feat-ex-body { padding: clamp(32px, 4vw, 52px); display: flex; flex-direction: column; justify-content: center; }
+    .feat-ex-tag { color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+    .feat-ex-body h3 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); margin: 12px 0 12px; }
+    .feat-ex-body p { color: var(--text-muted); line-height: 1.7; margin: 0; }
+    .exgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .excard { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; transition: transform .3s ease, box-shadow .3s ease; }
+    .excard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .excard img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top center; display: block; }
+    .excard-body { padding: 18px 20px 22px; }
+    .excard-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); background: rgba(241,101,23,.09); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .excard-body h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin: 0 0 3px; }
+    .excard-body p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+
+    /* option cards (vs-diy) */
+    .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .opt { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 36px 30px; transition: transform .3s ease, box-shadow .3s ease; }
+    .opt:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .opt.us { background: var(--navy); border-color: var(--navy); }
+    .opt-k { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--navy); margin: 0 0 6px; }
+    .opt-for { font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); margin: 0 0 16px; }
+    .opt p { color: var(--text-muted); line-height: 1.6; margin: 0; font-size: .98rem; }
+    .opt.us .opt-k { color: #fff; } .opt.us p { color: rgba(255,255,255,.8); }
+
+    /* accordion FAQ (no JS) */
+    .faqs { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 26px 50px 26px 0; position: relative; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--navy); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; position: absolute; right: 6px; top: 22px; font-size: 1.7rem; line-height: 1; color: var(--orange); transition: transform .3s ease; }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item .faq-a { padding: 0 0 26px; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 1.02rem; max-width: 660px; }
+
+    /* premium CTA */
+    .cta-pro-wrap { padding: 0 24px; }
+    .cta-pro { background: var(--navy); border-radius: 24px; max-width: 1040px; margin: 0 auto; padding: clamp(56px, 8vw, 92px) 32px; text-align: center; color: #fff; }
+    .cta-pro h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.1; margin: 0 0 18px; }
+    .cta-pro h2 .accent { color: var(--orange); }
+    .cta-pro p { color: rgba(255,255,255,.78); font-size: 1.15rem; max-width: 560px; margin: 0 auto 34px; line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .plans, .opts { grid-template-columns: 1fr; max-width: 440px; }
+      .exgrid { grid-template-columns: repeat(2, 1fr); }
+      .feat-ex { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .exgrid { grid-template-columns: 1fr; max-width: 420px; }
+      .tl-row { padding-left: 88px; } .tl-num { width: 56px; height: 56px; font-size: 20px; left: 16px; } .tl-line { left: 43px; }
+      .split-col, .opt, .plan { padding: 30px 24px; }
+    }
+
+  </style>
 
   <!-- Schema: BreadcrumbList -->
   <!-- Schema: Service for Plumbers in London -->
@@ -806,131 +937,91 @@
   
   <main>
 
-  <section id="hero" aria-labelledby="hero-heading">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span> Real work for real trades</div>
-          <h1 class="hero-title" id="hero-heading">Websites we have built for <span class="accent">UK tradespeople</span></h1>
-          <p class="hero-sub">A look at sites we have built for trades across the UK. Yours starts as a free demo you can see before you pay.</p>
-          <div class="hero-ctas">
-            <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
-            <a href="/pricing" class="btn btn-ghost-white">See pricing</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Examples of tradesperson websites built by WebForTrades" loading="eager" width="600" height="450">
-        </div>
+  <section class="phero">
+    <div class="phero-inner">
+      <span class="phero-eyebrow"><span class="badge-dot"></span> Our work</span>
+      <h1>Websites we have built for <span class="accent">UK tradespeople</span></h1>
+      <p class="phero-sub">A look at real sites we have built for trades across the UK. Yours starts as a free demo you can see before you pay.</p>
+      <div class="phero-ctas">
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+        <a href="/pricing" class="btn btn-ghost-white">See pricing</a>
       </div>
     </div>
   </section>
-  <section id="examples">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-label">Our work</span>
-        <h2 class="section-title">Websites we have built for tradespeople</h2>
-        <p class="section-sub">A selection of real sites we have built for UK trades. Every one started as a free demo the owner could see before paying. Want yours building? Ask for a free demo.</p>
-      </div>
-      <div class="why-grid">
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">Prestige Pointing</p>
-            <p class="portfolio-card-meta">Property Restoration &middot; Manchester</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">ASG Electrical Solutions</p>
-            <p class="portfolio-card-meta">Electrician and Kitchen Specialist &middot; Tamworth</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/3_lyjusv.webp" alt="B SON Plumbing and Heating website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">B SON Plumbing and Heating</p>
-            <p class="portfolio-card-meta">Plumber &middot; London</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">C.W Shewell-Cooper Landscapes</p>
-            <p class="portfolio-card-meta">Landscaper &middot; Hertfordshire</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">leadBOSS Roofing and Leadwork</p>
-            <p class="portfolio-card-meta">Roofer &middot; Cheltenham</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">BDS Brown Decorating Services</p>
-            <p class="portfolio-card-meta">Decorator &middot; Swansea</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/7_itreds.webp" alt="DA Electricals website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">DA Electricals</p>
-            <p class="portfolio-card-meta">Electrician &middot; Bolton</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">RPH York</p>
-            <p class="portfolio-card-meta">Plumber &middot; York</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/9_ti4e8b.webp" alt="Loyalty Heating website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">Loyalty Heating</p>
-            <p class="portfolio-card-meta">Plumber &middot; Peterborough</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/10_lq16fn.webp" alt="JMF Brickwork website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">JMF Brickwork</p>
-            <p class="portfolio-card-meta">Bricklayer &middot; North West</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/11_rf3ymx.webp" alt="Home Electrical Engineer website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">Home Electrical Engineer</p>
-            <p class="portfolio-card-meta">Electrician &middot; London</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/12_njftfc.webp" alt="Williams Landscaping Services website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">Williams Landscaping Services</p>
-            <p class="portfolio-card-meta">Landscaper &middot; South Wales</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img class="portfolio-card-img" src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/13_u7mivn.webp" alt="AV Brickwork website built by WebForTrades" loading="lazy" width="400" height="300">
-          <div class="portfolio-card-info">
-            <p class="portfolio-card-name">AV Brickwork</p>
-            <p class="portfolio-card-meta">Bricklayer &middot; South Coast</p>
-          </div>
-        </div>
+  <section class="sec">
+    <div class="feat-ex fade-up">
+      <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/1_glvkao.webp" alt="Prestige Pointing website built by WebForTrades" loading="eager" width="640" height="480">
+      <div class="feat-ex-body">
+        <span class="feat-ex-tag">Restoration &middot; Manchester</span>
+        <h3>Prestige Pointing</h3>
+        <p>A clean, mobile-first site built to show the work and bring in local enquiries. Like every site we build, it started as a free demo the owner could see before paying.</p>
       </div>
     </div>
   </section>
-  <section id="cta-banner" aria-labelledby="cta-heading">
-    <div class="container">
-      <h2 class="cta-banner-title" id="cta-heading">Want a site like these for <span class="accent">your trade?</span></h2>
-      <p class="cta-banner-sub">I will build you a free demo, usually within 48 hours. You only pay if you want to keep it.</p>
-      <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+  <section class="sec alt">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">More of our work</span>
+        <h2>Built for trades across the UK</h2>
+        <p>Real businesses, real sites. We do not use fake reviews or invented results.</p>
+      </div>
+    <div class="exgrid">
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/2_mbqrv1.webp" alt="ASG Electrical Solutions website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Electrician</span><h3>ASG Electrical Solutions</h3><p>Electrician and Kitchen Specialist &middot; Tamworth</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/3_lyjusv.webp" alt="B SON Plumbing and Heating website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Plumber</span><h3>B SON Plumbing and Heating</h3><p>Plumber &middot; London</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/4_qy8qbd.webp" alt="C.W Shewell-Cooper Landscapes website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Landscaper</span><h3>C.W Shewell-Cooper Landscapes</h3><p>Landscaper &middot; Hertfordshire</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/5_rpgnja.webp" alt="leadBOSS Roofing and Leadwork website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Roofer</span><h3>leadBOSS Roofing and Leadwork</h3><p>Roofer &middot; Cheltenham</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/6_m0ihzi.webp" alt="BDS Brown Decorating Services website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Decorator</span><h3>BDS Brown Decorating Services</h3><p>Decorator &middot; Swansea</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/7_itreds.webp" alt="DA Electricals website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Electrician</span><h3>DA Electricals</h3><p>Electrician &middot; Bolton</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/8_znikrh.webp" alt="RPH York website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Plumber</span><h3>RPH York</h3><p>Plumber &middot; York</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/9_ti4e8b.webp" alt="Loyalty Heating website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Heating</span><h3>Loyalty Heating</h3><p>Plumber &middot; Peterborough</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/10_lq16fn.webp" alt="JMF Brickwork website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Bricklayer</span><h3>JMF Brickwork</h3><p>Bricklayer &middot; North West</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330895/11_rf3ymx.webp" alt="Home Electrical Engineer website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Electrician</span><h3>Home Electrical Engineer</h3><p>Electrician &middot; London</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/12_njftfc.webp" alt="Williams Landscaping Services website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Landscaper</span><h3>Williams Landscaping Services</h3><p>Landscaper &middot; South Wales</p></div>
+      </div>
+      <div class="excard fade-up">
+        <img src="https://res.cloudinary.com/dk1arcny5/image/upload/q_auto/f_auto/v1775330894/13_u7mivn.webp" alt="AV Brickwork website built by WebForTrades" loading="lazy" width="400" height="300">
+        <div class="excard-body"><span class="excard-tag">Bricklayer</span><h3>AV Brickwork</h3><p>Bricklayer &middot; South Coast</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="cta-pro-wrap">
+      <div class="cta-pro fade-up">
+        <h2>Want a site like these for <span class="accent">your trade?</span></h2>
+        <p>I will build you a free demo, usually within 48 hours. You only pay if you want to keep it.</p>
+        <a href="/#contact" class="btn btn-primary">Get Your Free Demo</a>
+      </div>
     </div>
   </section>
   </main>
