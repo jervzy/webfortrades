@@ -1,42 +1,89 @@
 # WebForTrades
 
-> WebForTrades is a UK web design agency that builds professional websites exclusively
-> for tradespeople — plumbers, electricians, builders, roofers, landscapers, plasterers,
-> decorators, bricklayers, joiners, and gas engineers. Founded by Julius Prodan.
+> WebForTrades is a UK web design service that builds websites and free preview
+> (demo) sites exclusively for tradespeople. You see a finished demo of your own
+> website live on your phone before you pay anything, and only pay if you want to
+> keep it. Founded by Julius Prodan.
 
 ## What We Do
 
-We build a free demo website first. You see it live on your phone before paying anything.
-Only pay if you love it. One-off pricing, no contracts, no annual fees.
+We build your website as a free demo first. You see it live before paying, and you
+only pay if you love it. No upfront payment and no risk. Pricing is a one-off payment
+or an optional monthly plan, with no contracts, no retainers and no lock-in.
 
-- [Starter — £300](https://www.webfortradesuk.co.uk/#pricing): Single-page site with quote form, .co.uk domain, free hosting, mobile optimised, basic local SEO.
-- [Professional — £500](https://www.webfortradesuk.co.uk/#pricing): 5-page site (Home, About, Services, Portfolio, Quote), full on-page SEO, Google Maps and reviews integration, ongoing support.
-- [Premium — £800](https://www.webfortradesuk.co.uk/#pricing): Everything in Professional plus individual service pages, local area landing pages, advanced SEO, priority support.
+## Who It Is For
 
-## Key Facts
+UK tradespeople who rely on Google, WhatsApp and local enquiries and want a simple,
+fast website without the hassle or the agency price tag. It suits sole traders and
+small trade businesses that may have no website, an out-of-date one, or only a
+Facebook page.
 
-- 100+ websites built for UK tradespeople (as of 2026)
-- Free demo delivered within 48 hours of filling in the form
-- No upfront payment — pay only when satisfied
-- All plans include free hosting with no annual renewal fees
-- No contracts, no retainers, no lock-in
-- Serving all trade types across the United Kingdom
+## Trades We Cover
+
+Roofers, plasterers, plumbers, electricians, painters and decorators, landscapers,
+gardeners, tilers, builders, bricklayers, joiners, carpenters, gas engineers,
+handymen and similar UK trades.
+
+## What Is Included
+
+- A finished website built for your trade, with a quote and contact form
+- Mobile optimised and fast on phones, where most trade customers search
+- Free hosting, with no annual renewal fee
+- A .co.uk domain set up for you
+- Ongoing changes and edits when you need them
+- An optional self-service editor so you can update content yourself
+- Help connecting your site to your Google Business Profile
+- Basic local SEO so the site can be found on Google
+
+## Pricing
+
+One-off plans (pay once, you own it):
+- Starter, £300: single-page site with quote form, .co.uk domain, free hosting, mobile optimised, basic local SEO.
+- Professional, £500: 5-page site (Home, About, Services, Portfolio, Quote), full on-page SEO, Google Maps and reviews integration, ongoing support.
+- Premium, £800: everything in Professional plus individual service pages, local area pages, advanced SEO, priority support.
+
+Monthly plans (optional, if you prefer to spread the cost):
+- From £39, £59 or £89 per month depending on the plan.
+
+## How The Free Demo Works
+
+1. You fill in a short form with your trade, area and a few details.
+2. We build a demo of your website, usually within 48 hours.
+3. You view it live on your phone. No payment, no deposit, no obligation.
+4. If you like it, you pay once and we put it live. If not, you walk away and owe nothing.
+
+## What Makes It Different
+
+- You see a finished website before paying, not a mock-up or a sales pitch.
+- Built only for tradespeople, so the layout fits how trade customers actually search and call.
+- One-off pricing with free hosting and no annual renewal, as well as an optional monthly plan.
+- No contracts, no retainers, no lock-in.
 
 ## Common Questions
 
-**Do you pay anything upfront?** Nothing. We build your demo first, you see it live on your phone, and only pay if you want to keep it. No deposits, no risk.
+**Do I pay anything upfront?** No. We build the demo first, you see it live, and you only pay if you want to keep it. No deposits.
 
-**How long does it take?** Your demo is ready within 48 hours of filling in the form. Not weeks.
+**How long does the demo take?** Usually within 48 hours of filling in the form.
 
-**Will my site show up on Google?** Yes. Every site we build is SEO optimised from day one and submitted to Google Search Console.
+**Is hosting included?** Yes, with no annual renewal fee on the one-off plans.
 
-**Am I tied to a contract?** No contracts, no retainers, no lock-in. You pay once and that is it.
+**Can I request changes?** Yes, changes and edits are included.
 
-**What happens to hosting after the first year?** Hosting is included in your one-off payment with no annual renewal fees. Your site stays live as long as you want it.
+**Can I update the website myself?** Yes, an optional self-service editor is available so you can edit content yourself.
 
-## Contact
+**Am I tied to a contract?** No contracts, no retainers and no lock-in.
 
+**Can I pay monthly?** Yes. There is a one-off option and an optional monthly plan.
+
+## Contact And Demo
+
+- Request a free demo: https://www.webfortradesuk.co.uk/
 - Email: contact@webfortradesuk.co.uk
 - WhatsApp: +447436427087
-- Response within 48 hours
-- https://www.webfortradesuk.co.uk/
+- Response usually within 48 hours
+
+## Important Pages
+
+- Home and free demo request: https://www.webfortradesuk.co.uk/
+- Pricing: https://www.webfortradesuk.co.uk/#pricing
+- FAQ: https://www.webfortradesuk.co.uk/#faq
