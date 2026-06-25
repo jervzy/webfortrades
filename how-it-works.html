@@ -792,19 +792,22 @@
     .incl-txt h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--navy); margin: 4px 0 6px; }
     .incl-txt p { color: var(--text-muted); line-height: 1.6; margin: 0; }
 
-    /* timeline */
-    .timeline { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; }
-    .tl-line { position: absolute; left: 55px; top: 12px; bottom: 12px; width: 2px; background: var(--border); }
-    .tl-row { position: relative; padding: 0 0 52px 108px; }
+    /* timeline (the connector is derived from --tl-circle so the line always
+       runs through the exact centre of every circle, at any size/breakpoint) */
+    .timeline { --tl-circle: 64px; --tl-line-w: 2px; --tl-gap: 34px; max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .tl-row { position: relative; padding: 0 0 50px calc(var(--tl-circle) + var(--tl-gap)); }
     .tl-row:last-child { padding-bottom: 0; }
-    .tl-num { position: absolute; left: 24px; top: 0; width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 23px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: background .3s ease, transform .3s ease; z-index: 1; }
+    .tl-row::before { content: ''; position: absolute; left: calc((var(--tl-circle) - var(--tl-line-w)) / 2); top: calc(var(--tl-circle) / 2); bottom: calc(-1 * var(--tl-circle) / 2); width: var(--tl-line-w); background: var(--border); z-index: 0; }
+    .tl-row:last-child::before { display: none; }
+    .tl-num { position: absolute; left: 0; top: 0; width: var(--tl-circle); height: var(--tl-circle); border-radius: 50%; background: var(--navy); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 23px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: background .3s ease, transform .3s ease; z-index: 1; }
     .tl-row:hover .tl-num { background: var(--orange); transform: scale(1.06); }
-    .tl-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--navy); margin: 8px 0 10px; }
+    .tl-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--navy); margin: 4px 0 10px; }
     .tl-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin: 0; }
 
     /* split */
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
-    .split-col { padding: 40px; border-radius: 18px; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 960px; margin: 0 auto; padding: 0 24px; align-items: stretch; }
+    .split-col { position: relative; overflow: hidden; padding: 40px; border-radius: 18px; }
+    .split-col::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
     .split-col.send { background: #fff; border: 1px solid var(--border); }
     .split-col.handle { background: var(--navy); color: #fff; }
     .split-col h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem; margin: 0 0 8px; }
@@ -814,6 +817,14 @@
     .split-list { list-style: none; padding: 0; margin: 0; }
     .split-list li { padding: 11px 0 11px 30px; position: relative; line-height: 1.5; }
     .split-list li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 13px; height: 8px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
+
+    /* reassurance grid */
+    .assure { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .assure-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 34px 32px; transition: transform .3s ease, box-shadow .3s ease; }
+    .assure-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .assure-card h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.22rem; color: var(--navy); margin: 0 0 10px; padding-left: 18px; position: relative; }
+    .assure-card h3::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 2px; background: var(--orange); }
+    .assure-card p { color: var(--text-muted); line-height: 1.7; margin: 0; font-size: 1rem; }
 
     /* featured example + grid */
     .feat-ex { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
@@ -862,10 +873,11 @@
       .exgrid { grid-template-columns: repeat(2, 1fr); }
       .feat-ex { grid-template-columns: 1fr; }
       .split { grid-template-columns: 1fr; }
+      .assure { grid-template-columns: 1fr; max-width: 480px; }
     }
     @media (max-width: 600px) {
       .exgrid { grid-template-columns: 1fr; max-width: 420px; }
-      .tl-row { padding-left: 88px; } .tl-num { width: 56px; height: 56px; font-size: 20px; left: 16px; } .tl-line { left: 43px; }
+      .timeline { --tl-circle: 54px; --tl-gap: 26px; } .tl-num { font-size: 20px; }
       .split-col, .opt, .plan { padding: 30px 24px; }
     }
 
@@ -955,7 +967,6 @@
         <p>You stay on the tools. I handle the website from start to finish.</p>
       </div>
     <div class="timeline">
-      <div class="tl-line" aria-hidden="true"></div>
       <div class="tl-row fade-up"><div class="tl-num">1</div><h3 class="tl-title">I build the demo</h3><p class="tl-desc">You send a few details about your trade and area, and I build a finished demo of your website for you. No website builder, no forms to wrestle with.</p></div>
       <div class="tl-row fade-up"><div class="tl-num">2</div><h3 class="tl-title">You review it</h3><p class="tl-desc">I send you a link so you can see the full site on your phone, exactly as a customer would. Usually within 48 hours.</p></div>
       <div class="tl-row fade-up"><div class="tl-num">3</div><h3 class="tl-title">You request changes</h3><p class="tl-desc">Tell me what to change, the colours, the wording, the photos, and I update it. Changes are included until you are happy.</p></div>
@@ -989,6 +1000,54 @@
           <li>The Google Business Profile website link</li>
         </ul>
       </div>
+    </div>
+  </section>
+  <section class="sec">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Good to know</span>
+        <h2>What you can count on</h2>
+      </div>
+    <div class="assure">
+      <div class="assure-card fade-up">
+        <h3>What the free demo includes</h3>
+        <p>A real, working preview of your actual site, not a template screenshot. Your trade, your area, your colours and your photos, live on a link you can open on your phone.</p>
+      </div>
+      <div class="assure-card fade-up">
+        <h3>You only pay if you want to keep it</h3>
+        <p>There is no charge to see your demo. You only pay when you decide to keep it. If it is not right for you, you walk away and owe nothing.</p>
+      </div>
+      <div class="assure-card fade-up">
+        <h3>No technical work from you</h3>
+        <p>No website builder, no hosting account, no dashboard to learn. You stay on the tools and I handle the build, the domain and the setup.</p>
+      </div>
+      <div class="assure-card fade-up">
+        <h3>What happens after it goes live</h3>
+        <p>Your site stays online, the contact form keeps working and your domain stays connected. Need a small change later? Just message me.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec alt">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+    <div class="faqs fade-up">
+      <details class="faq-item">
+        <summary>Do I pay before seeing the site?</summary>
+        <p class="faq-a">No. I build the demo first and send you a link to view it. You only pay if you decide to keep it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I request changes?</summary>
+        <p class="faq-a">Yes. Tell me what to change, the colours, the wording or the photos, and I update it until you are happy.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you connect my domain?</summary>
+        <p class="faq-a">Yes. I can register a new .co.uk for you or connect one you already own, then set up the hosting and the contact form.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if I do not want to keep it?</summary>
+        <p class="faq-a">Then you walk away and owe nothing. There is no charge for the demo and no pressure either way.</p>
+      </details>
     </div>
   </section>
   <section class="sec">
@@ -1129,6 +1188,7 @@
   <script type="application/ld+json">
 [
   {
+    "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://www.webfortradesuk.co.uk/how-it-works",
     "url": "https://www.webfortradesuk.co.uk/how-it-works",
@@ -1141,6 +1201,7 @@
     }
   },
   {
+    "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to get a website with WebForTrades",
     "description": "I build a free demo of your trade website first, you review it, and you only pay if you want to keep it.",
@@ -1178,6 +1239,7 @@
     ]
   },
   {
+    "@context": "https://schema.org",
     "@type": "Service",
     "name": "Website design for UK tradespeople",
     "description": "Done-for-you websites for UK tradespeople, starting with a free demo you see before paying.",
@@ -1266,6 +1328,44 @@
         }
       ]
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I pay before seeing the site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. I build the demo first and send you a link to view it. You only pay if you decide to keep it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I request changes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Tell me what to change, the colours, the wording or the photos, and I update it until you are happy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you connect my domain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. I can register a new .co.uk for you or connect one you already own, then set up the hosting and the contact form."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I do not want to keep it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Then you walk away and owe nothing. There is no charge for the demo and no pressure either way."
+        }
+      }
+    ]
   }
 ]
   </script>
