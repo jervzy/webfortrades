@@ -766,11 +766,18 @@
     .plan-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 3.4rem; line-height: 1; color: var(--navy); }
     .plan-price sup { font-size: 1.4rem; font-weight: 700; vertical-align: 18px; margin-right: 2px; }
     .plan-monthly { color: var(--text-muted); font-size: .95rem; margin: 12px 0 0; }
-    .plan-desc { font-size: .98rem; line-height: 1.6; color: var(--text-muted); margin: 22px 0 28px; flex: 1; }
+    .plan-bestfor { font-size: .9rem; font-weight: 700; color: var(--orange); line-height: 1.45; margin: 20px 0 0; }
+    .plan-desc { font-size: .98rem; line-height: 1.6; color: var(--text-muted); margin: 10px 0 22px; }
+    .plan-divider { height: 1px; background: var(--border); margin: 0 0 20px; }
+    .plan-features { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
+    .plan-features li { position: relative; padding: 9px 0 9px 28px; font-size: .96rem; line-height: 1.45; color: var(--text-dark); }
+    .plan-features li svg { position: absolute; left: 0; top: 11px; width: 16px; height: 16px; stroke: var(--orange); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
     .plan .btn { width: 100%; }
     .plan.featured .plan-name, .plan.featured .plan-price { color: #fff; }
     .plan.featured .plan-monthly { color: rgba(255,255,255,.72); }
     .plan.featured .plan-desc { color: rgba(255,255,255,.8); }
+    .plan.featured .plan-divider { background: rgba(255,255,255,.18); }
+    .plan.featured .plan-features li { color: rgba(255,255,255,.85); }
 
     /* comparison table */
     .cmp-wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
@@ -956,28 +963,52 @@
       </div>
     <div class="plans">
         <div class="plan fade-up">
-          
           <p class="plan-name">Starter</p>
           <p class="plan-price"><sup>£</sup>300</p>
-          <p class="plan-monthly">or £39 a month</p>
-          <p class="plan-desc">A clean one-page website to send customers to and capture quote requests.</p>
-          <a href="/#contact" class="btn btn-outline-navy">Get Free Demo</a>
+          <p class="plan-monthly">one-off, or £39 a month</p>
+          <p class="plan-bestfor">Best for sole traders who need one strong page.</p>
+          <p class="plan-desc">A single, fast page that sends customers to your work and turns them into quote requests.</p>
+          <div class="plan-divider" aria-hidden="true"></div>
+          <ul class="plan-features" aria-label="Starter plan includes">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>1 professionally designed page</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Quote and contact form built in</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>.co.uk domain and hosting included</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Mobile optimised, basic local SEO</li>
+          </ul>
+          <a href="/#contact" class="btn btn-outline-navy">Get your free demo</a>
         </div>
         <div class="plan featured fade-up">
           <span class="plan-badge">Most Popular</span>
           <p class="plan-name">Professional</p>
           <p class="plan-price"><sup>£</sup>500</p>
-          <p class="plan-monthly">or £59 a month</p>
-          <p class="plan-desc">A bigger site with more sections and proof, built to win more enquiries.</p>
-          <a href="/#contact" class="btn btn-primary">Get Free Demo</a>
+          <p class="plan-monthly">one-off, or £59 a month</p>
+          <p class="plan-bestfor">Best for established trades who want more enquiries.</p>
+          <p class="plan-desc">A 5 page site with room for your services, portfolio and reviews, built to convert visitors into jobs.</p>
+          <div class="plan-divider" aria-hidden="true"></div>
+          <ul class="plan-features" aria-label="Professional plan includes">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5 pages: Home, About, Services, Portfolio, Quote</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in Starter</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full on-page SEO</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Google Maps and reviews integration</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Ongoing support included</li>
+          </ul>
+          <a href="/#contact" class="btn btn-primary">Get your free demo</a>
         </div>
         <div class="plan fade-up">
-          
           <p class="plan-name">Premium</p>
           <p class="plan-price"><sup>£</sup>800</p>
-          <p class="plan-monthly">or £89 a month</p>
-          <p class="plan-desc">A more complete site with extra content and priority support.</p>
-          <a href="/#contact" class="btn btn-outline-navy">Get Free Demo</a>
+          <p class="plan-monthly">one-off, or £89 a month</p>
+          <p class="plan-bestfor">Best for trades covering several services or areas.</p>
+          <p class="plan-desc">A complete 8+ page site with dedicated service and local area pages, so you show up for more local searches.</p>
+          <div class="plan-divider" aria-hidden="true"></div>
+          <ul class="plan-features" aria-label="Premium plan includes">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in Professional</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>8+ pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Individual service pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Local area pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Advanced SEO and priority support</li>
+          </ul>
+          <a href="/#contact" class="btn btn-outline-navy">Get your free demo</a>
         </div>
     </div>
   </section>
@@ -989,7 +1020,7 @@
     <div class="cmp-wrap"><div class="cmp"><div class="ov"><table>
         <thead><tr><th scope="col">&nbsp;</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Premium</th></tr></thead>
         <tbody>
-            <tr><th scope="row">Pages</th><td class="">1 page</td><td class="">5 pages</td><td class="">5+ pages</td></tr>
+            <tr><th scope="row">Pages</th><td class="">1 page</td><td class="">5 pages</td><td class="">8+ pages</td></tr>
             <tr><th scope="row">Quote and contact form</th><td class="tick">Yes</td><td class="tick">Yes</td><td class="tick">Yes</td></tr>
             <tr><th scope="row">.co.uk domain and hosting</th><td class="tick">Yes</td><td class="tick">Yes</td><td class="tick">Yes</td></tr>
             <tr><th scope="row">On-page SEO</th><td class="">Basic</td><td class="">Full</td><td class="">Advanced</td></tr>
